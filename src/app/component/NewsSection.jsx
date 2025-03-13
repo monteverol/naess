@@ -19,7 +19,7 @@ export default function NewsSection() {
   ]
 
   return(
-    <section className="h-[768px] w-full px-[168px] flex gap-[40px] flex-col justify-center">
+    <section className="bg-white h-[768px] w-full px-[168px] flex gap-[40px] flex-col justify-center">
       <article className="flex flex-col gap-[12px]">
         <h1 className="text-[40px] font-bold">Latest News</h1>
         <p className="text-[18px] w-[550px]">Stay informed with the latest happenings at NAESS Shipping – company news, industry insights, and upcoming events</p>

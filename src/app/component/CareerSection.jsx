@@ -1,6 +1,6 @@
 export default function CareerSection() {
   return(
-    <div className="w-full h-[400px] flex items-center justify-center">
+    <div className="bg-white w-full h-[400px] flex items-center justify-center">
       <article className="w-[800px] h-[260px] flex flex-col bg-[#FAFAFA] drop-shadow-lg rounded-[8px] gap-[40px] p-8 transition duration-200 hover:scale-105 hover:drop-shadow-xl">
         <section className="flex flex-col gap-[4px]">
           <h1 className="text-[40px] font-bold text-center">Apply For Jobs</h1>

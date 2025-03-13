@@ -1,6 +1,5 @@
 "use client";
 
-import Navigation from "@/components/Navigation";
 import HeroHeaderSection from "./component/HeroHeaderSection";
 import ServicesSection from "./component/ServicesSection";
 import AboutSection from "./component/AboutSection";
@@ -14,7 +13,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div>
-      <Navigation />
       <main>
         <HeroHeaderSection />
         <ServicesSection />
