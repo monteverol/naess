@@ -19,7 +19,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
   }, []);
 
   const menuItems = [
-    { name: "Home", to: "#" },
+    { name: "Home", to: "/" },
     {
       name: "About Us",
       dropdown: [
@@ -44,7 +44,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
     { name: "Clients", to: "#" },
     { name: "News", to: "#" },
     { name: "Careers", to: "#" },
-    { name: "Contact Us", to: "#" },
+    { name: "Contact Us", to: "/contact-us" },
   ];
 
   return (
