@@ -15,15 +15,15 @@ export default function Home() {
     <div>
       <main>
         <HeroHeaderSection />
-        <ServicesSection />
+        {/* <ServicesSection />
         <AboutSection />
         <HighlightSection />
         <CareerSection />
         <CertificateSection />
         <NewsSection />
-        <CTASection />
+        <CTASection /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

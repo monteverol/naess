@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 import DropdownList from "./DropdownList";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navigation({ logoWhite, logoBlack }) {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(null);
+  const pathname = usePathname(); // Get current page path
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,8 +49,15 @@ export default function Navigation({ logoWhite, logoBlack }) {
     { name: "Contact Us", to: "/contact-us" },
   ];
 
+  const isLandingPage = pathname === "/"; 
+  const backgroundClass = isLandingPage
+    ? scrolled || openMenu
+      ? "bg-white shadow-md"
+      : "bg-transparent"
+    : "bg-white shadow-md";
+
   return (
-    <nav className={`${scrolled || openMenu ? "bg-white shadow-md" : "bg-transparent"} flex flex-col px-4 lg:px-20 xl:px-40 w-full fixed top-0 left-0 z-50 transition-all`}>
+    <nav className={`${scrolled || openMenu ? "bg-white shadow-md" : "bg-transparent"} ${backgroundClass} flex flex-col px-4 lg:px-20 xl:px-40 w-full fixed top-0 left-0 z-50 transition-all`}>
       <div className="w-full h-16 flex justify-between items-center">
         <img src={scrolled || openMenu ? logoBlack : logoWhite} alt="Company Logo" className="h-8" />
         <button
@@ -63,10 +72,10 @@ export default function Navigation({ logoWhite, logoBlack }) {
         <ul className="hidden lg:flex flex-row gap-8">
           {menuItems.map((item, index) =>
             item.dropdown ? (
-              <DropdownList key={index} title={item.name} items={item.dropdown} textColor={scrolled ? "text-black" : "text-white"} />
+              <DropdownList key={index} title={item.name} items={item.dropdown} textColor={scrolled || !isLandingPage ? "text-black" : "text-white"} />
             ) : (
               <li key={index}>
-                <Link href={item.to} className={`text-[18px] anchor ${scrolled ? "text-black" : "text-white"}`}>
+                <Link href={item.to} className={`text-[18px] anchor ${scrolled || !isLandingPage ? "text-black" : "text-white"}`}>
                   {item.name}
                 </Link>
               </li>

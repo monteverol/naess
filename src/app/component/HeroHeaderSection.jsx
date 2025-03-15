@@ -1,20 +1,21 @@
 
 export default function HeroHeaderSection() {
   return(
-    <div 
-      className="relative h-screen w-screen"
+    <section 
+      className="relative h-screen w-full flex flex-col"
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url(/images/omegagas-ship.png)",
+        backgroundImage: "url(/images/omegagas-ship.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
       }}
     >
-      <header className="absolute left-[168px] bottom-[268px] flex flex-col gap-[20px] w-[620px]">
-        <h2 className="text-[48px] text-white font-semibold uppercase">Navigating Excellence Since 1980</h2>
-        <p className="text-[20px] text-white">Serving the global maritime industry with world-class crewing and management services.</p>
+      <div className="w-full flex-1 bg-transparent"></div>
+      <header className="bg-white flex flex-col gap-[20px] h-40 w-full">
+        <h2 className="text-[20px] text-black font-semibold uppercase">Navigating Excellence Since 1980</h2>
+        <p className="text-[16px] text-black">Serving the global maritime industry with world-class crewing and management services.</p>
       </header>
-    </div>
+    </section>
   );
 }
