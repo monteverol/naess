@@ -5,7 +5,7 @@ import { AiFillTikTok } from "react-icons/ai";
 export default function InquireSection() {
   return (
     <section 
-      className="lg:px-20 xl:px-40 sticky top-16 z-20 w-full h-screen flex items-center justify-center p-6 rounded-2xl drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)] bg-[#E9F2FC]"
+      className="lg:px-20 xl:px-40 sticky top-16 z-20 w-full h-screen flex justify-center p-6 rounded-2xl drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)] bg-[#E9F2FC]"
       aria-labelledby="inquire-heading"
     >
       <div className="lg:flex lg:flex-col lg:justify-between hidden h-[686px] w-full">
@@ -33,7 +33,7 @@ export default function InquireSection() {
         </section>
       </div>
       <div 
-        className="w-full max-w-lg bg-white bg-opacity-90 backdrop-blur-lg rounded-3xl shadow-2xl p-8"
+        className="w-full h-fit max-w-lg bg-white bg-opacity-90 backdrop-blur-lg rounded-3xl shadow-2xl p-8"
         role="form"
         aria-label="Inquiry Form"
       >
