@@ -19,7 +19,7 @@ const BusinessHours = () => {
   };
 
   return (
-    <div className="flex flex-col lg:items-center lg:flex-row gap-8 lg:px-20 xl:px-40 z-40 bg-slate-800 text-white p-6 rounded-lg shadow-lg h-screen w-full drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)]">
+    <div className="flex flex-col lg:items-center lg:flex-row gap-8 lg:px-20 xl:px-40 z-40 bg-[#1A384F] text-white p-8 rounded-t-3xl h-screen w-full drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)]">
       <div className="mt-16">
         <h1 className="text-4xl font-bold mb-2">We're Here for You,<br />Stop By Anytime</h1>
         <p className="text-lg lg:w-2/3">
