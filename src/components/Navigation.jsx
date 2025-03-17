@@ -75,7 +75,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
               <DropdownList key={index} title={item.name} items={item.dropdown} textColor={scrolled || !isLandingPage ? "text-black" : "text-white"} />
             ) : (
               <li key={index}>
-                <Link href={item.to} className={`text-[18px] anchor ${scrolled || !isLandingPage ? "text-black" : "text-white"}`}>
+                <Link href={item.to} className={`text-[18px] anchor ${scrolled || !isLandingPage ? "text-black after:bg-black" : "text-white after:bg-white"}`}>
                   {item.name}
                 </Link>
               </li>
