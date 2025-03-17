@@ -3,9 +3,9 @@ import { FaLocationDot } from "react-icons/fa6";
 
 export default function ContactList() {
   return(
-    <ul className="sticky -top-16 z-10 flex flex-wrap gap-4 px-20 w-full h-auto justify-center xl:px-40 xl:justify-between">
+    <ul className="my-8 z-10 flex flex-wrap gap-4 px-20 w-full h-auto justify-center xl:px-40 xl:justify-between">
       {/* EMAIL */}
-      <li className="w-[324px] p-8 rounded-lg bg-[#E9F2FC] flex flex-col gap-4 justify-between items-start drop-shadow-md">
+      <li className="card w-[324px] p-8 rounded-lg bg-[#E9F2FC] flex flex-col gap-4 justify-between items-start drop-shadow-md">
         <MdOutlineEmail size={32} />
         <article className="flex flex-col gap-2">
           <h2 className="text-[24px] font-bold">Email</h2>
@@ -15,7 +15,7 @@ export default function ContactList() {
       </li>
 
       {/* PHONE */}
-      <li className="w-[324px] p-8 rounded-lg bg-[#E9F2FC] flex flex-col gap-4 justify-between items-start drop-shadow-md">
+      <li className="card w-[324px] p-8 rounded-lg bg-[#E9F2FC] flex flex-col gap-4 justify-between items-start drop-shadow-md">
         <MdOutlinePhone size={32} />
         <article className="flex flex-col gap-2">
           <h2 className="text-[24px] font-bold">Phone</h2>
@@ -25,7 +25,7 @@ export default function ContactList() {
       </li>
 
       {/* ADDRESS */}
-      <li className="w-[324px] p-8 rounded-lg bg-[#E9F2FC] flex flex-col gap-4 justify-between items-start drop-shadow-md">
+      <li className="card w-[324px] p-8 rounded-lg bg-[#E9F2FC] flex flex-col gap-4 justify-between items-start drop-shadow-md">
         <FaLocationDot size={32} />
         <article className="flex flex-col gap-2">
           <h2 className="text-[24px] font-bold">Address</h2>

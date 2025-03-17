@@ -15,7 +15,7 @@ export default function ContactUs() {
         <InquireSection />
         <BusinessHours />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -1,9 +1,17 @@
 @import "tailwindcss";
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+@theme {
+  --font-display: "Lato", sans-serif;
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  /* other custom properties */
 }
 
 @theme inline {
@@ -20,13 +28,31 @@
   }
 }
 
+@layer components {
+  .card:hover {
+    @apply transition duration-200 scale-105;
+  }
+  .btn {
+    @apply transition duration-200 active:scale-95
+  }
+  .anchor {
+    @apply relative;
+  }
+  .anchor::after {
+    @apply content-[''] absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 transition-all duration-200 ease-in-out;
+  }
+  .anchor:hover::after {
+    @apply w-full
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Lato", sans-serif;
   color: black;
 }
-
+/* 
 .anchor {
   position: relative;
 }
@@ -45,4 +71,4 @@ body {
 
 .anchor:hover::after {
   width: 100%;
-}
+} */
