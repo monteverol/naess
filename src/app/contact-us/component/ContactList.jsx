@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 export default function ContactList() {
   return(
-    <ul className="my-8 z-10 flex flex-wrap gap-4 px-20 w-full h-auto justify-center xl:px-40 xl:justify-between">
+    <ul className="my-8 z-10 flex flex-wrap gap-8 px-20 w-full h-auto justify-center xl:px-40 xl:justify-between">
       {/* EMAIL */}
       <li className="card w-[324px] p-8 rounded-lg bg-[#E9F2FC] flex flex-col gap-4 justify-between items-start drop-shadow-md">
         <MdOutlineEmail size={32} />

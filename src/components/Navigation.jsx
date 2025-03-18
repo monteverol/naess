@@ -43,7 +43,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
         { name: "SMAS Crewing System", to: "#" },
       ],
     },
-    { name: "Clients", to: "#" },
+    { name: "Clients", to: "/clients" },
     { name: "News", to: "#" },
     { name: "Careers", to: "#" },
     { name: "Contact Us", to: "/contact-us" },
@@ -98,7 +98,11 @@ export default function Navigation({ logoWhite, logoBlack }) {
             <ul className="flex flex-wrap gap-4 justify-center">
               {mobileSubMenu.map((subItem, index) => (
                 <li key={index} className="w-40 h-16 p-4 bg-[#1A384F] flex justify-center items-center rounded-lg shadow-lg transition duration-200 active:scale-95">
-                  <Link href={subItem.to} className=" text-white font-semibold">
+                  <Link 
+                    href={subItem.to} 
+                    className=" text-white font-semibold"
+                    onClick={() => setOpenMenu(false)}
+                  >
                     {subItem.name}
                   </Link>
                 </li>
@@ -115,7 +119,11 @@ export default function Navigation({ logoWhite, logoBlack }) {
                     {item.name}
                   </button>
                 ) : (
-                  <Link href={item.to} className="text-white font-semibold w-40 h-16 p-4 bg-[#1A384F] flex justify-center items-center rounded-lg shadow-lg transition duration-200 active:scale-95">
+                  <Link 
+                    href={item.to} 
+                    className="text-white font-semibold w-40 h-16 p-4 bg-[#1A384F] flex justify-center items-center rounded-lg shadow-lg transition duration-200 active:scale-95"
+                    onClick={() => setOpenMenu(false)}
+                  >
                     {item.name}
                   </Link>
                 )}
