@@ -2,16 +2,34 @@
 
 import Footer from '@/components/Footer';
 import React, { useState } from 'react';
+import PartnerTile from './components/PartnerTile';
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const partnershipBenefits = [
+    {
+      svg: <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
+      title: "Reliability & Safety",
+      description: "Industry-leading safety protocols and on-time delivery record"
+    },
+    {
+      svg: <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+      title: "Global Network",
+      description: "Strategic partnerships across major ports worldwide"
+    },
+    {
+      svg: <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
+      title: "Efficient Solutions",
+      description: "Custom shipping solutions that optimize your supply chain"
+    }
+  ]
   
   // Sample client data - you would replace this with your actual client data
   const clients = [
-    { id: 1, name: 'Kuwait Oil Tanker Company', industry: 'Logistics', logo: '/images/clients/kotc-logo.jpg' },
-    { id: 2, name: 'Reefership Marine Services Ltd', industry: 'Shipping', logo: '/images/clients/rfs-logo.jpg' },
-    { id: 3, name: 'Sloman Neptun Schiffahrts AG', industry: 'Logistics', logo: '/images/clients/sns-logo.png' },
-    { id: 4, name: 'Associated Marine Officers and Seamen\'s Union of the Philippines', industry: 'Shipping', logo: '/images/clients/amosup-logo.png' },
+    { id: 1, name: 'Kuwait Oil Tanker Company', industry: 'Oil and Gas Tankers', logo: '/images/clients/kotc-logo.jpg' },
+    { id: 2, name: 'Reefership Marine Services Ltd', industry: 'Maritime', logo: '/images/clients/rfs-logo.jpg' },
+    { id: 3, name: 'Sloman Neptun Schiffahrts AG', industry: 'Oil and Gas Tankers', logo: '/images/clients/sns-logo.png' },
+    { id: 4, name: 'Associated Marine Officers and Seamen\'s Union of the Philippines', industry: 'Maritime', logo: '/images/clients/amosup-logo.png' },
   ];
   
   // Extract unique industries for filter categories
@@ -34,7 +52,7 @@ const Clients = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section with Background */}
-      <section className="bg-[#1A384F] text-white relative overflow-hidden mt-16">
+      <section className="px-8 lg:px-20 xl:px-40 bg-[#1A384F] text-white relative overflow-hidden mt-16">
         <div className="absolute inset-0 opacity-20">
           {/* Shipping/ocean pattern background */}
           <div className="w-full h-full bg-blue-900">
@@ -42,7 +60,7 @@ const Clients = () => {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 py-12 relative z-10">
+        <div className="container py-12 relative z-10">
           <h1 className="text-3xl font-bold mb-4">Our Valued Clients</h1>
           <p className="text-lg mb-6">
             Trusted by industry leaders across the maritime and shipping sectors
@@ -52,8 +70,8 @@ const Clients = () => {
       </section>
       
       {/* Client Filter Categories */}
-      <section className="py-6">
-        <div className="container mx-auto px-4">
+      <section className="lg:px-20 xl:px-40 py-6">
+        <div className="container mx-auto px-4 lg:px-0">
           <h2 className="sr-only">Filter Clients by Industry</h2>
           <div className="overflow-x-auto pb-2">
             <div className="flex space-x-2 min-w-max">
@@ -77,8 +95,8 @@ const Clients = () => {
       </section>
       
       {/* Client Logo Gallery */}
-      <section className="py-8" aria-labelledby="client-gallery-heading">
-        <div className="container mx-auto px-4">
+      <section className="lg:px-20 xl:px-40 py-8" aria-labelledby="client-gallery-heading">
+        <div className="container mx-auto px-4 lg:px-0">
           <h2 id="client-gallery-heading" className="text-xl font-semibold mb-6 text-gray-800">
             {activeCategory === 'All' ? 'All Clients' : `${activeCategory} Partners`}
           </h2>
@@ -111,8 +129,8 @@ const Clients = () => {
       </section>
       
       {/* Testimonials Section - Carousel */}
-      <section className="py-8 bg-gray-100">
-        <div className="container mx-auto px-4">
+      <section className="lg:px-20 xl:px-40 py-8 bg-gray-100">
+        <div className="container mx-auto">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">What Our Clients Say</h2>
           
           <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -131,7 +149,7 @@ const Clients = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="py-10 bg-blue-700 text-white">
+      <section className="py-10 bg-[#1A384F] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Join Our Esteemed Clientele</h2>
           <p className="mb-6 text-blue-100">
@@ -141,7 +159,7 @@ const Clients = () => {
           {!showForm && !formSubmitted ? (
             <button 
               onClick={() => setShowForm(true)}
-              className="bg-yellow-500 text-blue-900 px-6 py-3 rounded-md font-medium hover:bg-yellow-400 transition-colors shadow-lg"
+              className="bg-[#B3D2F4] text-[#1A384F] font-bold px-6 py-3 rounded-md hover:bg-[#9dc1e8] transition duration-200 active:scale-95 shadow-lg"
             >
               Become a Client
             </button>
@@ -209,58 +227,27 @@ const Clients = () => {
       
       {/* Partner Benefits */}
       <section className="py-10">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-20 xl:px-40">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">Why Partner With Us?</h2>
           
-          <div className="space-y-4">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="flex items-start">
-                <div className="bg-blue-100 p-2 rounded-full mr-3">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-800">Reliability & Safety</h3>
-                  <p className="text-gray-600 text-sm">Industry-leading safety protocols and on-time delivery record</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="flex items-start">
-                <div className="bg-blue-100 p-2 rounded-full mr-3">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-800">Global Network</h3>
-                  <p className="text-gray-600 text-sm">Strategic partnerships across major ports worldwide</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="flex items-start">
-                <div className="bg-blue-100 p-2 rounded-full mr-3">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-800">Efficient Solutions</h3>
-                  <p className="text-gray-600 text-sm">Custom shipping solutions that optimize your supply chain</p>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-wrap gap-4 justify-between">
+            {
+              partnershipBenefits.map((item, index) => (
+                <PartnerTile
+                  key={index}
+                  svg={item.svg}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))
+            }
           </div>
         </div>
       </section>
       
       {/* Industry Recognition - Optional */}
-      <section className="py-8 bg-gray-100">
-        <div className="container mx-auto px-4">
+      <section className="py-8 bg-gray-100 px-8 lg:px-20 xl:px-40">
+        <div className="container mx-auto">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">Industry Recognition</h2>
           
           <div className="flex justify-center space-x-6 overflow-x-auto py-4">
