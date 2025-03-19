@@ -33,7 +33,7 @@
     @apply transition duration-200 scale-105;
   }
   .btn {
-    @apply transition duration-200 active:scale-95
+    @apply cursor-pointer transition duration-200 active:scale-95
   }
   .anchor {
     @apply relative;

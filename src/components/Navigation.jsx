@@ -44,8 +44,8 @@ export default function Navigation({ logoWhite, logoBlack }) {
       ],
     },
     { name: "Clients", to: "/clients" },
-    { name: "News", to: "#" },
-    { name: "Careers", to: "#" },
+    { name: "News", to: "/news" },
+    { name: "Careers", to: "/careers" },
     { name: "Contact Us", to: "/contact-us" },
   ];
 
