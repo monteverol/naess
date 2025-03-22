@@ -2,10 +2,10 @@ import ServiceItem from "./ServiceItem";
 
 export default function ServicesSection() {
   return(
-    <div className="h-[768px] bg-white flex flex-col px-[168px] gap-[60px] justify-center">
+    <div className="h-[768px] bg-white flex flex-col px-[168px] gap-[60px] justify-center border-t-[20px] border-[#346EA0]">
       <article className="flex flex-col gap-[40px]">
         <header className="flex flex-col gap-[16px]">
-          <h1 className="text-[40px] font-bold">Our Services</h1>
+          <h1 className="text-[36px] font-bold font-montserrat">Our Services</h1>
           <p className="text-[18px] w-[550px]">NAESS Shipping provides top-tier maritime recruitment, crewing, and management services to ensure efficient operations at sea. </p>
         </header>
         <ul className="flex flex-row gap-[28px]">

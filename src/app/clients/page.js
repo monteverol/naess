@@ -3,6 +3,11 @@
 import Footer from '@/components/Footer';
 import React, { useState } from 'react';
 import PartnerTile from './components/PartnerTile';
+<<<<<<< HEAD
+=======
+import Header from './sections/HeaderSection';
+import FilterClients from './sections/FilterClientsSection';
+>>>>>>> b3e31b45 (all page major update)
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -50,6 +55,7 @@ const Clients = () => {
   };
   
   return (
+<<<<<<< HEAD
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section with Background */}
       <section className="px-8 lg:px-20 xl:px-40 bg-[#1A384F] text-white relative overflow-hidden mt-16">
@@ -96,6 +102,21 @@ const Clients = () => {
       
       {/* Client Logo Gallery */}
       <section className="lg:px-20 xl:px-40 py-8" aria-labelledby="client-gallery-heading">
+=======
+    <div className="min-h-screen">
+      {/* Hero Section with Background */}
+      <Header />
+      
+      {/* Client Filter Categories */}
+      <FilterClients
+        industries={industries}
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
+      
+      {/* Client Logo Gallery */}
+      <section className="lg:px-20 xl:px-40 py-8 bg-gray-50" aria-labelledby="client-gallery-heading">
+>>>>>>> b3e31b45 (all page major update)
         <div className="container mx-auto px-4 lg:px-0">
           <h2 id="client-gallery-heading" className="text-xl font-semibold mb-6 text-gray-800">
             {activeCategory === 'All' ? 'All Clients' : `${activeCategory} Partners`}
@@ -131,7 +152,11 @@ const Clients = () => {
       {/* Testimonials Section - Carousel */}
       <section className="lg:px-20 xl:px-40 py-8 bg-gray-100">
         <div className="container mx-auto">
+<<<<<<< HEAD
           <h2 className="text-xl font-semibold mb-6 text-gray-800">What Our Clients Say</h2>
+=======
+          <h2 className="text-xl font-semibold mb-6 text-gray-800 px-4 lg:px-0">What Our Clients Say</h2>
+>>>>>>> b3e31b45 (all page major update)
           
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <blockquote className="italic text-gray-600 mb-4">
@@ -226,11 +251,19 @@ const Clients = () => {
       </section>
       
       {/* Partner Benefits */}
+<<<<<<< HEAD
       <section className="py-10">
         <div className="container mx-auto px-4 lg:px-20 xl:px-40">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">Why Partner With Us?</h2>
           
           <div className="flex flex-wrap gap-4 justify-between">
+=======
+      <section className="bg-gray-50 py-10 w-full">
+        <div className="px-4 lg:px-20 xl:px-40 w-full">
+          <h2 className="text-xl font-semibold mb-6 text-gray-800">Why Partner With Us?</h2>
+          
+          <div className="flex flex-wrap gap-4 justify-between w-full">
+>>>>>>> b3e31b45 (all page major update)
             {
               partnershipBenefits.map((item, index) => (
                 <PartnerTile

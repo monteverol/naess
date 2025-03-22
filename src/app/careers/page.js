@@ -102,7 +102,7 @@ const CareersPage = () => {
     },
     {
       id: 3,
-      name: "Mary Grace Piattos",
+      name: "John Weck",
       position: "Cadet",
       image: "/api/placeholder/100/100",
       text: "The supportive culture here has helped me develop both professionally and personally. I feel valued and empowered to contribute my best work."

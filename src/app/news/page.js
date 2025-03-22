@@ -14,7 +14,7 @@ export default function News() {
   const [filterMenuOpen, setFilterMenuOpen] = useState(false);
   const [visibleItems, setVisibleItems] = useState(4);
   const [newsArticles, setNewsArticles] = useState([]);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   // Fetch news articles from the API
   useEffect(() => {

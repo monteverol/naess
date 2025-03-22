@@ -8,6 +8,7 @@ export default function Testimonial({ testimonials }) {
         <div className="flex flex-wrap gap-8">
           {testimonials.map((testimonial) => (
             <TestimonialTile
+              key={testimonial.id}
               image={testimonial.image}
               name={testimonial.name}
               position={testimonial.position}

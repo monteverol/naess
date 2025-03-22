@@ -1,9 +1,11 @@
-export default function DropdownList({ title, items, textColor }) {
+import Link from "next/link";
+
+export default function DropdownList({ title, to = "#", items, textColor }) {
   return (
     <div className="group relative cursor-pointer">
       {/* 🔹 Menu Item (Trigger) */}
       <div className="flex flex-row gap-2 items-center">
-        <a href="#" className={`text-[18px] ${textColor}`}>{title}</a>
+        <Link href={to || "#"} className={`text-[18px] ${textColor}`}>{title}</Link>
         <span className={`${textColor}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

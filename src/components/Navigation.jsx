@@ -24,9 +24,10 @@ export default function Navigation({ logoWhite, logoBlack }) {
     { name: "Home", to: "/" },
     {
       name: "About Us",
+      to: "/about-us",
       dropdown: [
         { name: "Company Profile", to: "#" },
-        { name: "Mission and Vision", to: "#" },
+        { name: "Naess Cares", to: "#" },
         { name: "History", to: "#" },
         { name: "Leadership / BOD", to: "#" },
         { name: "Partnerships", to: "#" },
@@ -59,7 +60,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
   return (
     <nav className={`${scrolled || openMenu ? "bg-white shadow-md" : "bg-transparent"} ${backgroundClass} flex flex-col px-4 lg:px-20 xl:px-40 w-full fixed top-0 left-0 z-50 transition-all`}>
       <div className="w-full h-16 flex justify-between items-center">
-        <img src={scrolled || openMenu ? logoBlack : logoWhite} alt="Company Logo" className="h-8" />
+        <img src={scrolled || openMenu || !isLandingPage ? logoBlack : logoWhite} alt="Company Logo" className="h-8" />
         <button
           className="p-2 rounded-lg drop-shadow-md cursor-pointer bg-white lg:hidden"
           onClick={() => setOpenMenu((prev) => !prev)}
@@ -72,10 +73,14 @@ export default function Navigation({ logoWhite, logoBlack }) {
         <ul className="hidden lg:flex flex-row gap-8">
           {menuItems.map((item, index) =>
             item.dropdown ? (
-              <DropdownList key={index} title={item.name} items={item.dropdown} textColor={scrolled || !isLandingPage ? "text-black" : "text-white"} />
+              <DropdownList to={item.to} key={index} title={item.name} items={item.dropdown} textColor={scrolled || !isLandingPage ? "text-black" : "text-white"} />
             ) : (
               <li key={index}>
-                <Link href={item.to} className={`text-[18px] anchor ${scrolled || !isLandingPage ? "text-black after:bg-black" : "text-white after:bg-white"}`}>
+                <Link 
+                  href={item.to} 
+                  className={`text-[18px] anchor ${pathname == item.to ? "font-bold text-white bg-[#1A384F] px-4 py-2 rounded-md" : null} ${scrolled || !isLandingPage ? "text-black after:bg-black" : "text-white after:bg-white"}`}
+                  
+                  >
                   {item.name}
                 </Link>
               </li>
