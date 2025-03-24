@@ -35,6 +35,12 @@
   .btn {
     @apply cursor-pointer transition duration-200 active:scale-95
   }
+  .home-heading {
+    @apply relative
+  }
+  .home-heading::after {
+    @apply content-[''] absolute -bottom-4 left-0 h-2 w-40 bg-[#346EA0] rounded-full
+  }
   .anchor {
     @apply relative;
   }
@@ -49,6 +55,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: black;
 }

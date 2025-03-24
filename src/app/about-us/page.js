@@ -124,22 +124,9 @@ const AboutUsPage = () => {
         </section>
 
         {/* Mission and Vision */}
-        <section id="mission" className="py-12 bg-gray-100 px-4 lg:px-20 xl:px-40">
+        <section id="naess-cares" className="py-12 bg-gray-100 px-4 lg:px-20 xl:px-40">
           <div className="container mx-auto">
             <h2 className="text-2xl font-bold mb-6 text-[#1A384F]">Our Mission & Values</h2>
-            
-            {/* <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-              <h3 className="text-xl font-semibold mb-3 text-[#1A384F]">Our Vision</h3>
-              <p className="mb-4">
-                To be the global leader in transformative digital solutions, setting industry standards 
-                and creating lasting positive impact for our clients, employees, and communities.
-              </p>
-              <h3 className="text-xl font-semibold mb-3 text-[#1A384F]">Our Mission</h3>
-              <p>
-                We aim to provide innovative solutions that empower businesses to thrive in an ever-evolving 
-                digital landscape. Our mission is guided by our core values:
-              </p>
-            </div> */}
             
             <div className="flex flex-wrap gap-4">
               {missionValues.map((value, index) => (

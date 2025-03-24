@@ -1,42 +1,24 @@
-export default function NewsSection() {
-  const news = [
-    {
-      title: "News",
-      description: "News Caption here"
-    },
-    {
-      title: "News",
-      description: "News Caption here"
-    },
-    {
-      title: "News",
-      description: "News Caption here"
-    },
-    {
-      title: "News",
-      description: "News Caption here"
-    }
-  ]
+import NewsArticle from "../news/components/NewsArticle";
+
+export default function NewsSection({ newsArticles }) {
 
   return(
-    <section className="bg-white h-[768px] w-full px-[168px] flex gap-[40px] flex-col justify-center">
-      <article className="flex flex-col gap-[12px]">
-        <h1 className="text-[40px] font-bold">Latest News</h1>
-        <p className="text-[18px] w-[550px]">Stay informed with the latest happenings at NAESS Shipping – company news, industry insights, and upcoming events</p>
+    <section className="bg-white h-screen w-full px-[168px] flex gap-[40px] flex-col justify-center">
+      <article className="flex flex-col gap-[52px]">
+        <h1 className="text-[36px] font-bold home-heading">Latest News & Updates</h1>
+        <p className="text-[18px] w-[550px]">Stay informed with the latest developments, company news, and industry insights from NAESS.</p>
       </article>
-      <ul className="flex flex-row gap-[28px]">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
-          news.map((index, key) => (
-            <li key={key} className="w-[260px] h-[272px] bg-white drop-shadow-lg rounded-[8px] p-[20px] flex items-center cursor-pointer transition duration-200 hover:drop-shadow-xl">
-              <article className="flex flex-col w-full gap-[8px]">
-                <h1 className="text-[24px] font-bold">{index.title}</h1>
-                <p className="text-[16px]">{index.description}</p>
-              </article>
-            </li>
+          newsArticles.slice(0, 3).map(item => (
+            <NewsArticle 
+              key={item.id}
+              item={item}
+            />
           ))
         }
       </ul>
-      <button type="button" role="button" className="w-[260px] h-[56px] bg-[#264D6C] text-white font-bold rounded-[8px] cursor-pointer transition duration-200 active:scale-95">
+      <button type="button" role="button" className="w-[232px] h-[52px] text-black font-bold border-2 border-[#101112] rounded-[8px] cursor-pointer transition-all duration-200 active:scale-95 after:content-['>'] after:ml-4">
         See All News
       </button>
     </section>

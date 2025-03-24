@@ -3,11 +3,8 @@
 import Footer from '@/components/Footer';
 import React, { useState } from 'react';
 import PartnerTile from './components/PartnerTile';
-<<<<<<< HEAD
-=======
 import Header from './sections/HeaderSection';
 import FilterClients from './sections/FilterClientsSection';
->>>>>>> b3e31b45 (all page major update)
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -55,54 +52,6 @@ const Clients = () => {
   };
   
   return (
-<<<<<<< HEAD
-    <div className="bg-gray-50 min-h-screen">
-      {/* Hero Section with Background */}
-      <section className="px-8 lg:px-20 xl:px-40 bg-[#1A384F] text-white relative overflow-hidden mt-16">
-        <div className="absolute inset-0 opacity-20">
-          {/* Shipping/ocean pattern background */}
-          <div className="w-full h-full bg-blue-900">
-            {/* Abstract wave pattern would go here in a real implementation */}
-          </div>
-        </div>
-        
-        <div className="container py-12 relative z-10">
-          <h1 className="text-3xl font-bold mb-4">Our Valued Clients</h1>
-          <p className="text-lg mb-6">
-            Trusted by industry leaders across the maritime and shipping sectors
-          </p>
-          <div className="h-1 w-16 bg-[#B3D2F4]"></div>
-        </div>
-      </section>
-      
-      {/* Client Filter Categories */}
-      <section className="lg:px-20 xl:px-40 py-6">
-        <div className="container mx-auto px-4 lg:px-0">
-          <h2 className="sr-only">Filter Clients by Industry</h2>
-          <div className="overflow-x-auto pb-2">
-            <div className="flex space-x-2 min-w-max">
-              {industries.map(industry => (
-                <button
-                  key={industry}
-                  onClick={() => setActiveCategory(industry)}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                    activeCategory === industry 
-                      ? 'bg-blue-600 text-white' 
-                      : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'
-                  }`}
-                  aria-pressed={activeCategory === industry}
-                >
-                  {industry}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Client Logo Gallery */}
-      <section className="lg:px-20 xl:px-40 py-8" aria-labelledby="client-gallery-heading">
-=======
     <div className="min-h-screen">
       {/* Hero Section with Background */}
       <Header />
@@ -116,7 +65,6 @@ const Clients = () => {
       
       {/* Client Logo Gallery */}
       <section className="lg:px-20 xl:px-40 py-8 bg-gray-50" aria-labelledby="client-gallery-heading">
->>>>>>> b3e31b45 (all page major update)
         <div className="container mx-auto px-4 lg:px-0">
           <h2 id="client-gallery-heading" className="text-xl font-semibold mb-6 text-gray-800">
             {activeCategory === 'All' ? 'All Clients' : `${activeCategory} Partners`}
@@ -152,11 +100,7 @@ const Clients = () => {
       {/* Testimonials Section - Carousel */}
       <section className="lg:px-20 xl:px-40 py-8 bg-gray-100">
         <div className="container mx-auto">
-<<<<<<< HEAD
-          <h2 className="text-xl font-semibold mb-6 text-gray-800">What Our Clients Say</h2>
-=======
           <h2 className="text-xl font-semibold mb-6 text-gray-800 px-4 lg:px-0">What Our Clients Say</h2>
->>>>>>> b3e31b45 (all page major update)
           
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <blockquote className="italic text-gray-600 mb-4">
@@ -251,19 +195,11 @@ const Clients = () => {
       </section>
       
       {/* Partner Benefits */}
-<<<<<<< HEAD
-      <section className="py-10">
-        <div className="container mx-auto px-4 lg:px-20 xl:px-40">
-          <h2 className="text-xl font-semibold mb-6 text-gray-800">Why Partner With Us?</h2>
-          
-          <div className="flex flex-wrap gap-4 justify-between">
-=======
       <section className="bg-gray-50 py-10 w-full">
         <div className="px-4 lg:px-20 xl:px-40 w-full">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">Why Partner With Us?</h2>
           
           <div className="flex flex-wrap gap-4 justify-between w-full">
->>>>>>> b3e31b45 (all page major update)
             {
               partnershipBenefits.map((item, index) => (
                 <PartnerTile

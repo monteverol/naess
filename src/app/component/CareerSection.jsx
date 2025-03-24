@@ -1,9 +1,9 @@
 export default function CareerSection() {
   return(
-    <div className="bg-white w-full h-[400px] flex items-center justify-center">
-      <article className="w-[800px] h-[260px] flex flex-col bg-[#FAFAFA] drop-shadow-lg rounded-[8px] gap-[40px] p-8 transition duration-200 hover:scale-105 hover:drop-shadow-xl">
+    <div className="bg-[#F0F3F5] w-full h-[448px] flex items-center justify-center">
+      <article className="w-[1120px] h-[260px] flex flex-col bg-[#FAFAFA] border-2 border-black drop-shadow-lg rounded-[8px] gap-[40px] p-8 transition-all duration-200 hover:drop-shadow-xl">
         <section className="flex flex-col gap-[4px]">
-          <h1 className="text-[40px] font-bold text-center">Apply For Jobs</h1>
+          <h1 className="text-[40px] font-bold text-center">Apply Now at NAESS</h1>
           <p className="text-[18px] text-center">Looking for your next opportunity at sea? Explore our job openings and apply today!</p>
         </section>
         <div className="flex flex-row gap-[40px] w-full items-center justify-center">

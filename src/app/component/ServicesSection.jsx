@@ -5,8 +5,8 @@ export default function ServicesSection() {
     <div className="h-[768px] bg-white flex flex-col px-[168px] gap-[60px] justify-center border-t-[20px] border-[#346EA0]">
       <article className="flex flex-col gap-[40px]">
         <header className="flex flex-col gap-[16px]">
-          <h1 className="text-[36px] font-bold font-montserrat">Our Services</h1>
-          <p className="text-[18px] w-[550px]">NAESS Shipping provides top-tier maritime recruitment, crewing, and management services to ensure efficient operations at sea. </p>
+          <h1 className="text-[36px] font-bold font-montserrat home-heading mb-8">Our Services</h1>
+          <p className="text-[18px] w-[550px]">NAESS Shipping offers top-tier maritime recruitment, crewing, and management services to ensure efficient sea operations, handling everything from crew selection to post-contract support.</p>
         </header>
         <ul className="flex flex-row gap-[28px]">
           <ServiceItem 

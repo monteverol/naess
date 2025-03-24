@@ -26,11 +26,11 @@ export default function Navigation({ logoWhite, logoBlack }) {
       name: "About Us",
       to: "/about-us",
       dropdown: [
-        { name: "Company Profile", to: "#" },
-        { name: "Naess Cares", to: "#" },
-        { name: "History", to: "#" },
-        { name: "Leadership / BOD", to: "#" },
-        { name: "Partnerships", to: "#" },
+        { name: "Company Profile", to: "/about-us#company" },
+        { name: "Naess Cares", to: "/about-us#naess-cares" },
+        { name: "History", to: "/about-us#history" },
+        { name: "Leadership / BOD", to: "/about-us#leadership" },
+        { name: "Partnerships", to: "/about-us#partnerships" },
       ],
     },
     {
@@ -78,7 +78,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
               <li key={index}>
                 <Link 
                   href={item.to} 
-                  className={`text-[18px] anchor ${pathname == item.to ? "font-bold text-white bg-[#1A384F] px-4 py-2 rounded-md" : null} ${scrolled || !isLandingPage ? "text-black after:bg-black" : "text-white after:bg-white"}`}
+                  className={`text-[18px] anchor ${pathname == item.to ? "after:w-full" : null} ${scrolled || !isLandingPage ? "text-black after:bg-black" : "text-white after:bg-white"}`}
                   
                   >
                   {item.name}
