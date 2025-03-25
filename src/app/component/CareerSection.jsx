@@ -8,7 +8,7 @@ export default function CareerSection() {
         </section>
         <div className="flex flex-row gap-[40px] w-full items-center justify-center">
           <button type="button" role="button" className="bg-[#264D6C] w-[260px] h-[52px] rounded-[8px] font-bold text-white text-[20px] cursor-pointer transition duration-200 active:scale-95">
-            View Job Openings
+            See Available Jobs
           </button>
           <button type="button" role="button" className="bg-white border-2 border-[#264D6C] w-[260px] h-[52px] rounded-[8px] font-bold text-[#264D6C] text-[20px] cursor-pointer transition duration-200 active:scale-95">
             Apply Now
