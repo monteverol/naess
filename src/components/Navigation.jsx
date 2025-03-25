@@ -33,17 +33,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
         { name: "Partnerships", to: "/about-us#partnerships" },
       ],
     },
-    {
-      name: "Services",
-      dropdown: [
-        { name: "Recruitment", to: "#" },
-        { name: "Production", to: "#" },
-        { name: "Installation", to: "#" },
-        { name: "On-Board Procedures", to: "#" },
-        { name: "Post-Contract Activities", to: "#" },
-        { name: "SMAS Crewing System", to: "#" },
-      ],
-    },
+    { name: "Services", to: "/services", },
     { name: "Clients", to: "/clients" },
     { name: "News", to: "/news" },
     { name: "Careers", to: "/careers" },
