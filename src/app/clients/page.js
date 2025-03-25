@@ -2,9 +2,9 @@
 
 import Footer from '@/components/Footer';
 import React, { useState } from 'react';
-import PartnerTile from './components/PartnerTile';
-import Header from './sections/HeaderSection';
-import FilterClients from './sections/FilterClientsSection';
+import PartnerTile from './components/ui/PartnerTile';
+import Header from './components/sections/HeaderSection';
+import FilterClients from './components/sections/FilterClientsSection';
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('All');

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import HeroHeaderSection from "./component/HeroHeaderSection";
-import ServicesSection from "./component/ServicesSection";
-import AboutSection from "./component/AboutSection";
-import HighlightSection from "./component/HighlightSection";
-import CareerSection from "./component/CareerSection";
-import CertificateSection from "./component/CertificateSection";
-import NewsSection from "./component/NewsSection";
-import CTASection from "./component/CTASection";
+import HeroHeaderSection from "./home-components/sections/HeroHeaderSection";
+import ServicesSection from "./home-components/sections/ServicesSection";
+import AboutSection from "./home-components/sections/AboutSection";
+import HighlightSection from "./home-components/sections/HighlightSection";
+import CareerSection from "./home-components/sections/CareerSection";
+import CertificateSection from "./home-components/sections/CertificateSection";
+import NewsSection from "./home-components/sections/NewsSection";
+import CTASection from "./home-components/sections/CTASection";
 import Footer from "@/components/Footer";
 
 export default function Home() {

@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Footer from '@/components/Footer';
-import Header from './sections/HeaderSection';
-import NewsLetter from './sections/NewsletterSection';
-import TabAndSearch from './sections/TabandSearchSection';
-import NewsArticle from './components/NewsArticle';
+import Header from './components/sections/HeaderSection';
+import NewsLetter from './components/sections/NewsletterSection';
+import TabAndSearch from './components/sections/TabandSearchSection';
+import NewsArticle from './components/ui/NewsArticle';
 
 export default function News() {
   const [activeTab, setActiveTab] = useState('all');

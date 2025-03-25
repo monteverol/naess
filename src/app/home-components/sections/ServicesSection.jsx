@@ -2,12 +2,12 @@ import { useState } from "react";
 
 export default function ServicesSection() {
   const items = [
-    { title: 'Recruitment', image: '/images/home/services/recruitment-bg.png', logo: '/images/home/services/icon/recruitment.png' },
-    { title: 'Production', image: '/images/home/services/production-bg.webp', logo: '/images/home/services/icon/production.png' },
-    { title: 'Installation', image: '/images/home/services/installation-bg.webp', logo: '/images/home/services/icon/installation.png' },
-    { title: 'Onboard Procedures', image: '/images/home/services/onboarding-bg.webp', logo: '/images/home/services/icon/onboarding.png' },
-    { title: 'SMAS Crewing System', image: '/images/home/services/crewingSystem-bg.jpg', logo: '/images/home/services/icon/smas.png' },
-    { title: 'Post Contact Activities', image: '/images/home/services/activity-bg.jpeg', logo: '/images/home/services/icon/activity.png' },
+    { title: 'Recruitment', image: '/images/home/services/background/recruitment-bg.png', logo: '/images/home/services/icon/recruitment.png' },
+    { title: 'Production', image: '/images/home/services/background/production-bg.webp', logo: '/images/home/services/icon/production.png' },
+    { title: 'Installation', image: '/images/home/services/background/installation-bg.webp', logo: '/images/home/services/icon/installation.png' },
+    { title: 'Onboard Procedures', image: '/images/home/services/background/onboarding-bg.webp', logo: '/images/home/services/icon/onboarding.png' },
+    { title: 'SMAS Crewing System', image: '/images/home/services/background/crewingSystem-bg.jpg', logo: '/images/home/services/icon/smas.png' },
+    { title: 'Post Contact Activities', image: '/images/home/services/background/activity-bg.jpeg', logo: '/images/home/services/icon/activity.png' },
   ];
   const [bgImage, setBgImage] = useState(items[0].image);
 

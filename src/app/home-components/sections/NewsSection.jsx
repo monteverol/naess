@@ -1,4 +1,4 @@
-import NewsArticle from "../news/components/NewsArticle";
+import NewsArticle from "../../news/components/ui/NewsArticle";
 
 export default function NewsSection({ newsArticles }) {
 

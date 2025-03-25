@@ -1,4 +1,4 @@
-import TestimonialTile from "../TestimonialTile";
+import TestimonialTile from "../ui/TestimonialTile";
 
 export default function Testimonial({ testimonials }) {
   return(

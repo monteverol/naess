@@ -1,4 +1,4 @@
-import CategoryButton from "../components/CategoryButton";
+import CategoryButton from "../ui/CategoryButton";
 
 const FilterClients = ({ industries, activeCategory, setActiveCategory }) => {
   return(

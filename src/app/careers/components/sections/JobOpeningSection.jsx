@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react';
-import JobTile from "../JobTile";
+import JobTile from "../ui/JobTile";
 import { useState } from 'react';
 
 export default function JobOpeningSection({ jobOpenings }) {

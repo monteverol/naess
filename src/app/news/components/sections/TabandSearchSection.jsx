@@ -1,6 +1,6 @@
-import Tabs from "../components/Tabs";
-import SearchAndFilter from "../components/SearchAndFilter";
-import FilterMenu from "../components/FilterMenu";
+import Tabs from "../ui/Tabs";
+import SearchAndFilter from "../ui/SearchAndFilter";
+import FilterMenu from "../ui/FilterMenu";
 
 const TabAndSearch = ({ 
   filterMenuOpen, 
