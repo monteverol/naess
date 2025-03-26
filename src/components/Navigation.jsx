@@ -49,8 +49,8 @@ export default function Navigation({ logoWhite, logoBlack }) {
 
   return (
     <nav className={`${scrolled || openMenu ? "bg-white shadow-md" : "bg-transparent"} ${backgroundClass} flex flex-col px-4 lg:px-20 xl:px-40 w-full fixed top-0 left-0 z-50 transition-all`}>
-      <div className="w-full h-16 flex justify-between items-center">
-        <img src={scrolled || openMenu || !isLandingPage ? logoBlack : logoWhite} alt="Company Logo" className="h-8" />
+      <div className="w-full h-20 flex justify-between items-center">
+        <img src={scrolled || openMenu || !isLandingPage ? logoBlack : logoWhite} alt="Company Logo" className="h-12" />
         <button
           className="p-2 rounded-lg drop-shadow-md cursor-pointer bg-white lg:hidden"
           onClick={() => setOpenMenu((prev) => !prev)}
