@@ -15,7 +15,8 @@ export default function Home() {
   const carouselItems = [
     { type: 'image', src: '/images/home/home-ship-image.jpg' },
     { type: 'image', src: '/images/omegagas-ship.png' },
-    { type: 'image', src: '/images/home/gif-ship.png' }
+    { type: 'image', src: '/images/home/carousel/DOLE.png' },
+    { type: 'image', src: '/images/home/carousel/DJI_0808.JPG' },
     // { type: 'video', src: '/path/to/video1.mp4' },
   ];
   const [newsArticles, setNewsArticles] = useState([]);

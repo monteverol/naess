@@ -105,6 +105,7 @@ const AboutUsPage = () => {
                 src="/images/about-us/BOD.jpg" 
                 alt="Image of Board of Directors" 
                 className="mb-6 w-full rounded-xl" 
+                loading='lazy'
               />
               <p className="mb-4">
                 NAESS SHIPPING PHILIPPINES, INC. was born on October 24, 1980 with the signing of the documents by Capt. Pablo Gutierrez and Mr. Arturo Piree at the Army Navy Club in Manila. Our first office had a staff of merely five employees at the mezzanine of the Pennville Building on Leon Guinto Street, Malate, Upon approval and registration with the Securities and Exchange Commission, in December of the same year, initial manning operations began with a modest number of 25 vessels. Within three years, we were able to acquire and transfer to our own office at 2215 Leon Guinto St., Malate.
@@ -116,6 +117,7 @@ const AboutUsPage = () => {
                 src="/images/about-us/aaaisabellemigs.jpeg" 
                 alt="Image of Board of Directors" 
                 className="mb-6 w-full rounded-xl" 
+                loading='lazy'
               />
               <p className="mb-4">
                 Like everyone in the industry, we had our share of uphill struggles when we awoke one morning and found the Philippine economy in utter chaos. Affected by the currency crisis and other factors, adjustments had to be made. Thanks to the confidence of the international shipping industry in our integrity and quality service, recovery was just a matter of time. Despite temporary setbacks, NSP continued to enjoy its world-class distinction as one of the best manning agencies in the country.

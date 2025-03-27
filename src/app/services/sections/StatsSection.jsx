@@ -8,7 +8,7 @@ const StatsSection = () => {
             { value: "500+", label: "Qualified Seafarers" },
             { value: `${new Date().getFullYear() - 1980}+`, label: "Years Experience" },
             { value: "100%", label: "STCW Compliance" },
-            { value: "24/7", label: "Support" }
+            { value: "16/6", label: "Support" }
           ].map((stat, index) => (
             <div key={index} className="p-4">
               <div className="text-4xl font-bold mb-2">{stat.value}</div>

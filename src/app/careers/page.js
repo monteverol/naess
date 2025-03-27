@@ -50,6 +50,14 @@ const CareersPage = () => {
       category: 'AMOSUP',
       description: 'Drive new business opportunities and nurture client relationships to boost company growth.'
     },
+    {
+      id: 6,
+      title: 'HR',
+      location: 'Malate, Manila',
+      type: 'Full-time',
+      category: 'Office',
+      description: 'We\'re looking for a skilled React developer to join our engineering team and help build amazing web experiences.'
+    },
   ];
 
   const benefits = [

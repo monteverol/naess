@@ -35,7 +35,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
     },
     { name: "Services", to: "/services", },
     { name: "Clients", to: "/clients" },
-    { name: "News", to: "/news" },
+    { name: "News & Events", to: "/news" },
     { name: "Careers", to: "/careers" },
     { name: "Contact Us", to: "/contact-us" },
   ];

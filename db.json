@@ -90,5 +90,35 @@
       "time": "6:00 PM - 9:00 PM",
       "tags": ["Networking", "Industry"]
     }
+  ],
+  "clients": [
+    { 
+      "id": 1, 
+      "name": "Kuwait Oil Tanker Company", 
+      "industry": "Oil and Gas Tankers", 
+      "logo": "/images/clients/kotc-logo.jpg",
+      "description": "The Company is mainly involved in the ownership and management of tankers engaged in the transport of crude oil, refined petroleum products and liquefied petroleum gases (LPG). In addition, it also operates a Marine Agency Branch, acting as sole agent of all tankers calling at Kuwait's sea port and a Gas Branch for the filling and distribution of LPG cylinders for local industry and domestic consumption. As the transportation arm of KPC it operates, on a commercial basis, a modern balanced fleet of Very Large Crude Carriers (VLCCs), petroleum product tankers and LPG carriers to maintain a strategic coverage of KPC's oil exports to all corners of the globe. In spite of the general slackness conditions in the tankers industry all over the world during the current years, KOTC managed to keep its profitability above the regular average due to its intensive concern for reducing the operating expenses and its wise policy of replacing old ships at the appropriate times."
+    },
+    { 
+      "id": 2,
+      "name": "Reefership Marine Services Ltd", 
+      "industry": "Maritime", 
+      "logo": "/images/clients/rfs-logo.jpg",
+      "description": "The exclusive maritime transportation provider for Dole Fresh Fruit Co., and Dole Ocean Cargo Express, the commercial cargo subsidiary of Dole. Although incorporated in 1999 as Reefership Marine Services Ltd, the technical management staff of RMS have been responsible for Dole's fleet since 1986. Dole's fleet of vessels consist of conventional refrigerated pallet and refrigerated container vessels, the largest such dedicated refrigerated containerized fleet in the world."
+    },
+    { 
+      "id": 3, 
+      "name": "Sloman Neptun Schiffahrts AG", 
+      "industry": "Oil and Gas Tankers", 
+      "logo": "/images/clients/sns-logo.png",
+      "description": "Over 135 years of shipping experience, where professionals stand ready to solve all your transportation needs. Twenty-two modern tankers serve the global gas- and product oil markets, while four multipurpose vessels connect North Africa and other Mediterranean ports with Northern Europe through a scheduled liner service."
+    },
+    { 
+      "id": 4, 
+      "name": "Associated Marine Officers and Seamen's Union of the Philippines", 
+      "industry": "Maritime", 
+      "logo": "/images/clients/amosup-logo.png",
+      "description": "This company is a prominent union for Filipino seafarers, dedicated to safeguarding their rights and improving their working conditions. Established in the mid-20th century, the union champions the welfare of its members by offering a broad range of services, including legal support, health care, comprehensive training, and career development programs. Its mission extends beyond workplace advocacy to include robust community and family support initiatives, ensuring that both seafarers and their loved ones receive essential benefits and protections."
+    }
   ]
 }

@@ -36,7 +36,6 @@ const Carousel = ({ items }) => {
         const newProgress = (elapsedTime / 3000) * 100;
 
         if (newProgress >= 100) {
-          console.log("Condition met");
           nextSlide();
           setProgress(0);
         } else {
@@ -90,13 +89,13 @@ const Carousel = ({ items }) => {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-8 bg-[rgba(0,0,0,0.3)] text-white p-4 rounded-full cursor-pointer transition-all duration-200 active:scale-95 hover:bg-[rgba(0,0,0,0.5)]"
+        className="hidden md:block absolute left-8 bg-[rgba(0,0,0,0.3)] text-white p-4 rounded-full cursor-pointer transition-all duration-200 active:scale-95 hover:bg-[rgba(0,0,0,0.5)]"
       >
         <FaChevronLeft size={40} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-8 bg-[rgba(0,0,0,0.3)] text-white p-4 rounded-full cursor-pointer transition-all duration-200 active:scale-95 hover:bg-[rgba(0,0,0,0.5)]"
+        className="hidden md:block absolute right-8 bg-[rgba(0,0,0,0.3)] text-white p-4 rounded-full cursor-pointer transition-all duration-200 active:scale-95 hover:bg-[rgba(0,0,0,0.5)]"
       >
         <FaChevronRight size={40} />
       </button>

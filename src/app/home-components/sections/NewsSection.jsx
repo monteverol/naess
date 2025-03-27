@@ -3,7 +3,7 @@ import NewsArticle from "../../news/components/ui/NewsArticle";
 export default function NewsSection({ newsArticles }) {
 
   return(
-    <section className="bg-white h-screen w-full px-[168px] flex gap-[40px] flex-col justify-center">
+    <section className="bg-white h-auto w-full px-8 md:px-20 lg:px-40 flex gap-[40px] py-8 flex-col justify-center">
       <article className="flex flex-col gap-[52px]">
         <h1 className="text-[36px] font-bold home-heading">Latest News & Updates</h1>
         <p className="text-[18px] w-[550px]">Stay informed with the latest developments, company news, and industry insights from NAESS.</p>

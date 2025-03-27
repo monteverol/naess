@@ -1,13 +1,15 @@
 "use client";
 
 import Footer from '@/components/Footer';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PartnerTile from './components/ui/PartnerTile';
 import Header from './components/sections/HeaderSection';
 import FilterClients from './components/sections/FilterClientsSection';
+import Link from 'next/link';
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const partnershipBenefits = [
     {
       svg: <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
@@ -27,12 +29,22 @@ const Clients = () => {
   ]
   
   // Sample client data - you would replace this with your actual client data
-  const clients = [
-    { id: 1, name: 'Kuwait Oil Tanker Company', industry: 'Oil and Gas Tankers', logo: '/images/clients/kotc-logo.jpg' },
-    { id: 2, name: 'Reefership Marine Services Ltd', industry: 'Maritime', logo: '/images/clients/rfs-logo.jpg' },
-    { id: 3, name: 'Sloman Neptun Schiffahrts AG', industry: 'Oil and Gas Tankers', logo: '/images/clients/sns-logo.png' },
-    { id: 4, name: 'Associated Marine Officers and Seamen\'s Union of the Philippines', industry: 'Maritime', logo: '/images/clients/amosup-logo.png' },
-  ];
+  const [clients, setClients] = useState([]);
+
+  useEffect(() => {
+    async function fetchClients() {
+      try {
+        const response = await fetch(`${API_URL}/clients/api`);
+        if (!response.ok) throw new Error("Failed to fetch news.");
+        const data = await response.json();
+        setClients(data);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    } 
+
+    fetchClients();
+  }, []);
   
   // Extract unique industries for filter categories
   const industries = ['All', ...new Set(clients.map(client => client.industry))];
@@ -72,20 +84,26 @@ const Clients = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {filteredClients.map(client => (
-              <div 
-                key={client.id} 
-                className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center"
+              <Link 
+                href={`/clients/${client.id}`} 
+                passHref
+                key={client.id}
               >
-                <img 
-                  src={client.logo} 
-                  alt={`${client.name} logo`} 
-                  className="mb-3"
-                  width="120"
-                  height="80"
-                />
-                <h3 className="text-center text-sm font-medium text-gray-700">{client.name}</h3>
-                <p className="text-xs text-gray-500">{client.industry}</p>
-              </div>
+                <div 
+                  key={client.id} 
+                  className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center"
+                >
+                  <img 
+                    src={client.logo} 
+                    alt={`${client.name} logo`} 
+                    className="mb-3"
+                    width="120"
+                    height="80"
+                  />
+                  <h3 className="text-center text-sm font-medium text-gray-700">{client.name}</h3>
+                  <p className="text-xs text-gray-500">{client.industry}</p>
+                </div>
+              </Link>
             ))}
           </div>
           
