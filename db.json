@@ -4,9 +4,18 @@
       "id": 1,
       "type": "news",
       "title": "TREE PLANTING 2025",
-      "summary": "NAESS Shipping Philippines Inc. successfully planted 1000 Nara seedlings...",
+      "summary": "Watch as we take a step towards a greener future!",
       "content": "NAESS Shipping Philippines Inc. successfully planted 1000 Nara seedlings in collaboration with DENR-CENRO Guiguinto, Bulacan, as part of our commitment to environmental stewardship under PPA Administrative Order No. 14-2020. This initiative took place at  Ipo Dam, Mt. Balagbag, Montalban, Rizal on 15 March 2025. Together, we're working to restore and protect nature for generations to come.",
-      "image": "/images/news/tree-planting.webp",
+      "image": [
+        "/images/news/03-15-2025/img-1.jpg",
+        "/images/news/03-15-2025/img-2.jpg",
+        "/images/news/03-15-2025/img-3.jpg",
+        "/images/news/03-15-2025/img-4.jpg",
+        "/images/news/03-15-2025/img-5.jpg",
+        "/images/news/03-15-2025/img-6.jpg",
+        "/images/news/03-15-2025/img-7.jpg",
+        "/images/news/03-15-2025/img-8.jpg"
+      ],
       "date": "2025-03-17",
       "author": "Marketing Team",
       "tags": ["Team Building", "Environment"]
@@ -17,7 +26,9 @@
       "title": "PMMA ALUMNI HOMECOMING 2025",
       "summary": "NAESS Shipping Philippines Inc. at the PMMA Alumni Homecoming 2025...",
       "content": "NAESS Shipping Philippines Inc. at the PMMA Alumni Homecoming 2025 – attended by Operations Manager, Robinson Mandalones. Business Development Associate, Catrin Nombres and Recruitment Processor, Candie Salazar.",
-      "image": "/images/news/PMMA-ALUMNI.jpg",
+      "image": [
+        "/images/news/PMMA-ALUMNI.jpg"
+      ],
       "date": "2025-01-25",
       "author": "Finance Department",
       "tags": ["Alumni", "PMMA"]
@@ -28,7 +39,9 @@
       "title": "FLU VACCINE ACTIVITY",
       "summary": "NAESS crew and its employees actively participated in the Joint Flu Vaccination Activity at...",
       "content": "NAESS crew and its employees actively participated in the Joint Flu Vaccination Activity at the Dr. Mario S. Oca Memorial Hall, AMOSUP Seamen’s Hospital-Manila. A unified effort to promote wellness and protect the workforce—ensuring a healthier and safer future for all!",
-      "image": "/images/news/FLU-VAC.jpg",
+      "image": [
+        "/images/news/FLU-VAC.jpg"
+      ],
       "date": "2025-01-23",
       "author": "IT Department",
       "tags": ["Health", "Safety", "Environment"]
@@ -36,13 +49,21 @@
     {
       "id": 4,
       "type": "news",
-      "title": "CASE HANDLING POLICY AND PROCEDURE ORIENTATION",
-      "summary": "NAESS Shipping Philippines Inc. alongside its Managers kicks off an insightful Orientation/Overview session...",
-      "content": "NAESS Shipping Philippines Inc. alongside its Managers kicks off an insightful Orientation/Overview session, led by PANDIPHIL to provide key industry insights on matters relating to P&I case handling, policy and procedure.",
-      "image": "/images/news/Orientation.jpg",
-      "date": "2025-01-16",
+      "title": "Safety and Fire Drill Seminar 2025",
+      "summary": "NAESS Shipping Philippines Inc. proudly conducted the Safety and Fire Drill Seminar 2025, in collaboration with the Bureau of Fire Protection Manila Fire District - Paco Fire Sub Station.",
+      "content": "NAESS Shipping Philippines Inc. proudly conducted the Safety and Fire Drill Seminar 2025, in collaboration with the Bureau of Fire Protection Manila Fire District - Paco Fire Sub Station. This essential seminar aimed to enhance awareness and preparedness in emergency situations, equipping participants with critical knowledge and skills to respond effectively in the event of a fire or safety-related crisis. Through a series of informative sessions and practical drills, attendees were taught life-saving techniques, safety protocols, and the importance of teamwork during an emergency. By fostering a culture of safety and readiness, NAESS Shipping Philippines Inc. continues to prioritize the well-being of its employees and the community, ensuring that everyone is equipped to act swiftly and confidently in times of need.",
+      "image": [
+        "/images/news/03-28-2025/img-1.jpg",
+        "/images/news/03-28-2025/img-2.jpg",
+        "/images/news/03-28-2025/img-3.jpg",
+        "/images/news/03-28-2025/img-4.jpg",
+        "/images/news/03-28-2025/img-5.jpg",
+        "/images/news/03-28-2025/img-6.jpg",
+        "/images/news/03-28-2025/img-7.jpg"
+      ],
+      "date": "2025-03-28",
       "author": "IT Department",
-      "tags": ["Orientation", "Customer Experience"]
+      "tags": ["Safety", "Fire Drill", "Seminar"]
     },
     {
       "id": 5,
@@ -50,7 +71,9 @@
       "title": "Company Achieves Carbon Neutrality",
       "summary": "We\"re proud to announce that we\"ve achieved carbon neutrality across all our operations globally.",
       "content": "We\"re proud to announce that we\"ve achieved carbon neutrality across all our operations globally. This milestone represents years of dedicated effort to reduce our environmental footprint through energy efficiency measures, renewable energy adoption, and strategic carbon offset investments. Moving forward, we\"re committed to maintaining this status and working towards more ambitious sustainability goals, including zero waste operations by 2030 and helping our customers reduce their own environmental impact through our products and services.",
-      "image": "/api/placeholder/400/250",
+      "image": [
+        "/api/placeholder/400/250"
+      ],
       "date": "2025-02-20",
       "author": "Sustainability Team",
       "tags": ["Milestones", "Corporate Responsibility"]
@@ -61,8 +84,10 @@
       "title": "Product Training Webinar",
       "summary": "Join our product specialists for a comprehensive training session on our latest software release.",
       "content": "Join our product specialists for a comprehensive training session on our latest software release. This webinar will cover new features, best practices, and tips for maximizing value from our platform. We\"ll demonstrate several real-world use cases and provide participants with access to additional resources to support their ongoing learning. There will also be a live Q&A session where you can get answers to your specific questions from our product experts.",
-      "image": "/api/placeholder/400/250",
-      "date": "2025-03-28",
+      "image": [
+        "/api/placeholder/400/250"
+      ],
+      "date": "2025-01-28",
       "location": "Virtual",
       "time": "11:00 AM - 12:30 PM",
       "tags": ["Webinar", "Training"]
@@ -73,7 +98,9 @@
       "title": "New Partnership Announced",
       "summary": "We\"re excited to announce a strategic partnership with InnovateTech to expand our market reach.",
       "content": "We\"re excited to announce a strategic partnership with InnovateTech to expand our market reach. This collaboration will combine our industry-leading solutions with InnovateTech\"s advanced technology platform, creating a more comprehensive offering for our joint customers. The partnership includes co-development of new features, integrated product roadmaps, and joint go-to-market strategies. Early pilots with select customers have shown promising results, with simplified workflows and enhanced capabilities.",
-      "image": "/api/placeholder/400/250",
+      "image": [
+        "/api/placeholder/400/250"
+      ],
       "date": "2025-02-15",
       "author": "Business Development Team",
       "tags": ["Partnership", "Business"]
@@ -84,8 +111,10 @@
       "title": "Industry Networking Mixer",
       "summary": "An evening of networking with industry peers, featuring refreshments and a panel discussion.",
       "content": "An evening of networking with industry peers, featuring refreshments and a panel discussion. This relaxed event provides a perfect opportunity to connect with other professionals in your field, share experiences, and discover potential collaboration opportunities. The panel discussion will explore current industry trends and future predictions, with plenty of time for audience questions and discussion. Attendance is limited to ensure quality interactions, so early registration is recommended.",
-      "image": "/api/placeholder/400/250",
-      "date": "2025-04-15",
+      "image": [
+        "/api/placeholder/400/250"
+      ],
+      "date": "2025-01-15",
       "location": "New York, NY",
       "time": "6:00 PM - 9:00 PM",
       "tags": ["Networking", "Industry"]
@@ -223,21 +252,27 @@
         "id": 1,
         "name": "John Doe",
         "position": "LPG Gas Specialist",
-        "image": "/api/placeholder/100/100",
+        "image": [
+          "/api/placeholder/100/100"
+        ],
         "text": "Joining this company was one of the best decisions of my career. The collaborative environment and growth opportunities are unmatched!"
       },
       {
         "id": 2,
         "name": "Jane Doe",
         "position": "Marine",
-        "image": "/api/placeholder/100/100",
+        "image": [
+          "/api/placeholder/100/100"
+        ],
         "text": "I've never worked anywhere that values creativity and innovation as much as this company. Every day brings new challenges and opportunities to learn."
       },
       {
         "id": 3,
         "name": "John Weck",
         "position": "Cadet",
-        "image": "/api/placeholder/100/100",
+        "image": [
+          "/api/placeholder/100/100"
+        ],
         "text": "The supportive culture here has helped me develop both professionally and personally. I feel valued and empowered to contribute my best work."
       }
     ],

@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const response = await fetch(`${API_URL}/news/api`);
+        const response = await fetch('/api/news');
         if (!response.ok) throw new Error("Failed to fetch news");
         const data = await response.json();
         setNewsArticles(data); // Update state with fetched data

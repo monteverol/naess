@@ -5,8 +5,6 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { use, useEffect, useState } from "react";
 import NewsArticle from "../components/ui/NewsArticle";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
-
 const NewsPage = ({ params }) => {
   const unwrappedParams = use(params);
   const { newsId } = unwrappedParams;
@@ -14,6 +12,9 @@ const NewsPage = ({ params }) => {
   const [newsItem, setNewsItem] = useState(null);
   const [otherNews, setOtherNews] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [photoIndex, setPhotoIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -58,7 +59,7 @@ const NewsPage = ({ params }) => {
           | By {newsItem.author}
         </p>
         <img
-          src={newsItem.image}
+          src={newsItem.image[0]}
           alt={newsItem.title}
           className="w-full h-80 object-cover my-4 rounded-md"
         />
@@ -78,12 +79,41 @@ const NewsPage = ({ params }) => {
         {/* <p className="text-lg font-semibold">{newsItem.summary}</p> */}
         <p className="mt-4 text-gray-700 text-xl">{newsItem.content}</p>
       </div>
+      
+      {/* GALLERY OF MULTIPLE PICTURES */}
+      {newsItem.image.length > 1 && (
+        <section className="max-w-6xl mx-auto p-6">
+          <h3 className="text-2xl font-semibold mb-4">Gallery</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {newsItem.image.map((img, index) => (
+              <div
+                key={index}
+                className="w-full h-64 overflow-hidden rounded-md shadow-lg cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
+                onClick={() => {
+                  setPhotoIndex(index);
+                  setIsModalOpen(true);
+                }}
+              >
+                <img
+                  src={img}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      
+      {/* LATEST NEWS CAROUSEL */}
       <section className="p-8 md:px-20 lg:px-40 w-full overflow-hidden">
         <h3 className="font-bold text-4xl mb-4">Latest News</h3>
         <div className="flex gap-4 w-full overflow-x-auto">
           {
             otherNews.map(item => (
-              <div className="max-w-[calc(100%/3-1rem)] flex-shrink-0" key={item.id}>
+              <div className="max-w-full md:max-w-[calc(100%/2-1rem)] lg:max-w-[calc(100%/3-1rem)] flex-shrink-0" key={item.id}>
                 <NewsArticle item={item} />
               </div>
             ))
@@ -91,6 +121,47 @@ const NewsPage = ({ params }) => {
         </div>
       </section>
       <Footer />
+
+      {/* MODAL OVERLAY */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.8)] flex items-center justify-center"
+          onClick={() => setIsModalOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') setIsModalOpen(false);
+          }}
+          tabIndex={0}
+        >
+          <div className="relative max-w-7xl w-full mx-4 bg-white p-2 rounded-xl" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={newsItem.image[photoIndex]}
+              alt={`Gallery image ${photoIndex + 1}`}
+              className="w-full max-h-[80vh] object-contain rounded-lg"
+            />
+
+            {/* Prev button */}
+            {photoIndex > 0 && (
+              <button
+                onClick={() => setPhotoIndex((prev) => prev - 1)}
+                className="absolute -left-8 top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold bg-[rgba(0,0,0,0.6)] hover:bg-[rgba(0,0,0,0.8)] cursor-pointer w-16 h-16 rounded-full"
+              >
+                &#10094;
+              </button>
+            )}
+
+            {/* Next button */}
+            {photoIndex < newsItem.image.length - 1 && (
+              <button
+                onClick={() => setPhotoIndex((prev) => prev + 1)}
+                className="absolute -right-8 top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold bg-[rgba(0,0,0,0.6)] hover:bg-[rgba(0,0,0,0.8)] cursor-pointer w-16 h-16 rounded-full"
+              >
+                &#10095;
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
     </>
   );
 };
