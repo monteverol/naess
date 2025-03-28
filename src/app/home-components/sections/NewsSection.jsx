@@ -1,4 +1,5 @@
 import NewsArticle from "../../news/components/ui/NewsArticle";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 export default function NewsSection({ newsArticles }) {
 
@@ -10,11 +11,12 @@ export default function NewsSection({ newsArticles }) {
       </article>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
-          newsArticles.slice(0, 3).map(item => (
-            <NewsArticle 
-              key={item.id}
-              item={item}
-            />
+          !newsArticles || newsArticles.length === 0 ? (
+            <li className="col-span-full flex justify-center">
+              <LoadingSpinner />
+            </li>
+          ) : newsArticles.slice(0, 3).map(item => (
+            <NewsArticle key={item.id} item={item} />
           ))
         }
       </ul>

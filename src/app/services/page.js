@@ -7,6 +7,7 @@ import ServicesSection from './sections/ServicesSection';
 import StatsSection from './sections/StatsSection';
 import ProcessDiagramSection from './sections/ProcessDiagramSection';
 import CTASection from './sections/CTASection';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function Services() {
   const [activeService, setActiveService] = useState(null);
@@ -101,6 +102,10 @@ export default function Services() {
       <main className="min-h-screen">
         {/* Hero Section */}
         <HeaderSection />
+
+        <section className="px-8 lg:px-20 xl:px-40 w-full bg-white py-4">
+          <Breadcrumbs />
+        </section>
 
         {/* Services Grid */}
         <ServicesSection

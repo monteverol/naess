@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Menu, X, ArrowRight } from 'lucide-react';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 const AboutUsPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,6 +96,10 @@ const AboutUsPage = () => {
             </div>
           </div>
         </header>
+
+        <section className="px-8 lg:px-20 xl:px-40 w-full bg-white py-4">
+          <Breadcrumbs />
+        </section>
 
         {/* Company Profile */}
         <section id="company" className="py-12 px-4 bg-white lg:px-20 xl:px-40">

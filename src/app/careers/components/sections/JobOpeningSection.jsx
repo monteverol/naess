@@ -1,6 +1,7 @@
 import { Search } from 'lucide-react';
 import JobTile from "../ui/JobTile";
 import { useState } from 'react';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function JobOpeningSection({ jobOpenings }) {
   const [activeJobCategory, setActiveJobCategory] = useState('All');

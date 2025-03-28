@@ -6,6 +6,7 @@ import Header from './components/sections/HeaderSection';
 import NewsLetter from './components/sections/NewsletterSection';
 import TabAndSearch from './components/sections/TabandSearchSection';
 import NewsArticle from './components/ui/NewsArticle';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function News() {
   const [activeTab, setActiveTab] = useState('all');
@@ -16,14 +17,13 @@ export default function News() {
   const [newsArticles, setNewsArticles] = useState([]);
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  // Fetch news articles from the API
   useEffect(() => {
     async function fetchNews() {
       try {
-        const response = await fetch(`${API_URL}/news/api`);
+        const response = await fetch('/api/news');
         if (!response.ok) throw new Error("Failed to fetch news");
         const data = await response.json();
-        setNewsArticles(data); // Update state with fetched data
+        setNewsArticles(data);
       } catch (error) {
         console.error("Error fetching news:", error);
       }
@@ -87,6 +87,10 @@ export default function News() {
     <div className="font-sans min-h-screen">
       {/* Header */}
       <Header />
+
+      <section className="px-8 lg:px-20 xl:px-40 w-full bg-white py-4">
+        <Breadcrumbs />
+      </section>
 
       {/* Main Content */}
       <main className="w-full lg:px-20 xl:px-40 mx-auto px-4 py-8 bg-white">

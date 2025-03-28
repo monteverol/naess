@@ -6,6 +6,7 @@ import PartnerTile from './components/ui/PartnerTile';
 import Header from './components/sections/HeaderSection';
 import FilterClients from './components/sections/FilterClientsSection';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -34,7 +35,7 @@ const Clients = () => {
   useEffect(() => {
     async function fetchClients() {
       try {
-        const response = await fetch(`${API_URL}/clients/api`);
+        const response = await fetch('api/clients');
         if (!response.ok) throw new Error("Failed to fetch news.");
         const data = await response.json();
         setClients(data);
@@ -68,6 +69,10 @@ const Clients = () => {
       {/* Hero Section with Background */}
       <Header />
       
+      <section className="px-8 lg:px-20 xl:px-40 w-full bg-white py-4">
+        <Breadcrumbs />
+      </section>
+
       {/* Client Filter Categories */}
       <FilterClients
         industries={industries}
