@@ -49,7 +49,7 @@ const NewsPage = ({ params }) => {
     <>
       <div className="max-w-6xl mx-auto p-6 mt-20">
         <Breadcrumbs />
-        <h1 className="text-8xl font-bold mb-4">{newsItem.title}</h1>
+        <h1 className="text-8xl font-bold mb-4 capitalize">{newsItem.title}</h1>
         <p className="text-gray-500 text-lg italic">
           {new Date(newsItem.date).toLocaleDateString("en-US", {
             year: "numeric",
@@ -106,7 +106,9 @@ const NewsPage = ({ params }) => {
         </section>
       )}
 
-      
+      <div className="px-8 md:px-20 lg:px-40 mt-8">
+        <div className="w-full h-1 bg-gray-400"></div>
+      </div>
       {/* LATEST NEWS CAROUSEL */}
       <section className="p-8 md:px-20 lg:px-40 w-full overflow-hidden">
         <h3 className="font-bold text-4xl mb-4">Latest News</h3>

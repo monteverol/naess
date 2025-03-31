@@ -1,9 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Menu, X, ArrowRight } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Header from './components/section/HeaderSection';
+import CompanyProfileSection from './components/section/CompanyProfileSection';
+import NaessCaresSection from './components/section/NaessCaresSection';
+import HistorySection from './components/section/HistorySection';
+import BODSection from './components/section/BODSection';
+import PartnerhipsSection from './components/section/PartnershipsSection';
 
 const AboutUsPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,9 +60,46 @@ const AboutUsPage = () => {
   ];
 
   const milestones = [
-    { year: 1980, title: "Company Founded" },
-    { year: 1983, title: "Acquire and transfer to our own office at 2215 Leon Guinto St., Malate." },
-    { year: 1991, title: "Reached 100 mark of enrolled vessels, and the property we had acquired and held office in since 1983 was reconstructed into the 4-storey building that presently stands on Leon Guinto today." },
+    {
+      year: "1980",
+      title: "NAESS SHIPPING PHILIPPINES, INC. Founded",
+      description: "Established on October 24, 1980, by Capt. Pablo Gutierrez and Mr. Arturo Piree at the Army Navy Club in Manila. Initial operations began with 25 vessels."
+    },
+    {
+      year: "1983",
+      title: "Acquired New Office",
+      description: "Transferred to a new office located at 2215 Leon Guinto St., Malate, after successfully expanding the business within three years."
+    },
+    {
+      year: "1984",
+      title: "Computerization Program Implemented",
+      description: "Started implementing the computerization program to enhance efficiency and keep up with technological advancements."
+    },
+    {
+      year: "1991",
+      title: "Reconstruction of the Office",
+      description: "The property at 2215 Leon Guinto St. was reconstructed into a 4-storey building to accommodate business growth and provide better services."
+    },
+    {
+      year: "1993",
+      title: "Achieved 100 Enrolled Vessels",
+      description: "Surpassed the 100-mark of enrolled vessels with the Philippine Overseas Employment Administration (POEA), confirming the company’s acceptance and credibility in the shipping industry."
+    },
+    {
+      year: "2000",
+      title: "ISO 9001-2000 Certification Achieved",
+      description: "Certified by Det Norske Veritas in the ISO 9001-2000 Series Quality Standard, ensuring quality and excellence in services."
+    },
+    {
+      year: "2000s",
+      title: "Integration of Database with Website",
+      description: "Integrated the company’s database with the official website, allowing principals to access and download important documents and certificates online anytime."
+    },
+    {
+      year: "Present",
+      title: "Training Vessel Management",
+      description: "Managing the AMOSUP/ITF training vessel, the Kapitan Felix Oca, providing hands-on training programs for NSP seamen and other trainees."
+    }
   ];
 
   const missionValues = [
@@ -86,170 +128,26 @@ const AboutUsPage = () => {
 
       <main>
         {/* Hero Section */}
-        <header className="sticky top-16 -z-10 bg-[#1A384F] text-white">
-          <div className="relative px-4 py-6 mt-16 lg:px-20 xl:px-40">
-            <div className="mt-12 mb-16 text-center lg:text-start">
-              <h1 className="text-4xl font-bold mb-4">About Us</h1>
-              <p className="text-xl max-w-lg mx-auto lg:mx-0">
-                Discover our story, our people, and our mission
-              </p>
-            </div>
-          </div>
-        </header>
+        <Header />
 
         <section className="px-8 lg:px-20 xl:px-40 w-full bg-white py-4">
           <Breadcrumbs />
         </section>
 
         {/* Company Profile */}
-        <section id="company" className="py-12 px-4 bg-white lg:px-20 xl:px-40">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-[#1A384F]">Company Profile</h2>
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <img 
-                src="/images/about-us/BOD.jpg" 
-                alt="Image of Board of Directors" 
-                className="mb-6 w-full rounded-xl" 
-                loading='lazy'
-              />
-              <p className="mb-4">
-                NAESS SHIPPING PHILIPPINES, INC. was born on October 24, 1980 with the signing of the documents by Capt. Pablo Gutierrez and Mr. Arturo Piree at the Army Navy Club in Manila. Our first office had a staff of merely five employees at the mezzanine of the Pennville Building on Leon Guinto Street, Malate, Upon approval and registration with the Securities and Exchange Commission, in December of the same year, initial manning operations began with a modest number of 25 vessels. Within three years, we were able to acquire and transfer to our own office at 2215 Leon Guinto St., Malate.
-              </p>
-              <p className="mb-4">
-                Barely a decade of operations found NAESS SHIPPING PHILIPPINES, INC.in the service of eight principals, reaching the 100-mark of enrolled vessels with the Philippine Overseas Employment Administration ( POEA )-a positive confirmation and sure sign of the Shipping Industry’s acceptance and approval of our manning services. With business at its peak, on the first week of October 1991, the property we had acquired and held office in since 1983 was reconstructed into the 4-storey building that presently stands on Leon Guinto today.
-              </p>
-              <img 
-                src="/images/about-us/aaaisabellemigs.jpeg" 
-                alt="Image of Board of Directors" 
-                className="mb-6 w-full rounded-xl" 
-                loading='lazy'
-              />
-              <p className="mb-4">
-                Like everyone in the industry, we had our share of uphill struggles when we awoke one morning and found the Philippine economy in utter chaos. Affected by the currency crisis and other factors, adjustments had to be made. Thanks to the confidence of the international shipping industry in our integrity and quality service, recovery was just a matter of time. Despite temporary setbacks, NSP continued to enjoy its world-class distinction as one of the best manning agencies in the country.
-              </p>
-              <p>
-                In keeping with the rapid changes in technology, we implemented our computerization program as far back as 1984. Now, we have integrated our database with our web site to enable our principals to view on-line and download anytime all important documents and certificates relevant to our seafarers on board their vessels. We also boast of being certified by Det Norske Veritas in the ISO 9001-2000 Series Quality Standard with the Quality System Certificate and the Crew Manning Certificate. NSP is likewise engaged in Shipping Agent Services and Ship Management. It presently manages the AMOSUP/ITF training vessel, the Kapitan Felix Oca, wherein NSP seamen and other trainees engage in “hands-on” training programs.
-              </p>
-            </div>
-          </div>
-        </section>
+        <CompanyProfileSection />
 
-        {/* Mission and Vision */}
-        <section id="naess-cares" className="py-12 bg-gray-100 px-4 lg:px-20 xl:px-40">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-[#1A384F]">Our Mission & Values</h2>
-
-            {/* Column-wise fixed order */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[leftColumn, rightColumn].map((column, colIndex) => (
-                <div key={colIndex} className="flex flex-col gap-4">
-                  {column.map((value, index) => (
-                    <div key={index} className="bg-white rounded-lg shadow-md h-full flex overflow-hidden cursor-pointer group transition-all duration-300 hover:drop-shadow-lg">
-                      <div className="bg-[#1A384F] text-white font-bold text-2xl flex items-center justify-center w-16 flex-shrink-0 transition-all duration-300 group-hover:w-28 group-hover:text-4xl">
-                        {value.letter}
-                      </div>
-                      <div className="p-4 pr-8 flex flex-col justify-between flex-1">
-                        <h4 className="font-semibold text-lg text-[#1A384F] mb-2">{value.title}</h4>
-                        <p className="text-gray-700">{value.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-              <div className="flex items-center justify-center">
-                <p className="text-center text-lg font-medium text-[#1A384F]">
-                  Together, these values form the foundation of our approach: <span className="font-bold">Naess Cares</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* NAESS CARES */}
+        <NaessCaresSection leftColumn={leftColumn} rightColumn={rightColumn} />
 
         {/* History */}
-        <section id="history" className="py-12 px-4 bg-white lg:px-20 xl:px-40">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-[#1A384F]">Our History</h2>
-            
-            <div className="space-y-8">
-              {milestones.map((milestone, index) => (
-                <div key={index} className="flex">
-                  <div className="flex flex-col items-center mr-4">
-                    <div className="w-10 h-10 rounded-full bg-[#1A384F] flex items-center justify-center text-white font-bold">
-                      {index + 1}
-                    </div>
-                    {index < milestones.length - 1 && (
-                      <div className="h-full w-0.5 bg-indigo-200 my-2"></div>
-                    )}
-                  </div>
-                  <div className="bg-white rounded-lg shadow-md p-4 flex-1">
-                    <div className="font-bold text-[#1A384F]">{milestone.year}</div>
-                    <div>{milestone.title}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <HistorySection milestones={milestones} />
 
         {/* Leadership */}
-        <section id="leadership" className="py-12 bg-gray-100 px-4 lg:px-20 xl:px-40">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-[#1A384F]">Leadership Team</h2>
-            
-            <div className="space-y-4">
-              {leaders.map((leader) => (
-                <div key={leader.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <div 
-                    className="p-4 flex items-center justify-between cursor-pointer"
-                    onClick={() => setExpandedLeader(expandedLeader === leader.id ? null : leader.id)}
-                  >
-                    <div className="flex items-center">
-                      <img 
-                        src={leader.image} 
-                        alt={leader.name} 
-                        className="w-12 h-12 rounded-full object-cover mr-4" 
-                      />
-                      <div>
-                        <h3 className="font-semibold text-lg">{leader.name}</h3>
-                        <p className="text-gray-600 text-sm">{leader.title}</p>
-                      </div>
-                    </div>
-                    {expandedLeader === leader.id ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                  </div>
-                  
-                  {expandedLeader === leader.id && (
-                    <div className="px-4 pb-4">
-                      <p className="text-gray-700">{leader.bio}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* <BODSection leaders={leaders} expandedLeader={expandedLeader} setExpandedLeader={setExpandedLeader} /> */}
 
         {/* Partnerships */}
-        <section id="partnerships" className="py-12 px-4 bg-white lg:px-20 xl:px-40">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-[#1A384F]">Our Partners</h2>
-            
-            <div className="grid grid-cols-2 gap-4">
-              {partners.map((partner) => (
-                <div key={partner.id} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
-                  <img 
-                    src={partner.logo} 
-                    alt={`${partner.name} logo`} 
-                    className="h-16 object-contain mb-3" 
-                  />
-                  <p className="text-center font-medium">{partner.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PartnerhipsSection partners={partners} />
       </main>
 
       {/* Footer */}

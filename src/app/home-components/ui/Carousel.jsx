@@ -33,7 +33,7 @@ const Carousel = ({ items }) => {
       startTimeRef.current = Date.now();
       intervalRef.current = setInterval(() => {
         const elapsedTime = Date.now() - startTimeRef.current;
-        const newProgress = (elapsedTime / 3000) * 100;
+        const newProgress = (elapsedTime / 5000) * 100;
 
         if (newProgress >= 100) {
           nextSlide();
