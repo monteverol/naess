@@ -7,7 +7,7 @@ const NewsArticle = ({ item }) => {
       href={`/news/${item.id}`}
       passHref
     >
-      <article className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300">
+      <article className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 hover:scale-105">
         <img 
           src={item.image[0]} 
           alt={item.title} 

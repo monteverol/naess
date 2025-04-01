@@ -3,8 +3,8 @@ import { motion, useInView } from 'framer-motion';
 
 const CompanyProfileSection = () => {
   const sectionRef = useRef(null);
-  const isHeroVisible = useInView(sectionRef, { amount: 0.35 });
-  const isFeatureVisible = useInView(sectionRef, { amount: 0.445 });
+  const isHeroVisible = useInView(sectionRef, { amount: 0.3 });
+  const isFeatureVisible = useInView(sectionRef, { amount: 0.385 });
 
   return (
     <section 
@@ -32,7 +32,7 @@ const CompanyProfileSection = () => {
             className="hero-image relative overflow-hidden group"
           >
             <img 
-              src="/images/about-us/BOD.jpg" 
+              src="/images/about-us/BOD.jpeg" 
               alt="NAESS Shipping Board of Directors" 
               className="w-full h-full object-cover object-[50%_25%] transform hover:scale-105 transition-all duration-700" 
               loading="lazy"
@@ -101,6 +101,34 @@ const CompanyProfileSection = () => {
                 <p className="text-gray-700 leading-relaxed">
                   In keeping with the rapid changes in technology, we implemented our computerization program as far back as 1984. Now, we have integrated our database with our web site to enable our principals to view on-line and download anytime all important documents and certificates relevant to our seafarers on board their vessels. We also boast of being certified by Det Norske Veritas in the ISO 9001-2000 Series Quality Standard with the Quality System Certificate and the Crew Manning Certificate.
                 </p>
+              </div>
+            </div>
+            
+            {/* Highlight Box */}
+            <div className="mt-8 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <h4 className="text-lg font-semibold text-[#1A384F] mb-2">Excellence in Training</h4>
+              <p className="text-gray-700">
+                NSP is likewise engaged in Shipping Agent Services and Ship Management. It presently manages the AMOSUP/ITF training vessel, the Kapitan Felix Oca, wherein NSP seamen and other trainees engage in "hands-on" training programs.
+              </p>
+            </div>
+
+            {/* Stats and Achievements */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+              <div className="text-center p-4">
+                <p className="text-3xl font-bold text-blue-600">40+</p>
+                <p className="text-gray-600 text-sm">Years of Experience</p>
+              </div>
+              <div className="text-center p-4">
+                <p className="text-3xl font-bold text-blue-600">100+</p>
+                <p className="text-gray-600 text-sm">Vessels Managed</p>
+              </div>
+              <div className="text-center p-4">
+                <p className="text-3xl font-bold text-blue-600">ISO</p>
+                <p className="text-gray-600 text-sm">9001-2000 Certified</p>
+              </div>
+              <div className="text-center p-4">
+                <p className="text-3xl font-bold text-blue-600">Global</p>
+                <p className="text-gray-600 text-sm">Service Network</p>
               </div>
             </div>
           </div>

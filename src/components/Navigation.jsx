@@ -38,6 +38,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
     { name: "News & Events", to: "/news" },
     { name: "Careers", to: "/careers" },
     { name: "Contact Us", to: "/contact-us" },
+    { name: "Gallery", to: "/gallery" }
   ];
 
   const isLandingPage = pathname === "/"; 

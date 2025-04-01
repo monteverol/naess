@@ -49,7 +49,7 @@ const NewsPage = ({ params }) => {
     <>
       <div className="max-w-6xl mx-auto p-6 mt-20">
         <Breadcrumbs />
-        <h1 className="text-8xl font-bold mb-4 capitalize">{newsItem.title}</h1>
+        <h1 className="text-6xl lg:text-8xl font-bold mb-4 capitalize">{newsItem.title}</h1>
         <p className="text-gray-500 text-lg italic">
           {new Date(newsItem.date).toLocaleDateString("en-US", {
             year: "numeric",
@@ -112,9 +112,9 @@ const NewsPage = ({ params }) => {
       {/* LATEST NEWS CAROUSEL */}
       <section className="p-8 md:px-20 lg:px-40 w-full overflow-hidden">
         <h3 className="font-bold text-4xl mb-4">Latest News</h3>
-        <div className="flex gap-4 w-full overflow-x-auto">
+        <div className="flex gap-4 w-full overflow-x-auto flex-col md:flex-row">
           {
-            otherNews.map(item => (
+            otherNews.slice(0, 3).map(item => (
               <div className="max-w-full md:max-w-[calc(100%/2-1rem)] lg:max-w-[calc(100%/3-1rem)] flex-shrink-0" key={item.id}>
                 <NewsArticle item={item} />
               </div>
