@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiFillTikTok, AiFillFacebook, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { FaLocationDot, FaPhone, FaAt } from "react-icons/fa6";
+import Link from 'next/link';
 
 const Footer = () => {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -33,16 +34,24 @@ const Footer = () => {
                 <h1 className="font-bold text-[16px] uppercase">Social Media</h1>
                 <ul className="flex flex-row gap-4">
                   <li>
-                    <AiFillTikTok size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    <Link href="https://www.tiktok.com/@naessshipping" target="_blank" rel="noopener noreferrer">
+                      <AiFillTikTok size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    </Link>
                   </li>
                   <li>
-                    <AiFillFacebook size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    <Link href="https://www.facebook.com/NSPI2215" target="_blank" rel="noopener noreferrer">
+                      <AiFillFacebook size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    </Link>
                   </li>
                   <li>
-                    <AiFillInstagram size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    <Link href="https://www.instagram.com/naessshipping/" target="_blank" rel="noopener noreferrer">
+                      <AiFillInstagram size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    </Link>
                   </li>
                   <li>
-                    <AiFillLinkedin size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    <Link href="https://www.linkedin.com/company/naess-shipping-philippines-inc/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                      <AiFillLinkedin size={32} className="cursor-pointer transition duration-200 active:scale-95" />
+                    </Link>
                   </li>
                 </ul>
               </article>

@@ -22,7 +22,7 @@ export default function DropdownList({ title, to = "#", items, textColor }) {
 
       {/* 🔹 Dropdown Menu */}
       <ul
-        className="absolute left-0 top-full bg-white text-gray-800 shadow-lg border border-gray-200 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out w-max min-w-[220px] rounded-lg pointer-events-none group-hover:pointer-events-auto"
+        className="absolute left-0 top-full bg-white text-gray-800 shadow-lg border border-gray-200 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out w-max min-w-[220px] rounded-lg pointer-events-none group-hover:pointer-events-auto overflow-hidden"
       >
         {items.map((item, index) => (
           <li key={index} className="hover:bg-gray-100 transition">

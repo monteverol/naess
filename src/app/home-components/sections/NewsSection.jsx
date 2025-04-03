@@ -1,7 +1,9 @@
 import NewsArticle from "../../news/components/ui/NewsArticle";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import { useRouter } from "next/navigation";
 
 export default function NewsSection({ newsArticles }) {
+  const router = useRouter();
 
   return(
     <section className="bg-white h-auto w-full px-8 md:px-20 lg:px-40 flex gap-[40px] py-8 flex-col justify-center">
@@ -20,7 +22,12 @@ export default function NewsSection({ newsArticles }) {
           ))
         }
       </ul>
-      <button type="button" role="button" className="w-[232px] h-[52px] text-black font-bold border-2 border-[#101112] rounded-[8px] cursor-pointer transition-all duration-200 active:scale-95 after:content-['>'] after:ml-4">
+      <button 
+        type="button" 
+        role="button" 
+        onClick={() => router.push('/news/page/1')}
+        className="w-[232px] h-[52px] text-black font-bold border-2 border-[#101112] rounded-[8px] cursor-pointer transition-all duration-200 active:scale-95 after:content-['>'] after:ml-4"
+      >
         See All News
       </button>
     </section>

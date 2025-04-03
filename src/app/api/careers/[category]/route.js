@@ -1,9 +1,11 @@
 // File: src/app/api/careers/[category]/route.js
 import { NextResponse } from "next/server";
+import { use } from "react";
 
 const API_URL = process.env.JSON_PUBLIC_API_URL || "http://localhost:5001";
 
 export async function GET(request, { params }) {
+  // const unwrappedParams = use(params);
   const { category } = params;
 
   const validKeys = ['job_vacancy', 'benefits', 'testimonials', 'faqs'];

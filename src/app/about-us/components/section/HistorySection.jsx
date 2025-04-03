@@ -56,13 +56,6 @@ const HistorySection = ({ milestones }) => {
           <div className="absolute -left-24 top-3/4 w-64 h-64 rounded-full bg-blue-200"></div>
         </div>
         
-        {/* Parallax ship silhouette */}
-        <div className="hidden lg:block absolute right-0 top-0 w-64 h-full opacity-10 pointer-events-none">
-          <div className="sticky top-0 pt-20 h-screen">
-            <div className="w-full h-full bg-[url('/ship-silhouette.png')] bg-no-repeat bg-contain bg-right"></div>
-          </div>
-        </div>
-        
         {/* Timeline content */}
         <div className="relative z-10 max-w-4xl mx-auto" itemProp="foundingDate">
           {milestones.map((milestone, index) => (

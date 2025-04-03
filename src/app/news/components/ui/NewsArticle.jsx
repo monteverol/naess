@@ -9,7 +9,7 @@ const NewsArticle = ({ item }) => {
     >
       <article className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 hover:scale-105">
         <img 
-          src={item.image[0]} 
+          src={item.feature_image} 
           alt={item.title} 
           className="w-full h-48 object-cover"
         />

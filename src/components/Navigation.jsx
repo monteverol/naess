@@ -25,20 +25,18 @@ export default function Navigation({ logoWhite, logoBlack }) {
     {
       name: "About Us",
       to: "/about-us",
-      dropdown: [
-        { name: "Company Profile", to: "/about-us#company" },
-        { name: "Naess Cares", to: "/about-us#naess-cares" },
-        { name: "History", to: "/about-us#history" },
-        { name: "Leadership / BOD", to: "/about-us#leadership" },
-        { name: "Partnerships", to: "/about-us#partnerships" },
-      ],
     },
     { name: "Services", to: "/services", },
     { name: "Clients", to: "/clients" },
     { name: "News & Events", to: "/news" },
     { name: "Careers", to: "/careers" },
-    { name: "Contact Us", to: "/contact-us" },
-    { name: "Gallery", to: "/gallery" }
+    { name: "Contact Us", 
+      dropdown: [
+        { name: "Partnership", to: "/contact-us/partnership" },
+        { name: "Inquire", to: "/contact-us/inquire" }
+      ]
+    },
+    // { name: "Gallery", to: "/gallery" }
   ];
 
   const isLandingPage = pathname === "/"; 

@@ -1,7 +1,8 @@
 import NewsPage from '@/app/news/components/NewsPage';
 
-export default function Page({ params }) {
-  const page = parseInt(params.page, 10);
+export default async function Page({ params }) {
+  const { page } = await params;
 
-  return <NewsPage pageNumber={isNaN(page) ? 1 : page} />;
+  const pageNumber = parseInt(page, 10);
+  return <NewsPage pageNumber={isNaN(pageNumber) ? 1 : pageNumber} />;
 }

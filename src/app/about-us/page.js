@@ -130,7 +130,7 @@ const AboutUsPage = () => {
         {/* Hero Section */}
         <Header />
 
-        <section className="px-8 lg:px-20 xl:px-40 w-full bg-white py-4">
+        <section className="px-8 lg:px-20 xl:px-40 w-full bg-blue-50 py-4">
           <Breadcrumbs />
         </section>
 

@@ -33,7 +33,6 @@ export default function Home() {
         console.error("Error fetching news:", error);
       }
     }
-
     fetchNews();
   }, []);
 

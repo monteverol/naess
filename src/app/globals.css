@@ -48,7 +48,13 @@
     @apply content-[''] absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 transition-all duration-200 ease-in-out;
   }
   .anchor:hover::after {
-    @apply w-full
+    @apply w-full;
+  }
+  .custom-job-input {
+    @apply block bg-gray-200 px-4 py-2 w-full rounded-md outline-none transition-all duration-300 uppercase relative focus:bg-gray-50;
+  }
+  .custom-job-input:focus {
+    @apply border-b-2 border-blue-400 rounded-b-none
   }
 }
 
@@ -57,4 +63,84 @@ body {
   color: var(--foreground);
   font-family: "Montserrat", sans-serif;
   color: black;
+}
+
+.innerHTML p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#rank-math-toc {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+#rank-math-toc h2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+#rank-math-toc nav ul {
+  list-style-type: none;
+  margin-left: 60px;
+}
+
+#rank-math-toc nav ul li {
+  position: relative;
+  display: block;
+  transition: all 0.3s ease-in-out;
+  padding: 0 16px;
+  border-radius: 8px;
+}
+
+#rank-math-toc nav ul li:hover {
+  background-color: #346EA0;
+  color: white;
+}
+
+#rank-math-toc nav ul li:hover::before {
+  background: #1A384F;
+  left: -3rem;
+}
+
+#rank-math-toc nav ul li::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: #346EA0;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+#rank-math-toc nav ul li a {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.wp-block-heading {
+  font-weight: bold;
+  font-size: 48px;
+  position: relative;
+}
+
+.wp-block-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  height: 8px;
+  width: 200px;
+  background-color: #346EA0;
+  border-radius: 8px;
+}
+
+.wp-block-image img {
+  width: 100% !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #ccc;
 }

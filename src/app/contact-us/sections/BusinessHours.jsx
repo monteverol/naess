@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 const BusinessHours = () => {
   const hoursData = [
-    { day: 'Monday', hours: '6:00 AM - 7:00 PM' },
-    { day: 'Tuesday', hours: '6:00 AM - 7:00 PM' },
-    { day: 'Wednesday', hours: '6:00 AM - 7:00 PM' },
-    { day: 'Thursday', hours: '6:00 AM - 7:00 PM' },
-    { day: 'Friday', hours: '6:00 AM - 7:00 PM' }
+    { day: 'Monday', hours: '8:00 AM - 7:00 PM' },
+    { day: 'Tuesday', hours: '8:00 AM - 7:00 PM' },
+    { day: 'Wednesday', hours: '8:00 AM - 7:00 PM' },
+    { day: 'Thursday', hours: '8:00 AM - 7:00 PM' },
+    { day: 'Friday', hours: '8:00 AM - 7:00 PM' }
   ];
 
   const [isClient, setIsClient] = useState(false);

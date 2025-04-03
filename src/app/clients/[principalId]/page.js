@@ -3,6 +3,7 @@
 import { use, useEffect, useState } from "react";
 import Image from "next/image";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import Footer from "@/components/Footer";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
 
@@ -41,9 +42,9 @@ const PrincipalPage = ({ params }) => {
 
   return(
     <>
-      <section className={`mt-20 px-8 md:px-20 lg:px-40 py-8 flex flex-col gap-8 lg:flex-row items-center ${principalData.vessels ? "justify-between" : "justify-center"}`}>
+      <section className={`mt-20 px-8 md:px-20 lg:px-40 py-8 flex flex-col gap-8 lg:flex-row ${principalData.vessels ? "justify-between items-start" : "justify-center items-center"}`}>
         <article className="w-full lg:w-[600px] flex flex-col items-center lg:items-start">
-          <h2 className="text-4xl font-bold mb-4">{principalData.name}</h2>
+          <h2 className="text-6xl font-bold mb-4">{principalData.name}</h2>
           <Breadcrumbs />
           <Image
             src={principalData.logo}
@@ -56,16 +57,16 @@ const PrincipalPage = ({ params }) => {
           </p>
         </article>
         {principalData.vessels && (
-          <section className="grid grid-cols-2 xl:grid-cols-3 gap-4">
+          <section className="w-1/2 grid grid-cols-2 xl:grid-cols-3 gap-4">
             {
               principalData.vessels.map((vessel, index) => (
                 <section
                   key={index} 
                   onClick={() => setSelectedImage(vessel)}
-                  className="rounded-md cursor-pointer overflow-hidden relative w-60 h-40 drop-shadow-md transition-all duration-300 hover:scale-105 active:scale-95"
+                  className="rounded-md cursor-pointer overflow-hidden relative w-full h-40 drop-shadow-md transition-all duration-300 hover:scale-105 active:scale-95"
                   style={{
                     background: `
-                      linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('${vessel}')
+                      linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('${vessel}')
                       no-repeat center/cover
                     `
                   }}
@@ -77,6 +78,7 @@ const PrincipalPage = ({ params }) => {
           </section>
         )}
       </section>
+      <Footer />
 
       {/* MODAL */}
       {selectedImage && (

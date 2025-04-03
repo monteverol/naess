@@ -9,7 +9,7 @@ const CompanyProfileSection = () => {
   return (
     <section 
       id="company" 
-      className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white lg:px-20 xl:px-40"
+      className="py-16 px-4 bg-gradient-to-b from-blue-50 to-gray-50 lg:px-20 xl:px-40"
       ref={sectionRef}
     >
       <div className="container mx-auto max-w-6xl">

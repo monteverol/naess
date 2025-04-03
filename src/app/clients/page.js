@@ -7,8 +7,11 @@ import Header from './components/sections/HeaderSection';
 import FilterClients from './components/sections/FilterClientsSection';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { useRouter } from 'next/navigation';
+import IndustryRecognition from './components/sections/IndustryRecognitionSection';
 
 const Clients = () => {
+  const router = useRouter();
   const [activeCategory, setActiveCategory] = useState('All');
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const partnershipBenefits = [
@@ -125,15 +128,29 @@ const Clients = () => {
         <div className="container mx-auto">
           <h2 className="text-xl font-semibold mb-6 text-gray-800 px-4 lg:px-0">What Our Clients Say</h2>
           
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <blockquote className="italic text-gray-600 mb-4">
-              "NAESS Shipping has been an invaluable partner for our maritime logistics needs. Their professionalism and reliability have helped us streamline our operations and grow our business."
-            </blockquote>
-            <div className="flex items-center">
-              <div className="bg-gray-300 w-10 h-10 rounded-full mr-3"></div>
-              <div>
-                <cite className="font-medium text-gray-800 not-italic">Maria Santos</cite>
-                <p className="text-sm text-gray-500">Operations Director, Global Maritime Transport</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <blockquote className="italic text-gray-600 mb-4">
+                "NAESS Shipping has been an invaluable partner for our maritime logistics needs. Their professionalism and reliability have helped us streamline our operations and grow our business."
+              </blockquote>
+              <div className="flex items-center">
+                <div className="bg-gray-300 min-w-10 max-w-10 min-h-10 max-h-10 rounded-full mr-3"></div>
+                <div>
+                  <cite className="font-medium text-gray-800 not-italic">Maria Santos</cite>
+                  <p className="text-sm text-gray-500">Operations Director, Global Maritime Transport</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <blockquote className="italic text-gray-600 mb-4">
+                "NAESS Shipping has been an invaluable partner for our maritime logistics needs. Their professionalism and reliability have helped us streamline our operations and grow our business."
+              </blockquote>
+              <div className="flex items-center">
+                <div className="bg-gray-300 min-w-10 max-w-10 min-h-10 max-h-10 rounded-full mr-3"></div>
+                <div>
+                  <cite className="font-medium text-gray-800 not-italic">Maria Santos</cite>
+                  <p className="text-sm text-gray-500">Operations Director, Global Maritime Transport</p>
+                </div>
               </div>
             </div>
           </div>
@@ -148,72 +165,12 @@ const Clients = () => {
             Experience the premium shipping and logistics services that have earned us the trust of industry leaders across Asia.
           </p>
           
-          {!showForm && !formSubmitted ? (
-            <button 
-              onClick={() => setShowForm(true)}
-              className="bg-[#B3D2F4] text-[#1A384F] font-bold px-6 py-3 rounded-md hover:bg-[#9dc1e8] transition duration-200 active:scale-95 shadow-lg"
-            >
-              Become a Client
-            </button>
-          ) : formSubmitted ? (
-            <div className="bg-green-100 text-green-800 p-4 rounded-md">
-              <p className="font-medium">Thank you for your interest!</p>
-              <p className="text-sm">Our team will contact you shortly to discuss your shipping needs.</p>
-            </div>
-          ) : (
-            <div className="bg-white rounded-lg p-6 max-w-md mx-auto shadow-lg">
-              <h3 className="text-blue-800 font-semibold mb-4">Request Information</h3>
-              <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block text-gray-700 text-sm font-medium mb-1">Company Name</label>
-                  <input 
-                    type="text"
-                    id="name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-1">Business Email</label>
-                  <input 
-                    type="email"
-                    id="email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="service" className="block text-gray-700 text-sm font-medium mb-1">Service Interested In</label>
-                  <select 
-                    id="service"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800"
-                    required
-                  >
-                    <option value="">Select a service</option>
-                    <option value="cargo">Cargo Shipping</option>
-                    <option value="logistics">Logistics Solutions</option>
-                    <option value="freight">Freight Forwarding</option>
-                    <option value="other">Other Services</option>
-                  </select>
-                </div>
-                <div className="flex justify-between">
-                  <button 
-                    type="button" 
-                    onClick={() => setShowForm(false)}
-                    className="px-4 py-2 text-blue-600 hover:text-blue-800"
-                  >
-                    Cancel
-                  </button>
-                  <button 
-                    type="submit"
-                    className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-                  >
-                    Submit Request
-                  </button>
-                </div>
-              </form>
-            </div>
-          )}
+          <button 
+            onClick={() => router.push('/contact-us/partnership')}
+            className="bg-[#B3D2F4] text-[#1A384F] font-bold px-6 py-3 rounded-md hover:bg-[#9dc1e8] transition duration-200 active:scale-95 shadow-lg cursor-pointer"
+          >
+            Become a Client
+          </button>
         </div>
       </section>
       
@@ -238,26 +195,7 @@ const Clients = () => {
       </section>
       
       {/* Industry Recognition - Optional */}
-      <section className="py-8 bg-gray-100 px-8 lg:px-20 xl:px-40">
-        <div className="container mx-auto">
-          <h2 className="text-xl font-semibold mb-6 text-gray-800">Industry Recognition</h2>
-          
-          <div className="flex justify-center space-x-6 overflow-x-auto py-4">
-            <div className="flex-shrink-0 flex flex-col items-center">
-              <div className="bg-gray-300 w-16 h-16 rounded-full mb-2"></div>
-              <span className="text-xs text-gray-600">Safety Award 2023</span>
-            </div>
-            <div className="flex-shrink-0 flex flex-col items-center">
-              <div className="bg-gray-300 w-16 h-16 rounded-full mb-2"></div>
-              <span className="text-xs text-gray-600">Best Logistics Provider</span>
-            </div>
-            <div className="flex-shrink-0 flex flex-col items-center">
-              <div className="bg-gray-300 w-16 h-16 rounded-full mb-2"></div>
-              <span className="text-xs text-gray-600">Green Shipping Excellence</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <IndustryRecognition />
       <Footer />
     </div>
   );

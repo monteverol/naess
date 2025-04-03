@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ServicesSection() {
+  const router = useRouter();
+
   const items = [
     { title: 'Recruitment', image: '/images/home/services/background/recruitment-bg.png', logo: '/images/home/services/icon/recruitment.png' },
     { title: 'Production', image: '/images/home/services/background/production-bg.webp', logo: '/images/home/services/icon/production.png' },
@@ -52,7 +55,7 @@ export default function ServicesSection() {
             style={{
               background: `
                 linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('${bgImage}')
-                no-repeat center/cover fixed
+                no-repeat center/cover
               `
             }}
           >
@@ -70,7 +73,10 @@ export default function ServicesSection() {
         )}
       </article>
 
-      <button className="w-[232px] h-[52px] rounded-[8px] font-semibold text-[20px] text-black border-2 border-[#101112] cursor-pointer transition duration-200 active:scale-95 after:content-['>'] after:ml-4" type="button" role="button">
+      <button 
+        onClick={() => router.push('/services')}
+        className="w-[232px] h-[52px] rounded-[8px] font-semibold text-[20px] text-black border-2 border-[#101112] cursor-pointer transition duration-200 active:scale-95 after:content-['>'] after:ml-4" type="button" role="button"
+      >
         See Services
       </button>
     </div>

@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function AboutSection() {
+  const router = useRouter();
+  
   return(
     <div className="h-auto py-8 bg-white flex items-center justify-center">
       <article className="px-8 lg:px-20 xl:px-40 flex flex-row w-full justify-between">
@@ -11,7 +14,12 @@ export default function AboutSection() {
               Established in 1980, NAESS Shipping Philippines, Inc. is a 100% Filipino-owned ship manning and management agency. With a legacy of excellence and integrity, we provide world-class maritime crewing solutions, ensuring the success of both seafarers and global shipping partners.
             </p>
           </section>
-          <button type="button" role="button" className="w-[260px] h-[52px] bg-[#346EA0] text-white font-semibold rounded-[8px] cursor-pointer transition duration-200 active:scale-95">
+          <button 
+            type="button" 
+            role="button" 
+            onClick={() => router.push('/about-us')}
+            className="w-[260px] h-[52px] bg-[#346EA0] text-white font-semibold rounded-[8px] cursor-pointer transition duration-200 active:scale-95"
+          >
             Learn More
           </button>
         </article> 
