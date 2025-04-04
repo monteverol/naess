@@ -12,7 +12,7 @@ const ServicesSection = ({ services, toggleService, activeService }) => {
             className={`
               rounded-xl shadow-md overflow-hidden 
               transition-all duration-300 ease-in-out 
-              hover:shadow-lg hover:-translate-y-1
+              hover:shadow-lg hover:-translate-y-1 hover:bg-blue-50
               ${activeService === service.id ? 'ring-2 ring-[#264D6C] scale-[1.02]' : 'border border-gray-200'}
               ${service.bgColor}
             `}

@@ -27,8 +27,7 @@ export default function Services() {
         "Vessel Enrollment",
         "Seafarer's Pool management"
       ],
-      icon: "👥",
-      bgColor: "bg-blue-50"
+      icon: "⚓",
     },
     {
       id: 2,
@@ -40,8 +39,7 @@ export default function Services() {
         "Medical examinations coordination",
         "Specialized training programs"
       ],
-      icon: "🏗️",
-      bgColor: "bg-green-50"
+      icon: "👥",
     },
     {
       id: 3,
@@ -53,8 +51,7 @@ export default function Services() {
         "Travel arrangements",
         "Dispatch coordination"
       ],
-      icon: "✈️",
-      bgColor: "bg-purple-50"
+      icon: "👷🏻",
     },
     {
       id: 4,
@@ -66,8 +63,7 @@ export default function Services() {
         "Off-signing coordination",
         "Repatriation arrangements"
       ],
-      icon: "⚓",
-      bgColor: "bg-yellow-50"
+      icon: "✏️",
     },
     {
       id: 5,
@@ -80,7 +76,6 @@ export default function Services() {
         "Real-time reporting"
       ],
       icon: "💻",
-      bgColor: "bg-red-50"
     },
     {
       id: 6,
@@ -93,7 +88,6 @@ export default function Services() {
         "Performance evaluation"
       ],
       icon: "📋",
-      bgColor: "bg-indigo-50"
     }
   ];
 
