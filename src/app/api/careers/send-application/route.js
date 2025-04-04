@@ -4,13 +4,14 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 
-const credentialsPath = path.join(process.cwd(), 'config', 'credentials.json');
-const credentials = JSON.parse(fs.readFileSync(credentialsPath, 'utf8'));
+// const credentialsPath = path.join(process.cwd(), 'config', 'credentials.json');
+// const credentials = JSON.parse(fs.readFileSync(credentialsPath, 'utf8'));
+console.log(process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'));
 
 const auth = new google.auth.GoogleAuth({
   credentials: {
-    client_email: credentials.client_email,
-    private_key: credentials.private_key,
+    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
   },
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
