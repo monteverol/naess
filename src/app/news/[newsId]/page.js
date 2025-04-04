@@ -128,7 +128,7 @@ const NewsPage = ({ params }) => {
         ></div>
       </div>
       
-      {/* GALLERY OF MULTIPLE PICTURES
+      {/* GALLERY OF MULTIPLE PICTURES */}
       {newsItem.image.length > 1 && (
         <section className="max-w-6xl mx-auto p-6">
           <h3 className="text-2xl font-semibold mb-4">Gallery</h3>
@@ -152,8 +152,8 @@ const NewsPage = ({ params }) => {
             ))}
           </div>
         </section>
-      )} */}
-      {/* GALLERY OF MULTIPLE PICTURES */}
+      )}
+      {/* GALLERY OF MULTIPLE PICTURES
       {newsItem.image.length > 1 && (
         <section className="max-w-6xl mx-auto p-6">
           <h3 className="text-2xl font-semibold mb-4">Gallery</h3>
@@ -178,7 +178,7 @@ const NewsPage = ({ params }) => {
             ))}
           </div>
         </section>
-      )}
+      )} */}
 
       <div className="px-8 md:px-20 lg:px-40 mt-8">
         <div className="w-full h-1 bg-gray-400"></div>
