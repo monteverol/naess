@@ -1,7 +1,6 @@
 import { Search } from 'lucide-react';
 import JobTile from "../ui/JobTile";
 import { useState } from 'react';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function JobOpeningSection({ jobOpenings }) {
   const [activeJobCategory, setActiveJobCategory] = useState('All');
@@ -14,6 +13,8 @@ export default function JobOpeningSection({ jobOpenings }) {
     .filter(job => job.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                   job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                   job.location.toLowerCase().includes(searchTerm.toLowerCase()));
+  
+
   
   return(
     <section id="job-openings" className="py-12 px-4 lg:px-20 xl:px-40 bg-white">
