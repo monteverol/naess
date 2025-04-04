@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import Header from './components/section/HeaderSection';
@@ -59,6 +59,23 @@ const AboutUsPage = () => {
     { id: 4, name: "AMOSUP", logo: "/images/clients/amosup-logo.png" }
   ];
 
+  const [clients, setClients] = useState([]);
+  
+  useEffect(() => {
+    async function fetchClients() {
+      try {
+        const response = await fetch('api/clients');
+        if (!response.ok) throw new Error("Failed to fetch news.");
+        const data = await response.json();
+        setClients(data);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    } 
+
+    fetchClients();
+  }, []);
+
   const milestones = [
     {
       year: "1980",
@@ -98,7 +115,7 @@ const AboutUsPage = () => {
     {
       year: "Present",
       title: "Training Vessel Management",
-      description: "Managing the AMOSUP/ITF training vessel, the Kapitan Felix Oca, providing hands-on training programs for NSP seamen and other trainees."
+      description: "Led by the young and gregarious Mr. Pedro Miguel F. Oca as President, NSP enjoys the trust and confidence of its foreign and domestic principals, equipping ships with the best trained, skilled and able-bodied seamen in the business. Among these companies are the Reefership Marine Services, Limited., Kuwait Oil Tanker Co. SAK, Sloman Neptun Schiffahrts-Aktiengesellschaft."
     }
   ];
 
@@ -147,7 +164,7 @@ const AboutUsPage = () => {
         {/* <BODSection leaders={leaders} expandedLeader={expandedLeader} setExpandedLeader={setExpandedLeader} /> */}
 
         {/* Partnerships */}
-        <PartnerhipsSection partners={partners} />
+        <PartnerhipsSection partners={clients} />
       </main>
 
       {/* Footer */}
