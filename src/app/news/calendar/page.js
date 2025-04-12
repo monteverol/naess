@@ -24,7 +24,9 @@ export default function CalendarDashboard() {
   };
 
   useEffect(() => {
-    localStorage.setItem('calendarReminders', JSON.stringify(reminders));
+    if (Object.keys(reminders).length > 0) {
+      localStorage.setItem('calendarReminders', JSON.stringify(reminders));
+    }
 
     const checkReminders = () => {
       const now = new Date();
@@ -44,8 +46,8 @@ export default function CalendarDashboard() {
             });
             playSound();
           } else {
-            alert(`Reminder: ${reminder.text} at ${formatTime(reminder.time)}`);
             playSound();
+            alert(`Reminder: ${reminder.text} at ${formatTime(reminder.time)}`);
           }
     
           setReminders(prev => {
@@ -115,11 +117,6 @@ export default function CalendarDashboard() {
       Notification.requestPermission();
     }
 
-    const savedReminders = localStorage.getItem('calendarReminders');
-    if (savedReminders) {
-      setReminders(JSON.parse(savedReminders));
-    }
-
     const fetchPublicReminders = async () => {
       try {
         const res = await fetch('/api/publicReminders'); // or directly from json-server if not proxied
@@ -141,6 +138,13 @@ export default function CalendarDashboard() {
     };
     
     fetchPublicReminders();
+  }, []);
+
+  useEffect(() => {
+    const savedReminders = localStorage.getItem('calendarReminders');
+    if (savedReminders) {
+      setReminders(JSON.parse(savedReminders));
+    }
   }, []);
 
   // Calendar navigation functions
