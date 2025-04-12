@@ -56,6 +56,15 @@
   .custom-job-input:focus {
     @apply border-b-2 border-blue-400 rounded-b-none
   }
+  .header {
+    @apply pl-8 py-2 relative
+  }
+  .header::after {
+    @apply content-[''] block absolute left-0 top-0 h-full w-2 rounded-full bg-blue-400
+  }
+  .required-field {
+    @apply after:content-['*'] after:text-red-500 after:text-xl after:ml-1
+  }
 }
 
 body {
@@ -92,6 +101,7 @@ body {
   transition: all 0.3s ease-in-out;
   padding: 0 16px;
   border-radius: 8px;
+  font-style: italic;
 }
 
 #rank-math-toc nav ul li:hover {
@@ -126,16 +136,18 @@ body {
   font-weight: bold;
   font-size: 48px;
   position: relative;
+  padding: 4px 40px;
 }
 
-.wp-block-heading::after {
+.wp-block-heading::before {
   content: '';
+  display: block;
   position: absolute;
-  bottom: -1rem;
   left: 0;
-  height: 8px;
-  width: 200px;
-  background-color: #346EA0;
+  top: 0;
+  height: 100%;
+  width: 8px;
+  background-color: #51a2ff;
   border-radius: 8px;
 }
 

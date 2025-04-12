@@ -99,7 +99,7 @@ const Clients = () => {
               >
                 <div 
                   key={client.id} 
-                  className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center"
+                  className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center group"
                 >
                   <img 
                     src={client.logo} 
@@ -108,8 +108,8 @@ const Clients = () => {
                     width="120"
                     height="80"
                   />
-                  <h3 className="text-center text-sm font-medium text-gray-700">{client.name}</h3>
-                  <p className="text-xs text-gray-500">{client.industry}</p>
+                  <h3 className="text-center text-sm font-medium text-gray-700 group-hover:text-lg transition-all duration-300 w-[80%]">{client.name}</h3>
+                  <p className="text-xs text-gray-500 group-hover:text-md transition-all duration-300">{client.industry}</p>
                 </div>
               </Link>
             ))}

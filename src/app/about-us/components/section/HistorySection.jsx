@@ -73,7 +73,7 @@ const HistorySection = ({ milestones }) => {
               <div 
                 className={`milestone-card bg-white rounded-lg shadow-lg p-6 flex-1 transition-all
                   duration-700 transform opacity-0 translate-y-8 hover:shadow-xl
-                  border-l-4 border-[#1A384F] hover:border-l-8`}
+                  border-l-4 border-[#1A384F] hover:border-l-8 hover:rounded-l-none`}
               >
                 <div className="font-bold text-xl text-[#1A384F] mb-2">{milestone.title}</div>
                 {milestone.description && (

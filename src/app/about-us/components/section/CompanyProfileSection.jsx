@@ -124,7 +124,7 @@ const CompanyProfileSection = () => {
               </div>
               <div className="text-center p-4">
                 <p className="text-3xl font-bold text-blue-600">ISO</p>
-                <p className="text-gray-600 text-sm">9001-2000 Certified</p>
+                <p className="text-gray-600 text-sm">9001-2015 Certified</p>
               </div>
               <div className="text-center p-4">
                 <p className="text-3xl font-bold text-blue-600">Global</p>

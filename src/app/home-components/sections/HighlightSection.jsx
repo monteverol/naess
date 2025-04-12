@@ -32,7 +32,7 @@ export default function HighlightSection() {
           </article>
           <article className="w-[240px] flex flex-col gap-[8px] items-center">
             <Image src="/images/home/facts/verified.png" alt="Badge Icon" width={100} height={100} />
-            <h3 className="text-[24px] font-bold text-white text-center">ISO 9001-2000 Certified</h3>
+            <h3 className="text-[24px] font-bold text-white text-center">ISO 9001-2015 Certified</h3>
           </article>
         </section>
       </article>

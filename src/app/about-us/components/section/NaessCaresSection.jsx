@@ -26,7 +26,7 @@ const NaessCaresSection = ({ leftColumn, rightColumn }) => {
         <div className="bg-white rounded-lg shadow-md p-6 mt-6">
           <div className="flex items-center justify-center">
             <p className="text-center text-lg font-medium text-[#1A384F]">
-              Together, these values form the foundation of our approach: <span className="font-bold">Naess Cares</span>
+              Together, these values form the foundation of our approach: <span className="font-bold italic">Naess Cares</span>
             </p>
           </div>
         </div>

@@ -1,8 +1,174 @@
 "use client";
+// import { useSession } from 'next-auth/react';
+// import { useRouter } from 'next/navigation';
+// import { useEffect, useState } from 'react';
+// import ApplicationForm from './components/ApplicationForm';
+// import ApplicationStatus from './components/ApplicationStatus';
+
+// export async function generateMetadata({ params }) {
+//   const job = await getJob(params.jobId); // You'll need to implement getJob
+  
+//   return {
+//     title: `${job.title} | YourCompany Careers`,
+//     description: job.description.substring(0, 160),
+//     openGraph: {
+//       title: `${job.title} | YourCompany Careers`,
+//       description: job.description.substring(0, 160),
+//       url: `https://yourcompany.com/careers/${params.jobId}`,
+//       siteName: 'YourCompany',
+//       images: [
+//         {
+//           url: 'https://yourcompany.com/images/og-careers.jpg',
+//           width: 1200,
+//           height: 630,
+//         },
+//       ],
+//       locale: 'en_US',
+//       type: 'website',
+//     },
+//     twitter: {
+//       card: 'summary_large_image',
+//       title: `${job.title} | YourCompany Careers`,
+//       description: job.description.substring(0, 160),
+//       images: ['https://yourcompany.com/images/og-careers.jpg'],
+//     },
+//   };
+// }
+
+// export default function JobPage({ params }) {
+//   const { data: session, status } = useSession();
+//   const router = useRouter();
+//   const [job, setJob] = useState(null);
+//   const [application, setApplication] = useState(null);
+//   const [isLoading, setIsLoading] = useState(true);
+
+//   useEffect(() => {
+//     if (status === 'unauthenticated') {
+//       router.push(`/login?callbackUrl=/careers/${params.jobId}`);
+//       return;
+//     }
+
+//     if (status === 'authenticated') {
+//       fetchJobAndApplication();
+//     }
+//   }, [status, params.jobId]);
+
+//   const fetchJobAndApplication = async () => {
+//     try {
+//       setIsLoading(true);
+//       const [jobRes, applicationRes] = await Promise.all([
+//         fetch(`/api/careers/${params.jobId}`),
+//         fetch(`/api/applications?jobId=${params.jobId}&userId=${session.user.id}`),
+//       ]);
+
+//       if (!jobRes.ok) throw new Error('Failed to fetch job');
+//       if (!applicationRes.ok) throw new Error('Failed to fetch application');
+
+//       const jobData = await jobRes.json();
+//       const applicationData = await applicationRes.json();
+
+//       setJob(jobData);
+//       setApplication(applicationData.length > 0 ? applicationData[0] : null);
+//     } catch (error) {
+//       console.error(error);
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   const handleSubmitApplication = async (formData) => {
+//     try {
+//       const response = await fetch('/api/applications', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//           jobId: params.jobId,
+//           userId: session.user.id,
+//           answers: formData,
+//         }),
+//       });
+
+//       if (!response.ok) throw new Error('Failed to submit application');
+
+//       const data = await response.json();
+//       setApplication(data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   const handleUpdateApplication = async (formData) => {
+//     try {
+//       const response = await fetch(`/api/applications/${application.id}`, {
+//         method: 'PUT',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//           answers: formData,
+//         }),
+//       });
+
+//       if (!response.ok) throw new Error('Failed to update application');
+
+//       const data = await response.json();
+//       setApplication(data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   if (isLoading) {
+//     return (
+//       <div className="min-h-screen flex items-center justify-center">
+//         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+//       </div>
+//     );
+//   }
+
+//   if (!job) {
+//     return (
+//       <div className="min-h-screen flex items-center justify-center">
+//         <p className="text-red-500">Job not found</p>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+//       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+//         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
+//           <h1 className="text-2xl font-bold text-gray-900">{job.title}</h1>
+//           <p className="mt-1 text-sm text-gray-500">{job.location} • {job.type}</p>
+//         </div>
+//         <div className="px-4 py-5 sm:p-6">
+//           <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: job.description }} />
+
+//           <div className="mt-8 border-t border-gray-200 pt-8">
+//             {application ? (
+//               <ApplicationStatus 
+//                 application={application} 
+//                 onEdit={handleUpdateApplication} 
+//                 job={job}
+//               />
+//             ) : (
+//               <ApplicationForm 
+//                 onSubmit={handleSubmitApplication} 
+//                 jobCategory={job.category}
+//               />
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 import { use, useEffect, useState } from "react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import MarineForm from "./forms/Marine";
+import SeafarerForm from "../components/forms/Seafarer";
 
 export default function JobPage({ params }) {
   const unwrappedParams = use(params)
@@ -14,6 +180,7 @@ export default function JobPage({ params }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [hasResume, setHasResume] = useState(false);
 
   const [userData, setUserData] = useState({
     rank: "",
@@ -31,6 +198,7 @@ export default function JobPage({ params }) {
     lastVesselExperience: "",
     lastSignOff: "",
     birthdate: "",
+    availabilityDate: "",
   });
 
   const calculateAge = (birthdate) => {
@@ -56,7 +224,6 @@ export default function JobPage({ params }) {
         console.log(foundJobItem)
         if (foundJobItem) {
           setJobItem(foundJobItem);
-
           setUserData((prev) => ({ ...prev, jobTitle: foundJobItem.title }));
         } else {
           console.error("Job not found");
@@ -77,8 +244,11 @@ export default function JobPage({ params }) {
   
     const formData = new FormData();
     formData.append("resume", file);
-    // You might want to store this in state
     setUserData(prev => ({ ...prev, resumeFile: file }));
+    setHasResume(true);
+    
+    // Here you would typically parse the resume and auto-fill fields
+    // For now, we'll just set hasResume to true to demonstrate the UI change
   };
 
   const handleEducationalAttainmentChange = (e) => {
@@ -112,9 +282,10 @@ export default function JobPage({ params }) {
       
       // Append job information
       formData.append('jobTitle', jobItem.title);
-      formData.append('jobLocation', jobItem.location);
       formData.append('jobType', jobItem.type);
       formData.append('jobCategory', jobItem.category);
+      formData.append('jobDivision', jobItem.division);
+      formData.append('jobClass', jobItem.class);
       formData.append('age', age);
 
       const response = await fetch('/api/careers/send-application', {
@@ -167,15 +338,13 @@ export default function JobPage({ params }) {
   return (
     <div className="mt-20 pt-8 pb-4 bg-blue-50">
       <div className="mx-auto max-w-5xl p-10 bg-white rounded-2xl shadow-xl relative">
-        <div className="absolute top-4 right-4">
-          <div className="w-4 h-4 bg-red-500 rounded-full cursor-pointer hover:bg-red-700"></div>
-        </div>
-        <h1 className="text-4xl font-bold mb-8 text-gray-800 text-center">{jobItem.title} Application Form</h1>
+        <h1 className="text-4xl font-bold mb-1 text-gray-800 text-center">{jobItem.title} Application Form</h1>
+        <h4 className="text-xl font-bold mb-8 text-gray-800 text-center">{jobItem.division}</h4>
         <div className="mb-6 text-gray-600">
           <Breadcrumbs />
-          <p className="text-lg"><strong>Location:</strong> {jobItem.location}</p>
           <p className="text-lg"><strong>Type:</strong> {jobItem.type}</p>
           <p className="text-lg"><strong>Category:</strong> {jobItem.category}</p>
+          <p className="text-lg"><strong>Available:</strong> {jobItem.vacancy}</p>
         </div>
         <div className="mb-6 text-gray-700">
           <h2 className="text-xl font-semibold mb-2">Job Description</h2>
@@ -196,7 +365,7 @@ export default function JobPage({ params }) {
           </div>
         )}
 
-        <MarineForm
+        <SeafarerForm
           handleSubmit={handleSubmit}
           userData={userData}
           setUserData={setUserData}
@@ -205,6 +374,7 @@ export default function JobPage({ params }) {
           handleEducationalAttainmentChange={handleEducationalAttainmentChange}
           handleResumeUpload={handleResumeUpload}
           isSubmitting={isSubmitting}
+          hasResume={hasResume}
         />
       </div>
     </div>

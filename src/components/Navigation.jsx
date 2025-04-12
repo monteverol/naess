@@ -10,7 +10,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(null);
-  const pathname = usePathname(); // Get current page path
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,15 +28,26 @@ export default function Navigation({ logoWhite, logoBlack }) {
     },
     { name: "Services", to: "/services", },
     { name: "Clients", to: "/clients" },
-    { name: "News & Events", to: "/news" },
-    { name: "Careers", to: "/careers" },
+    { name: "News & Events", 
+      to: "/news",
+      dropdown: [
+        { name: "News and Events", to: "/news" },
+        { name: "Calendar", to: "/news/calendar" },
+      ],
+    },
+    { name: "Careers",
+      to: "/careers",
+      dropdown: [
+        { name: "Onshores", to: "/careers/onshores" },
+        { name: "Seafarers", to: "/careers/seafarers" }
+      ],
+    },
     { name: "Contact Us", 
       dropdown: [
         { name: "Partnership", to: "/contact-us/partnership" },
         { name: "Inquire", to: "/contact-us/inquire" }
       ]
     },
-    // { name: "Gallery", to: "/gallery" }
   ];
 
   const isLandingPage = pathname === "/"; 
@@ -59,7 +70,7 @@ export default function Navigation({ logoWhite, logoBlack }) {
         </button>
 
         {/* 🔹 Desktop Menu */}
-        <ul className="hidden lg:flex flex-row gap-8">
+        <ul className="hidden lg:flex flex-row gap-8 items-center">
           {menuItems.map((item, index) =>
             item.dropdown ? (
               <DropdownList to={item.to} key={index} title={item.name} items={item.dropdown} textColor={scrolled || !isLandingPage ? "text-black" : "text-white"} />

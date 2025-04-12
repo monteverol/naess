@@ -1,7 +1,7 @@
 {
   "news": [
     {
-      "id": 1,
+      "id": "1",
       "type": "news",
       "title": "TREE PLANTING 2025",
       "summary": "Watch as we take a step towards a greener future!",
@@ -19,10 +19,13 @@
       ],
       "date": "2025-03-17",
       "author": "Marketing Team",
-      "tags": ["Team Building", "Environment"]
+      "tags": [
+        "Team Building",
+        "Environment"
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "type": "news",
       "title": "PMMA ALUMNI HOMECOMING 2025",
       "summary": "NAESS Shipping Philippines Inc. at the PMMA Alumni Homecoming 2025...",
@@ -33,10 +36,13 @@
       ],
       "date": "2025-01-25",
       "author": "Finance Department",
-      "tags": ["Alumni", "PMMA"]
+      "tags": [
+        "Alumni",
+        "PMMA"
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "type": "news",
       "title": "FLU VACCINE ACTIVITY",
       "summary": "NAESS crew and its employees actively participated in the Joint Flu Vaccination Activity at...",
@@ -47,10 +53,14 @@
       ],
       "date": "2025-01-23",
       "author": "IT Department",
-      "tags": ["Health", "Safety", "Environment"]
+      "tags": [
+        "Health",
+        "Safety",
+        "Environment"
+      ]
     },
     {
-      "id": 4,
+      "id": "4",
       "type": "news",
       "title": "Safety and Fire Drill Seminar 2025",
       "summary": "NAESS Shipping Philippines Inc. proudly conducted the Safety and Fire Drill Seminar 2025, in collaboration with the Bureau of Fire Protection Manila Fire District - Paco Fire Sub Station.",
@@ -67,10 +77,14 @@
       ],
       "date": "2025-03-28",
       "author": "IT Department",
-      "tags": ["Safety", "Fire Drill", "Seminar"]
+      "tags": [
+        "Safety",
+        "Fire Drill",
+        "Seminar"
+      ]
     },
     {
-      "id": 5,
+      "id": "5",
       "type": "news",
       "title": "Shipboard Familiarization for NAESS Cadets",
       "summary": "Providing hands-on learning experience, allowing cadets to gain practical knowledge and first-hand exposure to life and operations at sea.",
@@ -86,10 +100,14 @@
       ],
       "date": "2025-03-23",
       "author": "Cadets",
-      "tags": ["Familiarization", "Experience", "Future Maritime Professionals"]
+      "tags": [
+        "Familiarization",
+        "Experience",
+        "Future Maritime Professionals"
+      ]
     },
     {
-      "id": 6,
+      "id": "6",
       "type": "news",
       "title": "Shaping the future of skilled crews",
       "summary": "NAESS, in partnership with COMPASS Training Center, Inc., hosted a rigorous assessment for fitters.",
@@ -109,10 +127,13 @@
       ],
       "date": "2025-01-28",
       "author": "Maritime team",
-      "tags": ["Partnership", "Showcase"]
+      "tags": [
+        "Partnership",
+        "Showcase"
+      ]
     },
     {
-      "id": 7,
+      "id": "7",
       "type": "news",
       "title": "Management Review",
       "summary": "A Comprehensive Look Back at Our Journey of Excellence and Progress. ",
@@ -129,10 +150,14 @@
       ],
       "date": "2025-02-05",
       "author": "Business Development Team",
-      "tags": ["Management", "Review", "Empower"]
+      "tags": [
+        "Management",
+        "Review",
+        "Empower"
+      ]
     },
     {
-      "id": 8,
+      "id": "8",
       "type": "event",
       "title": "Team Building",
       "summary": "An evening of networking with industry peers, featuring refreshments and a panel discussion.",
@@ -141,13 +166,17 @@
       "image": [
         "/images/news/coming-soon.jpg"
       ],
-      "date": "2025-04-15",
-      "location": "New York, NY",
+      "date": "2025-05-02",
+      "location": "Calamba, Laguna",
       "time": "8:00 AM - 9:00 PM",
-      "tags": ["Bond", "Stronger Connection", "Fun"]
+      "tags": [
+        "Bond",
+        "Stronger Connection",
+        "Fun"
+      ]
     },
     {
-      "id": 9,
+      "id": "9",
       "type": "news",
       "title": "Anti-Piracy Awareness Training",
       "summary": "Empowering another batch of NAESS Crew with Anti-Piracy Awareness Training",
@@ -159,21 +188,48 @@
       ],
       "date": "2025-03-31",
       "author": "HR Management",
-      "tags": ["Awareness", "Anti-Piracy", "Training"]
+      "tags": [
+        "Awareness",
+        "Anti-Piracy",
+        "Training"
+      ]
+    }
+  ],
+  "announcements": [
+    {
+      "id": "1",
+      "title": "Holy Week",
+      "description": "No pasok April 14 - April 15, Half day sa April 16. Mag pray pray",
+      "date": "Apr 14, 2025 - April 16, 2025",
+      "type": "Close"
+    },
+    {
+      "id": "2",
+      "title": "Annual Maritime Conference 2025",
+      "description": "Join us for the Annual Maritime Conference happening on May 10, 2025. Early bird registration now open for all industry professionals.",
+      "date": "May 10, 2025",
+      "type": "Event"
+    },
+    {
+      "id": "3",
+      "title": "Service Expansion to Southeast Asia",
+      "description": "We're proud to announce our service expansion to cover major ports across Southeast Asia, starting next month.",
+      "date": "Jun 5, 2025",
+      "type": "Expansion"
     }
   ],
   "clients": [
-    { 
-      "id": 1, 
-      "name": "Kuwait Oil Tanker Company", 
-      "industry": "Oil and Gas Tankers", 
+    {
+      "id": "1",
+      "name": "Kuwait Oil Tanker Company",
+      "industry": "Oil and Gas Tankers",
       "logo": "/images/clients/kotc-logo.jpg",
       "description": "The Company is mainly involved in the ownership and management of tankers engaged in the transport of crude oil, refined petroleum products and liquefied petroleum gases (LPG). In addition, it also operates a Marine Agency Branch, acting as sole agent of all tankers calling at Kuwait's sea port and a Gas Branch for the filling and distribution of LPG cylinders for local industry and domestic consumption. As the transportation arm of KPC it operates, on a commercial basis, a modern balanced fleet of Very Large Crude Carriers (VLCCs), petroleum product tankers and LPG carriers to maintain a strategic coverage of KPC's oil exports to all corners of the globe. In spite of the general slackness conditions in the tankers industry all over the world during the current years, KOTC managed to keep its profitability above the regular average due to its intensive concern for reducing the operating expenses and its wise policy of replacing old ships at the appropriate times."
     },
-    { 
-      "id": 2,
-      "name": "Reefership Marine Services Ltd", 
-      "industry": "Maritime", 
+    {
+      "id": "2",
+      "name": "Reefership Marine Services Ltd",
+      "industry": "Maritime",
       "logo": "/images/clients/rfs-logo.jpg",
       "description": "The exclusive maritime transportation provider for Dole Fresh Fruit Co., and Dole Ocean Cargo Express, the commercial cargo subsidiary of Dole. Although incorporated in 1999 as Reefership Marine Services Ltd, the technical management staff of RMS have been responsible for Dole's fleet since 1986. Dole's fleet of vessels consist of conventional refrigerated pallet and refrigerated container vessels, the largest such dedicated refrigerated containerized fleet in the world.",
       "vessels": [
@@ -191,17 +247,17 @@
         "/images/clients/vessels/rfs/DOLE_012.png"
       ]
     },
-    { 
-      "id": 3, 
-      "name": "Sloman Neptun Schiffahrts AG", 
-      "industry": "Oil and Gas Tankers", 
+    {
+      "id": "3",
+      "name": "Sloman Neptun Schiffahrts AG",
+      "industry": "Oil and Gas Tankers",
       "logo": "/images/clients/sns-logo.png",
       "description": "Over 135 years of shipping experience, where professionals stand ready to solve all your transportation needs. Twenty-two modern tankers serve the global gas- and product oil markets, while four multipurpose vessels connect North Africa and other Mediterranean ports with Northern Europe through a scheduled liner service."
     },
-    { 
-      "id": 4, 
-      "name": "Associated Marine Officers and Seamen's Union of the Philippines", 
-      "industry": "Maritime", 
+    {
+      "id": "4",
+      "name": "Associated Marine Officers and Seamen's Union of the Philippines",
+      "industry": "Maritime",
       "logo": "/images/clients/amosup-logo.png",
       "description": "This company is a prominent union for Filipino seafarers, dedicated to safeguarding their rights and improving their working conditions. Established in the mid-20th century, the union champions the welfare of its members by offering a broad range of services, including legal support, health care, comprehensive training, and career development programs. Its mission extends beyond workplace advocacy to include robust community and family support initiatives, ensuring that both seafarers and their loved ones receive essential benefits and protections."
     }
@@ -210,75 +266,201 @@
     "job_vacancy": [
       {
         "id": 1,
-        "title": "3rd Engineer",
-        "location": "Malate, Manila",
+        "title": "C/O",
+        "class": "Seafarer",
         "type": "Full-time",
-        "category": "RMS",
-        "division": "VLCC",
+        "category": "SNS",
+        "division": "Prod/Oil Chem",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
         "qualifications": [
           "High School Graduate"
         ]
       },
       {
         "id": 2,
-        "title": "2AE",
-        "location": "Malate, Manila",
+        "title": "2/O",
+        "class": "Seafarer",
         "type": "Full-time",
-        "category": "RMS",
-        "division": "VLCC",
+        "category": "SNS",
+        "division": "Prod/Oil Chem",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
         "qualifications": [
           "High School Graduate"
         ]
       },
       {
         "id": 3,
-        "title": "5th Engineer",
-        "location": "Malate, Manila",
+        "title": "3/O",
+        "class": "Seafarer",
         "type": "Full-time",
-        "category": "KOTC",
-        "division": "VLCC",
+        "category": "SNS",
+        "division": "Prod/Oil Chem",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
         "qualifications": [
           "High School Graduate"
         ]
       },
       {
         "id": 4,
-        "title": "Gas Engineer",
-        "location": "Malate, Manila",
-        "type": "Contract",
+        "title": "Pump Man",
+        "class": "Seafarer",
+        "type": "Full-time",
         "category": "SNS",
-        "division": "VLCC",
+        "division": "Prod/Oil Chem",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
         "qualifications": [
-          "High School Graduate",
-          "Accredited Certification Scheme (ACS) training and assessment"
+          "High School Graduate"
         ]
       },
       {
         "id": 5,
-        "title": "3rd Officer",
-        "location": "Malate, Manila",
+        "title": "Gas Engineer",
+        "class": "Seafarer",
         "type": "Full-time",
-        "category": "AMOSUP",
-        "division": "Container Vessel",
+        "category": "SNS",
+        "division": "LPG",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
         "qualifications": [
           "High School Graduate"
         ]
       },
       {
         "id": 6,
-        "title": "3rd Engineer",
-        "location": "Malate, Manila",
+        "title": "ETO",
+        "class": "Seafarer",
         "type": "Full-time",
         "category": "RMS",
-        "division": "VLGC",
+        "division": "Container Vessel",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
         "qualifications": [
           "High School Graduate"
+        ]
+      },
+      {
+        "id": 7,
+        "title": "2E",
+        "class": "Seafarer",
+        "type": "Full-time",
+        "category": "RMS",
+        "division": "Container Vessel",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
+        "qualifications": [
+          "High School Graduate"
+        ]
+      },
+      {
+        "id": 8,
+        "title": "3E",
+        "class": "Seafarer",
+        "type": "Full-time",
+        "category": "RMS",
+        "division": "Container Vessel",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
+        "qualifications": [
+          "High School Graduate"
+        ]
+      },
+      {
+        "id": 9,
+        "title": "ASST. ETR",
+        "class": "Seafarer",
+        "type": "Full-time",
+        "category": "RMS",
+        "division": "Container Vessel",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
+        "qualifications": [
+          "High School Graduate",
+          "ETR License",
+          "Atleast 1 year domestic experience in any type of vessel"
+        ]
+      },
+      {
+        "id": 10,
+        "title": "5th Engineer",
+        "class": "Seafarer",
+        "type": "Full-time",
+        "category": "KOTC",
+        "division": "VLCC",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
+        "qualifications": [
+          "Atleast 6 months 4/E or Jr. 4/E experience in any tanker vessel"
+        ]
+      },
+      {
+        "id": 11,
+        "title": "5th Engineer",
+        "class": "Seafarer",
+        "type": "Full-time",
+        "category": "KOTC",
+        "division": "VLGC",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
+        "qualifications": [
+          "Atleast 6 months 4/E or Jr. 4/E experience in any tanker vessel"
+        ]
+      },
+      {
+        "id": 12,
+        "title": "5th Engineer",
+        "class": "Seafarer",
+        "type": "Full-time",
+        "category": "KOTC",
+        "division": "Oil tanker and Prod tanker",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-04",
+        "qualifications": [
+          "Atleast 6 months 4/E or Jr. 4/E experience in any tanker vessel"
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Junior Frontend Developer",
+        "class": "Onshore",
+        "type": "Full-time",
+        "category": "IT",
+        "division": "Developer",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "vacancy": 1,
+        "applied": 0,
+        "date_posted": "2025-04-09",
+        "qualifications": [
+          "BS CS/IT/IS Graduate",
+          "Atleast 4 years of experience of React, HTML, JavaScript, CSS, TailwindCSS",
+          "Atleast 4 years of experience of Python utilizing FastAPI"
         ]
       }
     ],
@@ -365,5 +547,19 @@
         "answer": "We're constantly growing and hire year-round as needs arise. Even if you don't see a perfect match for your skills right now, we encourage you to submit your resume for future opportunities."
       }
     ]
-  }
+  },
+  "publicReminders": [
+    {
+      "id": "1",
+      "date": "2025-05-15",
+      "time": "09:00",
+      "text": "Team Building (Company Closed)"
+    },
+    {
+      "id": "10ce",
+      "date": "2025-05-02",
+      "time": "22:30",
+      "text": "Team Building"
+    }
+  ]
 }

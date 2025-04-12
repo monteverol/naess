@@ -17,7 +17,7 @@ const BusinessHours = () => {
   }, []);
 
   return (
-    <div className="flex flex-col-reverse lg:items-center lg:flex-row gap-8 lg:px-20 xl:px-40 bg-[#1A384F] text-white p-8 h-screen w-full drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)]">
+    <div className="flex flex-col-reverse lg:items-center lg:flex-row gap-8 md:px-20 lg:px-40 xl:px-60 bg-[#1A384F] text-white p-8 h-screen w-full drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)]">
       {/* Render Google Map only on the client */}
       {isClient && (
         <div className="w-full lg:w-1/2 h-[500px] rounded-lg overflow-hidden shadow-lg">

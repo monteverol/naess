@@ -8,6 +8,7 @@ import TabAndSearch from './sections/TabandSearchSection';
 import NewsArticle from './ui/NewsArticle';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { useRouter } from 'next/navigation';
+import AnnouncementSection from './ui/Announcement';
 
 export default function NewsPage({ pageNumber }) {
   const [activeTab, setActiveTab] = useState('all');
@@ -17,6 +18,7 @@ export default function NewsPage({ pageNumber }) {
   const [newsArticles, setNewsArticles] = useState([]);
   const itemsPerPage = 6;
   const router = useRouter();
+  const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
     async function fetchNews() {
@@ -30,7 +32,19 @@ export default function NewsPage({ pageNumber }) {
       }
     }
 
+    async function fetchAnnouncements() {
+      try {
+        const response = await fetch('/api/announcements');
+        if (!response.ok) throw new Error("Failed to fetch Announcements");
+        const data = await response.json();
+        setAnnouncements(data);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    }
+
     fetchNews();
+    fetchAnnouncements();
   }, []);
 
   const getAllTags = () => {
@@ -79,6 +93,8 @@ export default function NewsPage({ pageNumber }) {
       </section>
 
       <main className="w-full lg:px-20 xl:px-40 mx-auto px-4 py-8 bg-white">
+        {announcements.length > 0 && <AnnouncementSection announcements={announcements} />}
+
         <TabAndSearch
           filterMenuOpen={filterMenuOpen}
           activeFilters={activeFilters}

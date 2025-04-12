@@ -5,7 +5,7 @@ import { AiFillTikTok } from "react-icons/ai";
 export default function InquireSection() {
   return (
     <section 
-      className="lg:px-20 xl:px-40 lg:items-center p-8 w-full h-screen flex justify-center drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)] lg:drop-shadow-md bg-blue-100"
+      className="md:px-20 lg:px-40 xl:px-60 lg:items-center p-8 w-full h-screen flex justify-center drop-shadow-[0_-4px_8px_rgba(0,0,0,0.25)] lg:drop-shadow-md bg-blue-100"
       aria-labelledby="inquire-heading"
     >
       <div className="lg:flex lg:flex-col lg:justify-between hidden h-[686px] w-full">

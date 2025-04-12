@@ -1,137 +1,304 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
-import fs from 'fs';
-import path from 'path';
-
-// const credentialsPath = path.join(process.cwd(), 'config', 'credentials.json');
-// const credentials = JSON.parse(fs.readFileSync(credentialsPath, 'utf8'));
-console.log(process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'));
+import { Readable } from 'stream';
 
 const auth = new google.auth.GoogleAuth({
   credentials: {
     client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
     private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
   },
-  scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  scopes: [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"
+  ],
 });
 
 const sheets = google.sheets({ version: 'v4', auth });
+const drive = google.drive({ version: 'v3', auth });
 
 export async function POST(request) {
   try {
     const formData = await request.formData();
     
-    // Extract all form data
+    // Extract all form data into a plain object
     const data = {};
     for (const [key, value] of formData.entries()) {
       data[key] = value;
     }
-    
-    // Extract the file if it exists
+
     const resumeFile = formData.get('resumeFile');
+    let resumeLink = '';
+
+    if (resumeFile) {
+      // Ensure all required fields exist and are strings
+      const jobCategory = data.jobCategory || 'Unknown';
+      const jobDivision = data.jobDivision || 'Unknown';
+      const jobTitle = data.jobTitle || 'Unknown';
+      const firstName = data.firstName || 'Unknown';
+      const lastName = data.lastName || 'Unknown';
+      
+      resumeLink = await uploadResumeToDrive(
+        resumeFile,
+        `${firstName}_${lastName}`,
+        [
+          data.jobClass || 'Uncategorized',
+          jobCategory,
+          jobDivision
+        ].filter(Boolean) // Remove any falsy values
+      );      
+    }
 
     const sheetId = process.env.GOOGLE_SHEET_ID;
-    console.log("Server-side Sheet ID:", sheetId);
+    const jobTitle = `${data.jobCategory} - ${data.jobDivision} - ${data.jobTitle}`.slice(0, 100);
+    const submissionDate = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' });
 
-    const jobTitle = data.jobTitle;
+    const sheetInfo = await sheets.spreadsheets.get({ spreadsheetId: sheetId });
+    const sheetNames = sheetInfo.data.sheets.map(sheet => sheet.properties.title);
 
-    // Check if the sheet already exists
-    const response = await sheets.spreadsheets.get({
-      spreadsheetId: sheetId,
-    });
-
-    const sheetNames = response.data.sheets.map(sheet => sheet.properties.title);
-
-    let range = `${jobTitle}!A1`; // Set the range to the desired sheet
-
+    // Only create the sheet if it doesn't exist
     if (!sheetNames.includes(jobTitle)) {
-      // If the sheet doesn't exist, create a new one
-      await sheets.spreadsheets.batchUpdate({
+      const createSheetResponse = await sheets.spreadsheets.batchUpdate({
         spreadsheetId: sheetId,
         requestBody: {
           requests: [
             {
               addSheet: {
-                properties: {
-                  title: jobTitle,
+                properties: { title: jobTitle }
+              }
+            }
+          ]
+        },
+      });
+
+      const newSheetId = createSheetResponse.data.replies[0].addSheet.properties.sheetId;
+
+      // Add headers
+      const range = `${jobTitle}!A1:T1`;
+      const headers = [[
+        "Date Submitted", "Status", "Resume", "Availability Date", "Rank", "License", "First Name", "Middle Name", "Last Name",
+        "Email", "Address", "Contact Number", "School From", "School Start", "School End", "Last Vessel Experience", "Last Sign Off",
+        "Birthdate", "Age", "Educational Attainment"
+      ]];
+
+      await sheets.spreadsheets.values.update({
+        spreadsheetId: sheetId,
+        range,
+        valueInputOption: "RAW",
+        requestBody: { values: headers },
+      });
+
+      // Style the header and set up the sheet
+      await sheets.spreadsheets.batchUpdate({
+        spreadsheetId: sheetId,
+        requestBody: {
+          requests: [
+            // Just the dropdown
+            {
+              setDataValidation: {
+                range: {
+                  sheetId: newSheetId,
+                  startRowIndex: 1,
+                  endRowIndex: 1000,
+                  startColumnIndex: 1,
+                  endColumnIndex: 2,
                 },
+                rule: {
+                  condition: {
+                    type: 'ONE_OF_LIST',
+                    values: [
+                      { userEnteredValue: 'Not Yet Viewed' },
+                      { userEnteredValue: 'Viewed' },
+                      { userEnteredValue: 'Rejected' },
+                      { userEnteredValue: 'Accepted' }
+                    ],
+                  },
+                  showCustomUi: true,
+                  strict: true,
+                },
+              },
+            },
+            // Optional: freeze top row
+            {
+              updateSheetProperties: {
+                properties: {
+                  sheetId: newSheetId,
+                  gridProperties: {
+                    frozenRowCount: 1,
+                  },
+                },
+                fields: 'gridProperties.frozenRowCount',
               },
             },
           ],
         },
-      });
+      });      
 
-      console.log(`Created new sheet: ${jobTitle}`);
-
-      // Add headers to the new sheet
-      range = `${jobTitle}!A1`;
-      const headerValues = [
-        ["Date Submitted", "Status", "First Name", "Middle Name", "Last Name", "Email", "Rank", "License", "Address", "Contact Number", "School From", "School Start", "School End", "Last Vessel Experience", "Last Sign Off", "Birthdate", "Age", "Educational Attainment"]
+      // Add conditional formatting for Status column
+      const formatRules = [
+        {
+          addConditionalFormatRule: {
+            rule: {
+              ranges: [{
+                sheetId: newSheetId,
+                startRowIndex: 1,
+                startColumnIndex: 1,
+                endColumnIndex: 2
+              }],
+              booleanRule: {
+                condition: {
+                  type: 'TEXT_EQ',
+                  values: [{ userEnteredValue: 'Not Yet Viewed' }]
+                },
+                format: {
+                  backgroundColor: { red: 1, green: 1, blue: 0 } // Yellow
+                }
+              }
+            },
+            index: 0
+          }
+        },
+        {
+          addConditionalFormatRule: {
+            rule: {
+              ranges: [{
+                sheetId: newSheetId,
+                startRowIndex: 1,
+                startColumnIndex: 1,
+                endColumnIndex: 2
+              }],
+              booleanRule: {
+                condition: {
+                  type: 'TEXT_EQ',
+                  values: [{ userEnteredValue: 'Viewed' }]
+                },
+                format: {
+                  backgroundColor: { red: 0.8, green: 0.8, blue: 1 } // Light blue
+                }
+              }
+            },
+            index: 1
+          }
+        },
+        {
+          addConditionalFormatRule: {
+            rule: {
+              ranges: [{
+                sheetId: newSheetId,
+                startRowIndex: 1,
+                startColumnIndex: 1,
+                endColumnIndex: 2
+              }],
+              booleanRule: {
+                condition: {
+                  type: 'TEXT_EQ',
+                  values: [{ userEnteredValue: 'Rejected' }]
+                },
+                format: {
+                  backgroundColor: { red: 1, green: 0.8, blue: 0.8 } // Light red
+                }
+              }
+            },
+            index: 2
+          }
+        },
+        {
+          addConditionalFormatRule: {
+            rule: {
+              ranges: [{
+                sheetId: newSheetId,
+                startRowIndex: 1,
+                startColumnIndex: 1,
+                endColumnIndex: 2
+              }],
+              booleanRule: {
+                condition: {
+                  type: 'TEXT_EQ',
+                  values: [{ userEnteredValue: 'Accepted' }]
+                },
+                format: {
+                  backgroundColor: { red: 0.8, green: 1, blue: 0.8 } // Light green
+                }
+              }
+            },
+            index: 3
+          }
+        },
+        // ✅ Explicitly reset all formatting for rows 2–1000
+        {
+          repeatCell: {
+            range: {
+              sheetId: newSheetId,
+              startRowIndex: 1,
+              endRowIndex: 1000,
+              startColumnIndex: 0,
+              endColumnIndex: 20,
+            },
+            cell: {
+              userEnteredFormat: {
+                backgroundColor: { red: 1, green: 1, blue: 1 }, // White
+                textFormat: {
+                  foregroundColor: { red: 0, green: 0, blue: 0 }, // Black text
+                  fontSize: 10,
+                  bold: false
+                },
+                horizontalAlignment: "LEFT"
+              }
+            },
+            fields: 'userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)',
+          }
+        }
       ];
 
-      await sheets.spreadsheets.values.append({
+      await sheets.spreadsheets.batchUpdate({
         spreadsheetId: sheetId,
-        range,
-        valueInputOption: "RAW",
-        insertDataOption: "INSERT_ROWS",
         requestBody: {
-          values: headerValues,
-        },
+          requests: formatRules
+        }
       });
-
-      console.log(`Headers added to sheet: ${jobTitle}`);
     }
 
-    const submissionDate = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' });
-
-    const values = [
-      [
-        submissionDate,
-        "Not Yet Viewed",
-        data.firstName || '',
-        data.middleName || '',
-        data.lastName || '',
-        data.email || '',
-        data.rank || '',
-        data.license || '',
-        data.address || '',
-        data.contactNumber || '',
-        data.schoolFrom || '',
-        data.schoolStart || '',
-        data.schoolEnd || '',
-        data.lastVesselExperience || '',
-        data.lastSignOff || '',
-        data.birthdate || '',
-        data.age || '',
-        data.educationalAttainment || ''
-      ]
-    ];
-
-    range = `${jobTitle}!A2`;
+    // Append row with form data (this will automatically inherit the dropdown and formatting)
+    const rowValues = [[
+      submissionDate,
+      "Not Yet Viewed", // Default status
+      resumeLink,
+      data.availabilityDate || '',
+      data.rank || '',
+      data.license || '',
+      data.firstName || '',
+      data.middleName || '',
+      data.lastName || '',
+      data.email || '',
+      data.address || '',
+      data.contactNumber || '',
+      data.schoolFrom || '',
+      data.schoolStart || '',
+      data.schoolEnd || '',
+      data.lastVesselExperience || '',
+      data.lastSignOff || '',
+      data.birthdate || '',
+      data.age || '',
+      data.educationalAttainment || ''
+    ]];
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
-      range,
+      range: `${jobTitle}!A2`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
-      requestBody: {
-        values,
-      },
+      requestBody: { values: rowValues },
     });
 
-    console.log("Data successfully added to Google Sheet.");
-
-    // Create transporter
+    // ... (rest of the email sending code remains the same)
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.GMAIL_EMAIL,
         pass: process.env.GMAIL_PASSWORD,
-      },
+      }
     });
 
-    // Email options
     const mailOptions = {
       from: process.env.GMAIL_EMAIL,
       to: process.env.COMPANY_EMAIL || process.env.GMAIL_EMAIL,
@@ -158,13 +325,92 @@ export async function POST(request) {
     }
 
     return NextResponse.json({ success: true });
+
   } catch (error) {
-    console.error('Error sending email:', error);
-    return NextResponse.json(
-      { success: false, error: error.message },
-      { status: 500 }
-    );
+    console.error('Error occurred:', error);
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
+}
+
+async function uploadResumeToDrive(file, applicantName, hierarchy = []) {
+  if (!Array.isArray(hierarchy)) {
+    hierarchy = [];
+  }
+
+  let currentParentId = process.env.GOOGLE_DRIVE_FOLDER_ID;
+
+  for (const folder of hierarchy) {
+    if (folder) { // Only process non-empty folder names
+      currentParentId = await ensureFolderExists(folder, currentParentId);
+    }
+  }
+
+  const fileMetadata = {
+    name: `${applicantName}_Resume_${Date.now()}.pdf`,
+    parents: [currentParentId],
+  };
+
+  const media = {
+    mimeType: file.type,
+    body: Readable.from(Buffer.from(await file.arrayBuffer())),
+  };
+
+  const response = await drive.files.create({
+    resource: fileMetadata,
+    media,
+    fields: 'id',
+  });
+
+  const fileId = response.data.id;
+
+  await drive.permissions.create({
+    fileId,
+    requestBody: {
+      role: 'reader',
+      type: 'anyone',
+    },
+  });
+
+  return `https://drive.google.com/file/d/${fileId}/view`;
+}
+
+async function ensureFolderExists(folderName, parentId = null) {
+  if (!folderName || typeof folderName !== 'string') {
+    throw new Error('Invalid folder name provided');
+  }
+
+  // Search for the folder under the parent
+  const queryParts = [
+    `mimeType='application/vnd.google-apps.folder'`, 
+    `name='${folderName.replace(/'/g, "\\'")}'`, 
+    `trashed=false`
+  ];
+  
+  if (parentId) queryParts.push(`'${parentId}' in parents`);
+  const query = queryParts.join(" and ");
+
+  const res = await drive.files.list({
+    q: query,
+    fields: 'files(id, name)',
+  });
+
+  if (res.data.files.length > 0) {
+    return res.data.files[0].id;
+  }
+
+  // If not found, create it
+  const fileMetadata = {
+    name: folderName,
+    mimeType: 'application/vnd.google-apps.folder',
+    ...(parentId && { parents: [parentId] })
+  };
+
+  const file = await drive.files.create({
+    resource: fileMetadata,
+    fields: 'id',
+  });
+
+  return file.data.id;
 }
 
 function generateEmailHtml(data) {
@@ -434,7 +680,8 @@ function generateConfirmationEmailHtml(data) {
           
           <div class="job-details">
             <p><strong>Position:</strong> ${data.jobTitle}</p>
-            <p><strong>Location:</strong> ${data.jobLocation}</p>
+            <p><strong>Class:</strong> ${data.jobClass}</p>
+            <p><strong>Division:</strong> ${data.jobDivision}</p>
             <p><strong>Type:</strong> ${data.jobType}</p>
           </div>
           
@@ -442,14 +689,14 @@ function generateConfirmationEmailHtml(data) {
           
           <p>Please note that due to the volume of applications we receive, we may not be able to respond to each applicant individually. However, we appreciate the time and effort you put into applying with us.</p>
           
-          <p>For any inquiries, please contact our HR department at hr@naess.com.ph.</p>
+          <p>For any inquiries, please contact our HR department at recruitment@naess.com.ph.</p>
         </div>
         
         <div class="footer">
           <p>Best regards,</p>
           <p><strong>NAESS Philippines Recruitment Team</strong></p>
           <p>NAESS Philippines Inc.</p>
-          <p>Email: hr@naess.com.ph | Phone: +63 2 123 4567</p>
+          <p>Email: recruitment@naess.com.ph | Phone: +63 2 123 4567</p>
         </div>
       </div>
     </body>
