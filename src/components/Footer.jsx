@@ -75,7 +75,7 @@ const Footer = () => {
                 <h3 className="hidden">Email Address</h3>
                 <FaAt color="#1A384F" size={20} className="absolute -left-8 top-1" />
                 <p className="text-[16px]">recruitment@naess.com.ph</p>
-                <p className="text-[16px]">main@naess.com.ph</p>
+                <p className="text-[16px]">mail@naess.com.ph</p>
               </article>
             </section>
             {/* FOURTH COLUMN */}

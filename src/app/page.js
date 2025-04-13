@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import HeroHeaderSection from "./home-components/sections/HeroHeaderSection";
-import ServicesSection from "./home-components/sections/ServicesSection";
-import AboutSection from "./home-components/sections/AboutSection";
-import HighlightSection from "./home-components/sections/HighlightSection";
-import CareerSection from "./home-components/sections/CareerSection";
-import CertificateSection from "./home-components/sections/CertificateSection";
-import NewsSection from "./home-components/sections/NewsSection";
-import CTASection from "./home-components/sections/CTASection";
+import HeroHeaderSection from "./components/sections/HeroHeaderSection";
+import ServicesSection from "./components/sections/ServicesSection";
+import AboutSection from "./components/sections/AboutSection";
+import HighlightSection from "./components/sections/HighlightSection";
+import CareerSection from "./components/sections/CareerSection";
+import CertificateSection from "./components/sections/CertificateSection";
+import NewsSection from "./components/sections/NewsSection";
+import CTASection from "./components/sections/CTASection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,7 +20,6 @@ export default function Home() {
     // { type: 'video', src: '/path/to/video1.mp4' },
   ];
   const [newsArticles, setNewsArticles] = useState([]);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function fetchNews() {
@@ -28,7 +27,7 @@ export default function Home() {
         const response = await fetch('/api/news');
         if (!response.ok) throw new Error("Failed to fetch news");
         const data = await response.json();
-        setNewsArticles(data); // Update state with fetched data
+        setNewsArticles(data);
       } catch (error) {
         console.error("Error fetching news:", error);
       }

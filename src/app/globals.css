@@ -33,13 +33,16 @@
     @apply transition duration-200 scale-105;
   }
   .btn {
-    @apply cursor-pointer transition duration-200 active:scale-95
+    @apply cursor-pointer transition duration-200 active:scale-95;
   }
-  .home-heading {
-    @apply relative
+  .section {
+    @apply p-8 md:px-20 lg:px-40 xl:px-60;
   }
-  .home-heading::after {
-    @apply content-[''] absolute -bottom-4 left-0 h-2 w-40 bg-[#346EA0] rounded-full
+  .section-heading {
+    @apply relative text-[44px] font-bold font-montserrat;
+  }
+  .section-heading::after {
+    @apply content-[''] absolute -bottom-4 left-0 h-2 w-40 bg-[#346EA0] rounded-full;
   }
   .anchor {
     @apply relative;
@@ -60,7 +63,7 @@
     @apply pl-8 py-2 relative
   }
   .header::after {
-    @apply content-[''] block absolute left-0 top-0 h-full w-2 rounded-full bg-blue-400
+    @apply content-[''] block absolute left-0 top-0 h-full w-2 rounded-full bg-blue-500
   }
   .required-field {
     @apply after:content-['*'] after:text-red-500 after:text-xl after:ml-1

@@ -60,24 +60,78 @@ const Breadcrumbs = () => {
   }, [structuredData]);
 
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-gray-600 mb-4">
-      <ol className="flex space-x-2">
-        <li>
-          <Link href="/" className="hover:underline text-lg font-bold text-[#264D6C]">Home</Link>
+    <nav 
+      aria-label="Breadcrumb" 
+      className="py-4 px-2 bg-gradient-to-r from-blue-50 to-transparent rounded-md shadow-sm border border-blue-100"
+    >
+      <ol className="flex flex-wrap items-center text-sm md:text-base">
+        <li className="flex items-center">
+          <Link 
+            href="/" 
+            className="text-blue-700 hover:text-blue-900 font-medium transition-colors duration-200 flex items-center group"
+          >
+            <svg 
+              className="w-4 h-4 mr-1 text-blue-500 group-hover:text-blue-700" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+            >
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+            </svg>
+            Home
+          </Link>
         </li>
+        
         {breadcrumbs.map((crumb, index) => (
-          <li key={index} className="flex items-center space-x-2">
-            <span className="font-md font-bold">{'>'}</span>
+          <li key={index} className="flex items-center">
+            <svg 
+              className="w-5 h-5 mx-2 text-blue-400" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+            >
+              <path 
+                fillRule="evenodd" 
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" 
+                clipRule="evenodd" 
+              />
+            </svg>
+            
             {crumb.href ? (
-              <Link href={crumb.href} className="hover:underline text-lg font-bold text-[#264D6C] capitalize">
+              <Link 
+                href={crumb.href} 
+                className="text-blue-600 hover:text-blue-800 font-medium capitalize transition-colors duration-200 whitespace-nowrap truncate max-w-xs hover:underline"
+              >
                 {crumb.label}
               </Link>
             ) : (
-              <span className="font-bold text-lg capitalize">{crumb.label}</span>
+              <span className="text-gray-600 font-medium capitalize">
+                {crumb.label}
+              </span>
             )}
           </li>
         ))}
       </ol>
+      
+      {/* Maritime decorative element */}
+      <div className="absolute right-2 bottom-1 hidden md:block opacity-30">
+        <svg 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="text-blue-700"
+        >
+          <path 
+            d="M3 6H21M3 12H21M3 18H21" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </nav>
   );
 };
