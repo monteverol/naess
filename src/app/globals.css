@@ -29,14 +29,20 @@
 }
 
 @layer components {
+  .card {
+    @apply border-gray-100 shadow-md rounded-lg p-8;
+  }
   .card:hover {
-    @apply transition duration-200 scale-105;
+    @apply transition duration-200;
   }
   .btn {
     @apply cursor-pointer transition duration-200 active:scale-95;
   }
   .section {
-    @apply p-8 md:px-20 lg:px-40 xl:px-60;
+    @apply p-8 md:px-20 lg:px-40 xl:px-60 grid items-center justify-center;
+  }
+  .section-inner-width {
+    @apply min-w-full max-w-full lg:min-w-4xl lg:max-w-4xl xl:min-w-7xl xl:max-w-7xl;
   }
   .section-heading {
     @apply relative text-[44px] font-bold font-montserrat;
@@ -67,6 +73,9 @@
   }
   .required-field {
     @apply after:content-['*'] after:text-red-500 after:text-xl after:ml-1
+  }
+  .breadcrumb-item {
+    @apply after:bg-white relative h-[46px] px-8 border-t-2 border-b-2 after:border-t-2 after:border-r-2 after:content-[''] after:absolute after:w-8 after:h-8 after:-right-4 after:top-1/2 after:-translate-y-1/2 after:rotate-45
   }
 }
 

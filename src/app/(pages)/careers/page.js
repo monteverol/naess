@@ -1,6 +1,6 @@
 "use client";
 
-import Footer from '@/components/Footer';
+import Footer from '@/components/ui/Footer';
 import Header from './components/sections/HeaderSection';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { useRouter } from 'next/navigation';

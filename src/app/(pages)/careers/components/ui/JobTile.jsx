@@ -83,7 +83,7 @@
 
 import { Blocks, Clock, Briefcase, ChevronRight, SearchCheck, Calendar } from 'lucide-react';
 
-const JobTile = ({ title, description, location, category, type, vacancy, division, date_posted, id }) => {
+const JobTile = ({ title, description, category, type, vacancy, division, date_posted, id }) => {
   const truncateDescription = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.slice(0, maxLength) + "...";

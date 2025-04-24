@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Footer from '@/components/Footer';
+import Footer from '@/components/ui/Footer';
 import Header from './sections/HeaderSection';
 import NewsLetter from './sections/NewsletterSection';
 import TabAndSearch from './sections/TabandSearchSection';
@@ -9,42 +9,53 @@ import NewsArticle from './ui/NewsArticle';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { useRouter } from 'next/navigation';
 import AnnouncementSection from './ui/Announcement';
+import toast from 'react-hot-toast';
 
 export default function NewsPage({ pageNumber }) {
+  const itemsPerPage = 6;
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('all');
   const [activeFilters, setActiveFilters] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterMenuOpen, setFilterMenuOpen] = useState(false);
   const [newsArticles, setNewsArticles] = useState([]);
-  const itemsPerPage = 6;
-  const router = useRouter();
-  const [announcements, setAnnouncements] = useState([]);
+  const [publicUpdates, setPublicUpdates] = useState([]);
 
   useEffect(() => {
-    async function fetchNews() {
-      try {
-        const response = await fetch('/api/news');
-        if (!response.ok) throw new Error("Failed to fetch news");
-        const data = await response.json();
-        setNewsArticles(data);
-      } catch (error) {
-        console.error("Error fetching news:", error);
-      }
+    const fetchPublicUpdates = () => {
+      toast.promise(
+        fetch('/api/publicUpdates')
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to fetch announcements");
+            return res.json();
+          })
+          .then((data) => setPublicUpdates(data)),
+        {
+          loading: "Loading Announcements...",
+          success: 'Announcements ready!',
+          error: 'Failed to load announcements',
+        }
+      );
     }
 
-    async function fetchAnnouncements() {
-      try {
-        const response = await fetch('/api/announcements');
-        if (!response.ok) throw new Error("Failed to fetch Announcements");
-        const data = await response.json();
-        setAnnouncements(data);
-      } catch (error) {
-        console.error("Error fetching news:", error);
-      }
+    const fetchNews = () => {
+      toast.promise(
+        fetch('/api/news')
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to fetch news");
+            return res.json();
+          })
+          .then((data) => setNewsArticles(data)),
+        {
+          loading: 'Loading news...',
+          success: 'News loaded!',
+          error: 'Failed to load news',
+        }
+      );
     }
-
+    
     fetchNews();
-    fetchAnnouncements();
+    fetchPublicUpdates();
   }, []);
 
   const getAllTags = () => {
@@ -82,18 +93,18 @@ export default function NewsPage({ pageNumber }) {
   const clearFilters = () => {
     setActiveFilters([]);
     setSearchTerm('');
-  };
+  };3
 
   return (
     <div className="font-sans min-h-screen">
       <Header />
 
-      <section className="section xl:px-40 w-full bg-white py-4">
+      <section className="section bg-white py-4">
         <Breadcrumbs />
       </section>
 
-      <main className="w-full px-4 py-8 lg:px-20 xl:px-40 mx-auto bg-white">
-        {announcements.length > 0 && <AnnouncementSection announcements={announcements} />}
+      <main className="w-full section bg-white">
+        {publicUpdates.length > 0 && <AnnouncementSection publicUpdates={publicUpdates} />}
 
         <TabAndSearch
           filterMenuOpen={filterMenuOpen}

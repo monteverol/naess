@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { slugify } from '@/utils/routes'
 
 const API_URL = process.env.JSON_PUBLIC_API_URL || "http://localhost:5001";
 
@@ -10,7 +11,12 @@ export async function GET() {
     const news = await res.json();
 
     // Sort by date descending
-    const sorted = news.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const sorted = news
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .map((item) => ({
+        ...item,
+        slug: slugify(item.title),
+      }));
 
     return NextResponse.json(sorted);
   } catch (error) {

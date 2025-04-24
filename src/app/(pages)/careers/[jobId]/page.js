@@ -1,174 +1,10 @@
 "use client";
-// import { useSession } from 'next-auth/react';
-// import { useRouter } from 'next/navigation';
-// import { useEffect, useState } from 'react';
-// import ApplicationForm from './components/ApplicationForm';
-// import ApplicationStatus from './components/ApplicationStatus';
-
-// export async function generateMetadata({ params }) {
-//   const job = await getJob(params.jobId); // You'll need to implement getJob
-  
-//   return {
-//     title: `${job.title} | YourCompany Careers`,
-//     description: job.description.substring(0, 160),
-//     openGraph: {
-//       title: `${job.title} | YourCompany Careers`,
-//       description: job.description.substring(0, 160),
-//       url: `https://yourcompany.com/careers/${params.jobId}`,
-//       siteName: 'YourCompany',
-//       images: [
-//         {
-//           url: 'https://yourcompany.com/images/og-careers.jpg',
-//           width: 1200,
-//           height: 630,
-//         },
-//       ],
-//       locale: 'en_US',
-//       type: 'website',
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title: `${job.title} | YourCompany Careers`,
-//       description: job.description.substring(0, 160),
-//       images: ['https://yourcompany.com/images/og-careers.jpg'],
-//     },
-//   };
-// }
-
-// export default function JobPage({ params }) {
-//   const { data: session, status } = useSession();
-//   const router = useRouter();
-//   const [job, setJob] = useState(null);
-//   const [application, setApplication] = useState(null);
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     if (status === 'unauthenticated') {
-//       router.push(`/login?callbackUrl=/careers/${params.jobId}`);
-//       return;
-//     }
-
-//     if (status === 'authenticated') {
-//       fetchJobAndApplication();
-//     }
-//   }, [status, params.jobId]);
-
-//   const fetchJobAndApplication = async () => {
-//     try {
-//       setIsLoading(true);
-//       const [jobRes, applicationRes] = await Promise.all([
-//         fetch(`/api/careers/${params.jobId}`),
-//         fetch(`/api/applications?jobId=${params.jobId}&userId=${session.user.id}`),
-//       ]);
-
-//       if (!jobRes.ok) throw new Error('Failed to fetch job');
-//       if (!applicationRes.ok) throw new Error('Failed to fetch application');
-
-//       const jobData = await jobRes.json();
-//       const applicationData = await applicationRes.json();
-
-//       setJob(jobData);
-//       setApplication(applicationData.length > 0 ? applicationData[0] : null);
-//     } catch (error) {
-//       console.error(error);
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-
-//   const handleSubmitApplication = async (formData) => {
-//     try {
-//       const response = await fetch('/api/applications', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           jobId: params.jobId,
-//           userId: session.user.id,
-//           answers: formData,
-//         }),
-//       });
-
-//       if (!response.ok) throw new Error('Failed to submit application');
-
-//       const data = await response.json();
-//       setApplication(data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   const handleUpdateApplication = async (formData) => {
-//     try {
-//       const response = await fetch(`/api/applications/${application.id}`, {
-//         method: 'PUT',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           answers: formData,
-//         }),
-//       });
-
-//       if (!response.ok) throw new Error('Failed to update application');
-
-//       const data = await response.json();
-//       setApplication(data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   if (isLoading) {
-//     return (
-//       <div className="min-h-screen flex items-center justify-center">
-//         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-//       </div>
-//     );
-//   }
-
-//   if (!job) {
-//     return (
-//       <div className="min-h-screen flex items-center justify-center">
-//         <p className="text-red-500">Job not found</p>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-//       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-//         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-//           <h1 className="text-2xl font-bold text-gray-900">{job.title}</h1>
-//           <p className="mt-1 text-sm text-gray-500">{job.location} • {job.type}</p>
-//         </div>
-//         <div className="px-4 py-5 sm:p-6">
-//           <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: job.description }} />
-
-//           <div className="mt-8 border-t border-gray-200 pt-8">
-//             {application ? (
-//               <ApplicationStatus 
-//                 application={application} 
-//                 onEdit={handleUpdateApplication} 
-//                 job={job}
-//               />
-//             ) : (
-//               <ApplicationForm 
-//                 onSubmit={handleSubmitApplication} 
-//                 jobCategory={job.category}
-//               />
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 
 import { use, useEffect, useState } from "react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import SeafarerForm from "../components/forms/Seafarer";
+import OfficeForm from "../components/forms/Office";
+import toast from 'react-hot-toast';
 
 export default function JobPage({ params }) {
   const unwrappedParams = use(params)
@@ -265,45 +101,47 @@ export default function JobPage({ params }) {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError("");
-    
-    try {
-      const formData = new FormData();
-      
-      // Append all user data to formData
-      Object.entries(userData).forEach(([key, value]) => {
-        if (key === 'resumeFile') {
-          formData.append(key, value);
-        } else if (Array.isArray(value)) {
-          formData.append(key, value.join(', '));
-        } else {
-          formData.append(key, value);
-        }
-      });
-      
-      // Append job information
-      formData.append('jobTitle', jobItem.title);
-      formData.append('jobType', jobItem.type);
-      formData.append('jobCategory', jobItem.category);
-      formData.append('jobDivision', jobItem.division);
-      formData.append('jobClass', jobItem.class);
-      formData.append('age', age);
 
-      const response = await fetch('/api/careers/send-application', {
+    const formData = new FormData();
+
+    Object.entries(userData).forEach(([key, value]) => {
+      if (key === 'resumeFile') {
+        formData.append(key, value);
+      } else if (Array.isArray(value)) {
+        formData.append(key, value.join(', '));
+      } else {
+        formData.append(key, value);
+      }
+    });
+
+    formData.append('jobTitle', jobItem.title);
+    formData.append('jobType', jobItem.type);
+    formData.append('jobCategory', jobItem.category);
+    formData.append('jobDivision', jobItem.division);
+    formData.append('jobClass', jobItem.class);
+    formData.append('age', age);
+
+    await toast.promise(
+      fetch('/api/careers/send-application', {
         method: 'POST',
         body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit application');
+      }).then(async (res) => {
+        if (!res.ok) throw new Error('Failed to submit application');
+        return res;
+      }),
+      {
+        loading: 'Submitting application...',
+        success: 'Application submitted successfully!',
+        error: 'Failed to submit application. Please try again.',
       }
-
+    ).then(() => {
       setSubmitSuccess(true);
-    } catch (error) {
-      console.error('Error submitting application:', error);
-      setSubmitError(error.message || 'Failed to submit application. Please try again.');
-    } finally {
+    }).catch((error) => {
+      console.error('Toast promise error:', error);
+      setSubmitError(error.message || 'Something went wrong');
+    }).finally(() => {
       setIsSubmitting(false);
-    }
+    });
   };
 
   if (loading) return <div className="flex justify-center items-center h-screen">Loading...</div>;
@@ -365,17 +203,30 @@ export default function JobPage({ params }) {
           </div>
         )}
 
-        <SeafarerForm
-          handleSubmit={handleSubmit}
-          userData={userData}
-          setUserData={setUserData}
-          age={age}
-          calculateAge={calculateAge}
-          handleEducationalAttainmentChange={handleEducationalAttainmentChange}
-          handleResumeUpload={handleResumeUpload}
-          isSubmitting={isSubmitting}
-          hasResume={hasResume}
-        />
+        { jobItem.class == "Seafarer" ? 
+          <SeafarerForm
+            handleSubmit={handleSubmit}
+            userData={userData}
+            setUserData={setUserData}
+            age={age}
+            calculateAge={calculateAge}
+            handleEducationalAttainmentChange={handleEducationalAttainmentChange}
+            handleResumeUpload={handleResumeUpload}
+            isSubmitting={isSubmitting}
+            hasResume={hasResume}
+          />
+          : <OfficeForm 
+            handleSubmit={handleSubmit}
+            userData={userData}
+            setUserData={setUserData}
+            age={age}
+            calculateAge={calculateAge}
+            handleEducationalAttainmentChange={handleEducationalAttainmentChange}
+            handleResumeUpload={handleResumeUpload}
+            isSubmitting={isSubmitting}
+            hasResume={hasResume}
+          />
+        }
       </div>
     </div>
   );

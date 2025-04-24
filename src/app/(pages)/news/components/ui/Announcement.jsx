@@ -1,107 +1,91 @@
-// components/AnnouncementSection.jsx
+'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const AnnouncementSection = ({ announcements }) => {
+const AnnouncementSection = ({ publicUpdates }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const [pauseTimeout, setPauseTimeout] = useState(null);
 
-  // Autoplay functionality
   useEffect(() => {
     if (!autoplay) return;
-
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % announcements.length);
+      setActiveIndex((current) => (current + 1) % publicUpdates.length);
     }, 3000);
-
     return () => clearInterval(interval);
-  }, [autoplay, activeIndex, announcements.length]);
-
+  }, [autoplay, activeIndex, publicUpdates.length]);
 
   const handlePrevious = () => {
     setAutoplay(false);
-    setActiveIndex((current) => (current - 1 + announcements.length) % announcements.length);
+    setActiveIndex((current) => (current - 1 + publicUpdates.length) % publicUpdates.length);
     resetAutoplay();
   };
 
   const handleNext = () => {
     setAutoplay(false);
-    setActiveIndex((current) => (current + 1) % announcements.length);
+    setActiveIndex((current) => (current + 1) % publicUpdates.length);
     resetAutoplay();
   };
 
   const resetAutoplay = () => {
     if (pauseTimeout) clearTimeout(pauseTimeout);
-
-    const timeoutId = setTimeout(() => {
-      setAutoplay(true);
-    }, 5000);
-
+    const timeoutId = setTimeout(() => setAutoplay(true), 5000);
     setPauseTimeout(timeoutId);
   };
 
+  const formatDate = (startDate, endDate) => {
+    if (startDate && endDate && startDate !== endDate) {
+      return `${startDate} - ${endDate}`;
+    }
+    return startDate;
+  };
+
   return (
-    <section className="bg-white mb-8">
+    <section className="bg-white mb-8 section-inner-width">
       <div className="container mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-6xl font-bold text-gray-800 flex items-center header">
             Important Announcements
           </h2>
           <div className="hidden md:flex space-x-2">
-            <button 
-              onClick={handlePrevious}
-              className="p-2 rounded-full bg-white shadow-md hover:bg-blue-50 transition-colors btn"
-              aria-label="Previous announcement"
-            >
+            <button onClick={handlePrevious} className="p-2 rounded-full bg-white shadow-md hover:bg-blue-50 transition-colors btn" aria-label="Previous announcement">
               <ChevronLeft className="w-5 h-5 text-blue-600" />
             </button>
-            <button 
-              onClick={handleNext}
-              className="p-2 rounded-full bg-white shadow-md hover:bg-blue-50 transition-colors btn"
-              aria-label="Next announcement"
-            >
+            <button onClick={handleNext} className="p-2 rounded-full bg-white shadow-md hover:bg-blue-50 transition-colors btn" aria-label="Next announcement">
               <ChevronRight className="w-5 h-5 text-blue-600" />
             </button>
           </div>
         </div>
 
         <div className="relative overflow-hidden rounded-xl shadow-xl bg-white">
-          {/* Announcement Carousel */}
-          <div 
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-          >
-            {announcements.map((announcement) => (
-              <div key={announcement.id} className="w-full flex-shrink-0">
+          <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+            {publicUpdates.map((item) => (
+              <div key={item.id} className="w-full flex-shrink-0">
                 <div className="flex flex-col md:flex-row h-full">
-                  {/* Image Side */}
                   <div className="relative h-56 md:h-full md:w-1/2">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-slate-800/70 mix-blend-multiply z-10" />
                     <div className="absolute inset-0 flex items-center justify-center z-20">
                       <div className="text-center text-white px-4">
                         <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm backdrop-blur-sm mb-3">
-                          {announcement.type}
+                          {item.type}
                         </span>
-                        <h3 className="text-2xl md:text-3xl font-bold mb-2">{announcement.title}</h3>
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2">{item.title}</h3>
                         <div className="flex items-center justify-center text-white/90">
                           <Calendar className="w-4 h-4 mr-1" />
-                          <span>{announcement.date}</span>
+                          <span>{formatDate(item.startDate, item.endDate)}</span>
                         </div>
                       </div>
                     </div>
                     <div className="h-full w-full relative">
-                      {/* Replace this div with your Image component once you have actual images */}
                       <div className="absolute inset-0 bg-blue-300"></div>
                     </div>
                   </div>
-                  
-                  {/* Content Side */}
+
                   <div className="p-6 md:p-8 md:w-1/2 flex flex-col justify-between">
                     <div>
                       <p className="text-gray-700 text-lg mb-6">
-                        {announcement.description}
+                        {item.description}
                       </p>
                       <div className="space-y-4">
                         <div className="flex items-center">
@@ -112,7 +96,7 @@ const AnnouncementSection = ({ announcements }) => {
                           </div>
                           <span className="ml-3 text-gray-600">Don't miss this important update</span>
                         </div>
-                        
+
                         <div className="flex items-center">
                           <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
@@ -123,9 +107,9 @@ const AnnouncementSection = ({ announcements }) => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="mt-8">
-                      <Link href={`/announcements/${announcement.id}`} passHref>
+                      <Link href={`/announcements/${item.id}`} passHref>
                         <span className="inline-block bg-slate-600 hover:bg-slate-700 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-md">
                           Learn More
                         </span>
@@ -136,11 +120,10 @@ const AnnouncementSection = ({ announcements }) => {
               </div>
             ))}
           </div>
-          
-          {/* Mobile Navigation Controls */}
+
           <div className="absolute bottom-4 left-0 right-0 flex justify-center md:hidden">
             <div className="flex space-x-2">
-              {announcements.map((_, index) => (
+              {publicUpdates.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => {
@@ -158,11 +141,10 @@ const AnnouncementSection = ({ announcements }) => {
           </div>
         </div>
 
-        {/* Announcement List - Visible only on larger screens */}
         <div className="hidden lg:grid grid-cols-3 gap-6 mt-8">
-          {announcements.map((announcement, index) => (
+          {publicUpdates.map((item, index) => (
             <div 
-              key={announcement.id} 
+              key={item.id} 
               className={`bg-white p-5 rounded-lg shadow-md cursor-pointer transition-all ${
                 activeIndex === index ? 'border-2 border-slate-500 transform -translate-y-1' : 'border border-gray-100'
               }`}
@@ -176,15 +158,15 @@ const AnnouncementSection = ({ announcements }) => {
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                   activeIndex === index ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'
                 }`}>
-                  {announcement.type}
+                  {item.type}
                 </span>
                 <span className="text-sm text-gray-500 flex items-center">
                   <Calendar className="w-3 h-3 mr-1" />
-                  {announcement.date}
+                  {formatDate(item.startDate, item.endDate)}
                 </span>
               </div>
-              <h4 className="font-semibold text-gray-800 line-clamp-1">{announcement.title}</h4>
-              <p className="text-sm text-gray-600 mt-1 line-clamp-2">{announcement.description}</p>
+              <h4 className="font-semibold text-gray-800 line-clamp-1">{item.title}</h4>
+              <p className="text-sm text-gray-600 mt-1 line-clamp-2">{item.description}</p>
             </div>
           ))}
         </div>

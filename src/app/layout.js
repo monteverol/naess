@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/ui/Navigation";
+import { Toaster } from 'react-hot-toast';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,15 @@ export default function RootLayout({ children }) {
           logoBlack="/images/naess-logo-black.png"
         />
         {children}
+        <Toaster 
+          position="bottom-right" 
+          toastOptions={{
+            style: {
+              fontSize: '18px',
+              padding: '1rem',
+            },
+          }}
+        />
       </body>
     </html>
   );

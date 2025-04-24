@@ -1,6 +1,6 @@
 "use client";
 
-import Footer from "@/components/Footer";
+import Footer from "@/components/ui/Footer";
 import Header from "../sections/Header";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import dynamic from 'next/dynamic';
@@ -15,7 +15,7 @@ export default function ContactUs() {
     <div>
       <main className="flex flex-col">
         <Header />
-        <section className="px-8 lg:px-20 xl:px-60 w-full bg-white py-4">
+        <section className="section bg-white py-4">
           <Breadcrumbs />
         </section>
         <ContactList />

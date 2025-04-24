@@ -3,8 +3,8 @@ import { FaLocationDot } from "react-icons/fa6";
 
 export default function ContactList() {
   return (
-    <section className="bg-gradient-to-br from-white via-white to-blue-50 py-16 px-8 md:px-20 lg:px-60">
-      <div className="container w-full">
+    <section className="bg-gradient-to-br from-white via-white to-blue-50 py-16 section">
+      <div className="section-inner-width">
         <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 xl:justify-between">
           {/* EMAIL */}
           <li className="group card p-8 rounded-2xl bg-white flex flex-col gap-6 justify-between items-start shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50">

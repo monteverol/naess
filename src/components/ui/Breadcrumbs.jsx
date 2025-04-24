@@ -3,12 +3,10 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useMemo } from 'react';
-import { useParams } from 'next/navigation';
 
 const Breadcrumbs = () => {
   const pathname = usePathname();
   const pathSegments = pathname.split('/').filter(Boolean);
-  const params = useParams();
 
   const breadcrumbs = useMemo(() => {
     const crumbs = [];
@@ -16,13 +14,12 @@ const Breadcrumbs = () => {
       const segment = pathSegments[i];
       const isPageSegment = segment.toLowerCase() === 'page';
 
-      // Skip "page" segment and handle the next one as a display-only breadcrumb (e.g., Page 1)
       if (isPageSegment && i + 1 < pathSegments.length) {
         crumbs.push({
           label: `Page ${pathSegments[i + 1]}`,
-          href: null, // Not clickable
+          href: null,
         });
-        break; // Skip remaining segments
+        break;
       }
 
       const href = '/' + pathSegments.slice(0, i + 1).join('/');
@@ -62,7 +59,7 @@ const Breadcrumbs = () => {
   return (
     <nav 
       aria-label="Breadcrumb" 
-      className="py-4 px-2 bg-gradient-to-r from-blue-50 to-transparent rounded-md shadow-sm border border-blue-100"
+      className="section-inner-width"
     >
       <ol className="flex flex-wrap items-center text-sm md:text-base">
         <li className="flex items-center">
@@ -112,26 +109,6 @@ const Breadcrumbs = () => {
           </li>
         ))}
       </ol>
-      
-      {/* Maritime decorative element */}
-      <div className="absolute right-2 bottom-1 hidden md:block opacity-30">
-        <svg 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="text-blue-700"
-        >
-          <path 
-            d="M3 6H21M3 12H21M3 18H21" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
     </nav>
   );
 };

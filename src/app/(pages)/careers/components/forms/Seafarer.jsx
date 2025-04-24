@@ -152,7 +152,7 @@ const SeafarerForm = ({
                 name="birthdate" 
                 onChange={(e) => calculateAge(e.target.value)} 
                 className={`custom-job-input ${hasResume ? 'bg-gray-100' : ''}`}
-                disabled={isSubmitting || hasResume}
+                disabled
                 required
               />
             </div>

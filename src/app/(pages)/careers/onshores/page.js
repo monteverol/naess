@@ -3,7 +3,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import Footer from '@/components/Footer';
+import Footer from '@/components/ui/Footer';
 import Header from '../components/sections/HeaderSection';
 import FAQ from '../components/sections/FAQSection';
 import CTA from '../components/sections/CTASection';

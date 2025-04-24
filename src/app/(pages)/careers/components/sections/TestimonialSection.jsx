@@ -3,7 +3,7 @@ import TestimonialTile from "../ui/TestimonialTile";
 export default function Testimonial({ testimonials }) {
   return(
     <section className="py-12 section bg-white">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="section-inner-width">
         <h2 className="text-3xl font-bold text-center mb-8">Meet Our Team</h2>
         <div className="flex flex-wrap gap-8">
           {testimonials.map((testimonial) => (

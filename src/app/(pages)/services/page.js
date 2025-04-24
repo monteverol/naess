@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from 'react';
-import Footer from '@/components/Footer';
-import HeaderSection from './sections/HeaderSection';
-import ServicesSection from './sections/ServicesSection';
-import StatsSection from './sections/StatsSection';
-import ProcessDiagramSection from './sections/ProcessDiagramSection';
-import CTASection from './sections/CTASection';
+import Footer from '@/components/ui/Footer';
+import HeaderSection from '@/components/pages/services/sections/HeaderSection';
+import ServicesSection from '@/components/pages/services/sections/ServicesSection';
+import StatsSection from '@/components/pages/services/sections/StatsSection';
+import ProcessDiagramSection from '@/components/pages/services/sections/ProcessDiagramSection';
+import CTASection from '@/components/pages/services/sections/CTASection';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function Services() {

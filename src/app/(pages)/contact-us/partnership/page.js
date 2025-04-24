@@ -1,7 +1,9 @@
 "use client";
 
-import Footer from '@/components/Footer';
+import Footer from '@/components/ui/Footer';
 import Head from 'next/head';
+import { MdOutlineEmail, MdOutlinePhone } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 
 export default function PartnershipPage() {
   return (
@@ -62,6 +64,63 @@ export default function PartnershipPage() {
           </div>
         </div>
 
+        <section className="bg-gray-50 py-16 px-8 md:px-20 lg:px-60">
+          <header className="text-center mb-8 space-y-4">
+            <h1 className="font-bold text-4xl">Get In Touch</h1>
+            <p className="font-medium text-lg">Your next opportunity could be one message away—email, call, or visit us anytime.</p>
+          </header>
+          <div className="container w-full">
+            <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 xl:justify-between">
+              {/* EMAIL */}
+              <li className="bg-white group card flex flex-col gap-6 justify-between items-start shadow-lg transition-all duration-300 hover:shadow-xl">
+                <MdOutlineEmail size={40} className="text-blue-500 transition-all duration-300 group-hover:text-blue-600" />
+                <article className="flex flex-col gap-2">
+                  <h2 className="text-[22px] font-extrabold text-gray-800">Email</h2>
+                  <p className="text-[15px] text-gray-600">We'd love to hear from you! Reach out anytime!</p>
+                </article>
+                <a 
+                  href="mailto:mail@naess.com.ph" 
+                  className="text-[18px] font-bold text-blue-500 underline transition-colors duration-300 hover:text-blue-600"
+                >
+                  business@naess.com.ph
+                </a>
+              </li>
+    
+              {/* PHONE */}
+              <li className="bg-white group card flex flex-col gap-6 justify-between items-start shadow-lg transition-all duration-300 hover:shadow-xl">
+                <MdOutlinePhone size={40} className="text-blue-500 transition-all duration-300 group-hover:text-blue-600" />
+                <article className="flex flex-col gap-2">
+                  <h2 className="text-[22px] font-extrabold text-gray-800">Phone</h2>
+                  <p className="text-[15px] text-gray-600">Chat with our team for immediate assistance.</p>
+                </article>
+                <a 
+                  href="tel:+630285213361" 
+                  className="text-[18px] font-bold text-blue-500 underline transition-colors duration-300 hover:text-blue-600"
+                >
+                  +63 9998433037
+                </a>
+              </li>
+    
+              {/* ADDRESS */}
+              <li className="bg-white group card flex flex-col gap-6 justify-between items-start shadow-lg transition-all duration-300 hover:shadow-xl">
+                <FaLocationDot size={40} className="text-blue-500 transition-all duration-300 group-hover:text-blue-600" />
+                <article className="flex flex-col gap-2">
+                  <h2 className="text-[22px] font-extrabold text-gray-800">Address</h2>
+                  <p className="text-[15px] text-gray-600">We accept walk-ins to assist you thoroughly.</p>
+                </article>
+                <a 
+                  href="https://goo.gl/maps/your-location" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[18px] font-bold text-blue-500 underline transition-colors duration-300 hover:text-blue-600"
+                >
+                  2215 Leon Guinto St, Malate, Manila, 1004 Metro Manila
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
         {/* Partnership Form */}
         <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
@@ -74,7 +133,7 @@ export default function PartnershipPage() {
               <form className="space-y-6">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700">Company Name *</label>
+                    <label htmlFor="company" className="required-field block text-sm font-medium text-gray-700">Company Name</label>
                     <input
                       type="text"
                       id="company"
@@ -84,7 +143,7 @@ export default function PartnershipPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Your Name *</label>
+                    <label htmlFor="name" className="required-field block text-sm font-medium text-gray-700">Your Name</label>
                     <input
                       type="text"
                       id="name"
@@ -97,7 +156,7 @@ export default function PartnershipPage() {
 
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email *</label>
+                    <label htmlFor="email" className="required-field block text-sm font-medium text-gray-700">Email</label>
                     <input
                       type="email"
                       id="email"
@@ -107,7 +166,7 @@ export default function PartnershipPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
+                    <label htmlFor="phone" className="required-field block text-sm font-medium text-gray-700">Phone</label>
                     <input
                       type="tel"
                       id="phone"
@@ -118,7 +177,7 @@ export default function PartnershipPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="partnership-type" className="block text-sm font-medium text-gray-700">Type of Partnership *</label>
+                  <label htmlFor="partnership-type" className="required-field block text-sm font-medium text-gray-700">Type of Partnership</label>
                   <select
                     id="partnership-type"
                     name="partnership-type"
@@ -134,7 +193,7 @@ export default function PartnershipPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">How Can We Work Together? *</label>
+                  <label htmlFor="message" className="required-field block text-sm font-medium text-gray-700">How Can We Work Together?</label>
                   <textarea
                     id="message"
                     name="message"

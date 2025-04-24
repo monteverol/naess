@@ -1,4 +1,66 @@
 {
+  "elements": {
+    "homeCarousel": [
+      { "type": "image", "src": "/images/home/home-ship-image.jpg" },
+      { "type": "image", "src": "/images/omegagas-ship.png" },
+      { "type": "image", "src": "/images/home/carousel/DOLE.png" },
+      { "type": "image", "src": "/images/home/carousel/DJI_0808.JPG" }
+    ],
+    "milestones": [
+      {
+        "year": "1980",
+        "title": "NAESS SHIPPING PHILIPPINES, INC. Founded",
+        "description": "Established on October 24, 1980, by Capt. Pablo Gutierrez and Mr. Arturo Piree at the Army Navy Club in Manila. Initial operations began with 25 vessels."
+      },
+      {
+        "year": "1983",
+        "title": "Acquired New Office",
+        "description": "Transferred to a new office located at 2215 Leon Guinto St., Malate, after successfully expanding the business within three years."
+      },
+      {
+        "year": "1984",
+        "title": "Computerization Program Implemented",
+        "description": "Started implementing the computerization program to enhance efficiency and keep up with technological advancements."
+      },
+      {
+        "year": "1991",
+        "title": "Reconstruction of the Office",
+        "description": "The property at 2215 Leon Guinto St. was reconstructed into a 4-storey building to accommodate business growth and provide better services."
+      },
+      {
+        "year": "1993",
+        "title": "Achieved 100 Enrolled Vessels",
+        "description": "Surpassed the 100-mark of enrolled vessels with the Philippine Overseas Employment Administration (POEA), confirming the company's acceptance and credibility in the shipping industry."
+      },
+      {
+        "year": "2000",
+        "title": "ISO 9001-2000 Certification Achieved",
+        "description": "Certified by Det Norske Veritas in the ISO 9001-2000 Series Quality Standard, ensuring quality and excellence in services."
+      },
+      {
+        "year": "2000s",
+        "title": "Integration of Database with Website",
+        "description": "Integrated the company’s database with the official website, allowing principals to access and download important documents and certificates online anytime."
+      },
+      {
+        "year": "Present",
+        "title": "Training Vessel Management",
+        "description": "Led by the young and gregarious Mr. Pedro Miguel F. Oca as President, NSP enjoys the trust and confidence of its foreign and domestic principals, equipping ships with the best trained, skilled and able-bodied seamen in the business. Among these companies are the Reefership Marine Services, Limited., Kuwait Oil Tanker Co. SAK, Sloman Neptun Schiffahrts-Aktiengesellschaft."
+      }
+    ],
+    "naesscares": [
+      { "letter": "N", "title": "No Delays Policy", "description": "Non-conformities and unreasonable delays are avoided at all times." },
+      { "letter": "A", "title": "Advancing Quality", "description": "Adopt up-to-date methods and techniques; upgrade the quality of our service." },
+      { "letter": "E", "title": "Excellence Through Education", "description": "Excellent work output is achieved through skills training and continued education for employees and seafarers." },
+      { "letter": "S", "title": "Seafarer Compliance", "description": "Seafarer's compliance with applicable statutory and regulatory requirements is assured within the crewing process." },
+      { "letter": "S", "title": "Structured Management", "description": "Systematic approach to management is strictly implemented, regularly reviewed and continually improved." },
+      { "letter": "C", "title": "Collaborative Efficiency", "description": "Creating unity among our leaders to maintain the nvironment in which our people can become fully invovled in achieveing our objectives." },
+      { "letter": "A", "title": "Accelerated Efficiency", "description": "All processes are performed quickly and efficiently" },
+      { "letter": "R", "title": "Respectful Service", "description": "Rendering to every Principal and seafarer our prompt attention, personalized service, respect and consideration." },
+      { "letter": "E", "title": "Ethical Commitment", "description": "Each employee is clear with his purpose and commitment without compromising his integrity." },
+      { "letter": "S", "title": "Supplier Partnership", "description": "Suppliers are encouraged to better their service and products for our mutual advantage." }
+    ]
+  },
   "news": [
     {
       "id": "1",
@@ -193,35 +255,52 @@
         "Anti-Piracy",
         "Training"
       ]
-    }
-  ],
-  "announcements": [
-    {
-      "id": "1",
-      "title": "Holy Week",
-      "description": "No pasok April 14 - April 15, Half day sa April 16. Mag pray pray",
-      "date": "Apr 14, 2025 - April 16, 2025",
-      "type": "Close"
     },
     {
-      "id": "2",
-      "title": "Annual Maritime Conference 2025",
-      "description": "Join us for the Annual Maritime Conference happening on May 10, 2025. Early bird registration now open for all industry professionals.",
-      "date": "May 10, 2025",
-      "type": "Event"
+      "id": "10",
+      "type": "news",
+      "title": "Honoring 34 Years of Excellence: AB Roberto Llevares Recognized by SLOMAN NEPTUN",
+      "summary": "With 34 years of dedicated service, AB Roberto Llevares is celebrated by SLOMAN NEPTUN for his exceptional impact and ongoing contributions.",
+      "content": "As Roberto celebrates this monumental milestone of 34 years at sea, we recognize not only his personal achievements but also the profound impact he has had on those who have had the honor of working alongside him. His legacy as a seafarer is one of exceptional service, dedication, and a passion for the maritime industry that will undoubtedly continue to inspire for years to come. Keep going and Inspiring AB Llevares! 💙⚓️",
+      "feature_image": "/images/news/04-15-2025/img-1.jpg",
+      "image": [
+        "/images/news/04-15-2025/img-1.jpg",
+        "/images/news/04-15-2025/img-2.jpg",
+        "/images/news/04-15-2025/img-3.jpg",
+        "/images/news/04-15-2025/img-4.jpg"
+      ],
+      "date": "2025-04-15",
+      "author": "HR Management",
+      "tags": [
+        "Quality Service",
+        "Recognition",
+        "SLOMAN NEPTUN"
+      ]
     },
     {
-      "id": "3",
-      "title": "Service Expansion to Southeast Asia",
-      "description": "We're proud to announce our service expansion to cover major ports across Southeast Asia, starting next month.",
-      "date": "Jun 5, 2025",
-      "type": "Expansion"
+      "id": "11",
+      "type": "news",
+      "title": "NAESS Shipping Philippines Reaffirms Strategic Direction at Annual Board Meeting",
+      "summary": "NAESS Shipping Philippines Inc. held its Annual Board Meeting and Luncheon with key leadership, reinforcing strategic alignment and ongoing commitment to operational excellence.",
+      "content": "NAESS Shipping Philippines Inc. held a productive Annual Board Meeting and Luncheon with its Managers and Department Heads in full compliance with the company's by-laws, reaffirming our steadfast commitment to operational excellence.",
+      "feature_image": "/images/news/04-11-2025/img-1.jpg",
+      "image": [
+        "/images/news/04-11-2025/img-1.jpg",
+        "/images/news/04-11-2025/img-2.jpg",
+        "/images/news/04-11-2025/img-3.jpg"
+      ],
+      "date": "2025-04-11",
+      "author": "HR Management",
+      "tags": [
+        "Annual Board Meeting"
+      ]
     }
   ],
   "clients": [
     {
       "id": "1",
       "name": "Kuwait Oil Tanker Company",
+      "slug": "kuwait-oil-tanker-company",
       "industry": "Oil and Gas Tankers",
       "logo": "/images/clients/kotc-logo.jpg",
       "description": "The Company is mainly involved in the ownership and management of tankers engaged in the transport of crude oil, refined petroleum products and liquefied petroleum gases (LPG). In addition, it also operates a Marine Agency Branch, acting as sole agent of all tankers calling at Kuwait's sea port and a Gas Branch for the filling and distribution of LPG cylinders for local industry and domestic consumption. As the transportation arm of KPC it operates, on a commercial basis, a modern balanced fleet of Very Large Crude Carriers (VLCCs), petroleum product tankers and LPG carriers to maintain a strategic coverage of KPC's oil exports to all corners of the globe. In spite of the general slackness conditions in the tankers industry all over the world during the current years, KOTC managed to keep its profitability above the regular average due to its intensive concern for reducing the operating expenses and its wise policy of replacing old ships at the appropriate times."
@@ -229,6 +308,7 @@
     {
       "id": "2",
       "name": "Reefership Marine Services Ltd",
+      "slug": "reefership-marine-services-ltd",
       "industry": "Maritime",
       "logo": "/images/clients/rfs-logo.jpg",
       "description": "The exclusive maritime transportation provider for Dole Fresh Fruit Co., and Dole Ocean Cargo Express, the commercial cargo subsidiary of Dole. Although incorporated in 1999 as Reefership Marine Services Ltd, the technical management staff of RMS have been responsible for Dole's fleet since 1986. Dole's fleet of vessels consist of conventional refrigerated pallet and refrigerated container vessels, the largest such dedicated refrigerated containerized fleet in the world.",
@@ -250,6 +330,7 @@
     {
       "id": "3",
       "name": "Sloman Neptun Schiffahrts AG",
+      "slug": "sloman-neptun-schiffahrts-ag",
       "industry": "Oil and Gas Tankers",
       "logo": "/images/clients/sns-logo.png",
       "description": "Over 135 years of shipping experience, where professionals stand ready to solve all your transportation needs. Twenty-two modern tankers serve the global gas- and product oil markets, while four multipurpose vessels connect North Africa and other Mediterranean ports with Northern Europe through a scheduled liner service."
@@ -257,6 +338,7 @@
     {
       "id": "4",
       "name": "Associated Marine Officers and Seamen's Union of the Philippines",
+      "slug": "associated-marine-officers-and-seamen's-union-of-the-philippines",
       "industry": "Maritime",
       "logo": "/images/clients/amosup-logo.png",
       "description": "This company is a prominent union for Filipino seafarers, dedicated to safeguarding their rights and improving their working conditions. Established in the mid-20th century, the union champions the welfare of its members by offering a broad range of services, including legal support, health care, comprehensive training, and career development programs. Its mission extends beyond workplace advocacy to include robust community and family support initiatives, ensuring that both seafarers and their loved ones receive essential benefits and protections."
@@ -548,18 +630,48 @@
       }
     ]
   },
-  "publicReminders": [
+  "publicUpdates": [
     {
       "id": "1",
-      "date": "2025-05-15",
-      "time": "09:00",
-      "text": "Team Building (Company Closed)"
+      "title": "Holy Week",
+      "description": "No pasok April 14 - April 15, Half day sa April 16. Mag pray pray",
+      "type": "Close",
+      "startDate": "2025-04-14",
+      "endDate": "2025-04-16",
+      "time": null,
+      "businessHours": null,
+      "note": null
     },
     {
-      "id": "10ce",
-      "date": "2025-05-02",
+      "id": "2",
+      "title": "Team Building",
+      "description": "Company-wide event",
+      "type": "Event",
+      "startDate": "2025-05-02",
+      "endDate": "2025-05-02",
       "time": "22:30",
-      "text": "Team Building"
+      "businessHours": {
+        "start": "08:00",
+        "end": "12:00"
+      },
+      "note": ""
+    },
+    {
+      "id": "3",
+      "title": "Test Event",
+      "description": "Just a test event",
+      "type": "Test",
+      "startDate": "2025-04-24",
+      "endDate": "2025-04-24",
+      "time": "",
+      "businessHours": {
+        "start": null,
+        "end": null
+      },
+      "note": ""
     }
+  ],
+  "subscribers": [
+    {"id": 1, "email": "ayanbatulan2132@gmail.com"}
   ]
 }

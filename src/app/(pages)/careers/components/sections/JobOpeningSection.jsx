@@ -50,7 +50,7 @@ export default function JobOpeningSection({ jobOpenings }) {
 
   return(
     <section id="job-openings" className="section bg-white">
-      <div className="w-full">
+      <div className="section-inner-width">
         <h1 className="text-3xl font-bold text-center mb-8">Open Positions</h1>
 
         {/* Search and Filter */}

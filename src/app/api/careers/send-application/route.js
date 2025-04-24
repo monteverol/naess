@@ -44,7 +44,8 @@ export async function POST(request) {
         [
           data.jobClass || 'Uncategorized',
           jobCategory,
-          jobDivision
+          jobDivision,
+          jobTitle
         ].filter(Boolean) // Remove any falsy values
       );      
     }

@@ -10,7 +10,7 @@ export default function FAQ({ faqs }) {
 
   return(
     <section className="py-12 section bg-[#E4EEFB] grid justify-center">
-      <div className="max-w-screen-xl lg:flex justify-between items-center">
+      <div className="section-inner-width lg:flex justify-between items-center">
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-bold text-center mb-8 lg:mb-0 lg:text-start">Frequently Asked Questions</h2>
           <div className="hidden lg:flex flex-col gap-8">

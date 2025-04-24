@@ -4,7 +4,7 @@ import Link from 'next/link';
 const NewsArticle = ({ item }) => {
   return(
     <Link
-      href={`/news/${item.id}`}
+      href={`/news/${item.slug}`}
       passHref
     >
       <article className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 hover:scale-105">
