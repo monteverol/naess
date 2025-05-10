@@ -1,6 +1,13 @@
 import Carousel from "../ui/Carousel";
 
-export default function HeroHeaderSection({ carouselItems }) {
+export default function HeroHeaderSection() {
+  const carouselItems = [
+    { "type": "image", "src": "/images/home/home-ship-image.jpg" },
+    { "type": "image", "src": "/images/omegagas-ship.png" },
+    { "type": "image", "src": "/images/home/carousel/DOLE.png" },
+    { "type": "image", "src": "/images/home/carousel/DJI_0808.JPG" }
+  ];
+  
   return(
     <section 
       className="relative h-screen w-full flex flex-col"

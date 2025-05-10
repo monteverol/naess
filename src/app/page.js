@@ -12,17 +12,15 @@ import Footer from "@/components/ui/Footer";
 import ClientsSection from '@/components/pages/home/sections/ClientsSection';
 import { useNews } from "@/hooks/useNews";
 import { useClients } from "@/hooks/useClients";
-import { useElements } from '@/hooks/useElements';
 
 export default function Home() {
-  const { homeCarouselItems } = useElements();
   const { newsArticles } = useNews();
   const { clients } = useClients();
 
   return (
     <div className="overflow-x-hidden">
       <main>
-        <HeroHeaderSection carouselItems={homeCarouselItems} />
+        <HeroHeaderSection />
         <ServicesSection />
         <AboutSection />
         <ClientsSection clients={clients} />
